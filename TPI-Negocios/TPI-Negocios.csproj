@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>TPI_Negocios</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TPI-Datos\TPI-Datos.csproj" />
+    <ProjectReference Include="..\TPI-Entidades\TPI-Entidades.csproj" />
+  </ItemGroup>
+
+</Project>
