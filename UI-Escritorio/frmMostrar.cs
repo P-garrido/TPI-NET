@@ -13,15 +13,23 @@ namespace UI_Escritorio
 {
     public partial class frmMostrar : Form
     {
-        public frmMostrar()
+        public frmMostrar(CN_Usuario CNUsuario)
         {
             InitializeComponent();
+            this.CNUsuario = CNUsuario;
         }
-        CN_Usuario CNUsuario = new CN_Usuario();
+
+        public CN_Usuario CNUsuario { get; }
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             dgvUsuarios.DataSource = CNUsuario.mostrarUsuarios();
+            //dgvUsuarios.AutoGenerateColumns = true;
+        }
+
+        private void frmMostrar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

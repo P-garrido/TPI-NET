@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TPI-Entidades\TPI-Entidades.csproj" />
     <ProjectReference Include="..\TPI-Negocios\TPI-Negocios.csproj" />
   </ItemGroup>
 

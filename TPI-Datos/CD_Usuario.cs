@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using TPI_Entidades;
@@ -14,7 +15,7 @@ namespace TPI_Datos
 
         CD_Conexion conexion = new CD_Conexion();
 
-        private Usuario buscarUsuario(string nomUsu)
+        public Usuario buscarUsuario(string nomUsu)
         {
             //var usuario = (Usuario)(from Usuario u in this.usuarios where u.NombreUsuario == nomUsu select u);
             //Console.WriteLine(usuario.Nombre, usuario.Apellido, usuario.Email);
@@ -30,10 +31,19 @@ namespace TPI_Datos
             return usuarioACambiar;
         }
 
-        public void agregarUsuario(string nomUsu, string clave, string nombre, string apellido, string email)
+        public bool agregarUsuario(string nomUsu, string clave, string nombre, string apellido, string email)
         {
+            foreach (Usuario usuario in this.conexion.usuarios)
+            {
+                if (usuario.NombreUsuario == nomUsu)
+                {
+                    return true;
+                }
+            }
+
             Usuario usu = new Usuario(nomUsu, clave, nombre, apellido, email);
             this.conexion.usuarios.Add(usu);
+            return false;
         }
 
         public List<Usuario> mostrarUsuarios()
@@ -46,13 +56,12 @@ namespace TPI_Datos
             return usus;
         }
 
-        public void mostrarUsuario(string nomUsu)
+        public Usuario mostrarUsuario(string nomUsu)
         {
 
             Usuario usu = buscarUsuario(nomUsu);
-            Console.WriteLine(usu.Nombre);
-            Console.WriteLine(usu.Apellido);
-            Console.WriteLine(usu.Email);
+            return usu;
+        
         }
 
         public void eliminarUsuario(string nomUsu)
@@ -61,71 +70,47 @@ namespace TPI_Datos
             this.conexion.usuarios.Remove(usu);
         }
 
-        public void actualizarNombreUsuario(string nomUsu)
+        public bool actualizarNombreUsuario(string nomUsu, Usuario usu)
         {
-            bool existe;
-            Usuario usuarioACambiar = buscarUsuario(nomUsu);
-            do
+            foreach (Usuario usuario in this.conexion.usuarios)
             {
-                existe = false;
-                Console.WriteLine("Ingrese el nombre de usuario nuevo");
-                string aux = Console.ReadLine();
-                foreach (Usuario usuario in this.conexion.usuarios)
+                if (usuario.NombreUsuario == nomUsu)
                 {
-                    if (usuario.NombreUsuario == aux)
-                    {
-                        existe = true;
-                        break;
-                    }
+                    return true;
                 }
-                if (!existe)
-                {
-                    usuarioACambiar.NombreUsuario = aux;
-                }
-                else
-                {
-                    Console.WriteLine("Ya existe este nombre de usuario");
-                }
-            } while (existe);
+            }
+            
+            usu.NombreUsuario = nomUsu;
+            return false;
         }
 
-        public void actualizarNombre(string nomUsu)
+        public void actualizarNombre(string nomUsu, Usuario usu)
         {
-            Usuario usuarioACambiar = buscarUsuario(nomUsu);
-            Console.WriteLine("Ingrese el nombre nuevo");
-            string aux = Console.ReadLine();
-            usuarioACambiar.Nombre = aux;
+       
+            usu.Nombre = nomUsu;
 
         }
 
-        public void actualizarApellido(string nomUsu)
+        public void actualizarApellido(string nomUsu, Usuario usu)
         {
-            Usuario usuarioACambiar = buscarUsuario(nomUsu);
-            Console.WriteLine("Ingrese el apellido nuevo");
-            string aux = Console.ReadLine();
-            usuarioACambiar.Apellido = aux;
+           
+            usu.Apellido = nomUsu;
 
         }
 
-        public void actualizarClave(string nomUsu)
+        public void actualizarClave(string nomUsu, Usuario usu)
         {
-            Usuario usuarioACambiar = buscarUsuario(nomUsu);
-            Console.WriteLine("Ingrese la clave nueva");
-            string aux = Console.ReadLine();
-            usuarioACambiar.Clave = aux;
+            usu.Clave = nomUsu;
 
         }
 
-        public void actualizarEmail(string nomUsu)
+        public void actualizarEmail(string nomUsu, Usuario usu)
         {
-            Usuario usuarioACambiar = buscarUsuario(nomUsu);
-            Console.WriteLine("Ingrese el email nuevo");
-            string aux = Console.ReadLine();
-            usuarioACambiar.Email = aux;
+            usu.Email = nomUsu;
 
         }
 
-        public void actualizarEstado(string nomUsu)
+        public bool actualizarEstado(string nomUsu)
         {
             Usuario usuarioACambiar = buscarUsuario(nomUsu);
             usuarioACambiar.Habilitado = !usuarioACambiar.Habilitado;
@@ -133,11 +118,9 @@ namespace TPI_Datos
             switch (usuarioACambiar.Habilitado)
             {
                 case true:
-                    Console.WriteLine("El estado del usuario es habilitado");
-                    break;
+                    return true;
                 case false:
-                    Console.WriteLine("El estado del usuario es deshabilitado");
-                    break;
+                    return false;
             }
         }
 

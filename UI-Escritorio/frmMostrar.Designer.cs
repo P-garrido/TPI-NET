@@ -36,18 +36,20 @@
             // dgvUsuarios
             // 
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(69, 66);
+            dgvUsuarios.Location = new Point(12, 50);
+            dgvUsuarios.Margin = new Padding(3, 2, 3, 2);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.RowTemplate.Height = 29;
-            dgvUsuarios.Size = new Size(300, 188);
+            dgvUsuarios.Size = new Size(657, 141);
             dgvUsuarios.TabIndex = 0;
             // 
             // btnMostrar
             // 
-            btnMostrar.Location = new Point(81, 302);
+            btnMostrar.Location = new Point(71, 226);
+            btnMostrar.Margin = new Padding(3, 2, 3, 2);
             btnMostrar.Name = "btnMostrar";
-            btnMostrar.Size = new Size(132, 29);
+            btnMostrar.Size = new Size(116, 22);
             btnMostrar.TabIndex = 1;
             btnMostrar.Text = "Mostrar usuarios";
             btnMostrar.UseVisualStyleBackColor = true;
@@ -55,13 +57,15 @@
             // 
             // frmMostrar
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(btnMostrar);
             Controls.Add(dgvUsuarios);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmMostrar";
             Text = "Mostrar usuarios";
+            Load += frmMostrar_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);
         }

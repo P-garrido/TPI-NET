@@ -9,7 +9,7 @@ namespace UI_Escritorio
             InitializeComponent();
         }
 
-        CN_Usuario CNUsuario = new CN_Usuario();
+        public CN_Usuario CNUsuario = new CN_Usuario();
 
 
         private void tsiPorNombreDeUsuario_Click(object sender, EventArgs e)
@@ -24,13 +24,13 @@ namespace UI_Escritorio
 
         private void tsiAgregar_Click(object sender, EventArgs e)
         {
-            frmAgregar frmAgregarUsuario = new frmAgregar();
+            frmAgregar frmAgregarUsuario = new frmAgregar(CNUsuario);
             frmAgregarUsuario.ShowDialog();
         }
 
         private void tsiMostrarTodos_Click(object sender, EventArgs e)
         {
-            frmMostrar frmMostrarTodos = new frmMostrar(); 
+            frmMostrar frmMostrarTodos = new frmMostrar(CNUsuario); 
             frmMostrarTodos.ShowDialog();
         }
 

@@ -13,12 +13,14 @@ namespace UI_Escritorio
 {
     public partial class frmAgregar : Form
     {
-        public frmAgregar()
+        public CN_Usuario CNUsuario { get; }
+
+        public frmAgregar(CN_Usuario CNUsuario)
         {
             InitializeComponent();
+            this.CNUsuario = CNUsuario;
         }
 
-        CN_Usuario CNUsuario = new CN_Usuario();
 
         private void frmAgregar_Load(object sender, EventArgs e)
         {
