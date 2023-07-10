@@ -36,12 +36,14 @@ namespace TPI_Datos
             this.conexion.usuarios.Add(usu);
         }
 
-        public void mostrarUsuarios()
+        public List<Usuario> mostrarUsuarios()
         {
+            List<Usuario> usus = new List<Usuario>();
             foreach (Usuario usuario in this.conexion.usuarios)
             {
-                Console.WriteLine(usuario.NombreUsuario);
+                usus.Add(usuario);
             }
+            return usus;
         }
 
         public void mostrarUsuario(string nomUsu)

@@ -7,20 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TPI_Negocios;
 
 namespace UI_Escritorio
 {
-    public partial class frmAgregarUsuario : Form
+    public partial class frmEliminar : Form
     {
-        public frmAgregarUsuario()
+        public frmEliminar()
         {
             InitializeComponent();
         }
 
-        public void btnAceptar_Click(object sender, EventArgs e)
+        private void frmEliminar_Load(object sender, EventArgs e)
         {
-             
+
         }
     }
 }

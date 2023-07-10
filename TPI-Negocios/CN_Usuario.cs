@@ -19,9 +19,9 @@ namespace TPI_Negocios
             this.CDUsuario.agregarUsuario(nomUsu, clave, nombre, apellido, email);
         }
 
-        public void mostrarUsuarios()
+        public List<Usuario> mostrarUsuarios()
         {
-            this.CDUsuario.mostrarUsuarios();
+            return this.CDUsuario.mostrarUsuarios();
         }
 
         public void mostrarUsuario(string nomUsu)

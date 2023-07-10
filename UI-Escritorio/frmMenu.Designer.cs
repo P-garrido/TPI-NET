@@ -28,133 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
-            toolStrip1 = new ToolStrip();
             menuStrip1 = new MenuStrip();
-            usuarioToolStripMenuItem = new ToolStripMenuItem();
-            agregarToolStripMenuItem = new ToolStripMenuItem();
-            editarToolStripMenuItem = new ToolStripMenuItem();
-            eliminarToolStripMenuItem = new ToolStripMenuItem();
-            mostrarToolStripMenuItem = new ToolStripMenuItem();
-            todosToolStripMenuItem = new ToolStripMenuItem();
-            porNombreDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
-            nombreDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
-            claveToolStripMenuItem = new ToolStripMenuItem();
-            nombreToolStripMenuItem = new ToolStripMenuItem();
-            apellidoToolStripMenuItem = new ToolStripMenuItem();
-            emailToolStripMenuItem = new ToolStripMenuItem();
-            cambiarEstadoToolStripMenuItem = new ToolStripMenuItem();
+            tsiUsuario = new ToolStripMenuItem();
+            tsiAgregar = new ToolStripMenuItem();
+            tsiMostrar = new ToolStripMenuItem();
+            tsiMostrarTodos = new ToolStripMenuItem();
+            tsiPorNombreDeUsuario = new ToolStripMenuItem();
+            tsiEditar = new ToolStripMenuItem();
+            tsiEditarNombreDeUsuario = new ToolStripMenuItem();
+            tsiEditarClave = new ToolStripMenuItem();
+            tsiEditarNombre = new ToolStripMenuItem();
+            tsiEditarApellido = new ToolStripMenuItem();
+            tsiEditarEmail = new ToolStripMenuItem();
+            tsiCambiarEstado = new ToolStripMenuItem();
+            tsiEliminar = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // toolStrip1
-            // 
-            toolStrip1.Location = new Point(0, 24);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(800, 25);
-            toolStrip1.TabIndex = 0;
-            toolStrip1.Text = "toolStrip1";
-            // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { usuarioToolStripMenuItem });
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsiUsuario });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
-            menuStrip1.TabIndex = 1;
+            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
-            // usuarioToolStripMenuItem
+            // tsiUsuario
             // 
-            usuarioToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarToolStripMenuItem, editarToolStripMenuItem, eliminarToolStripMenuItem, mostrarToolStripMenuItem, cambiarEstadoToolStripMenuItem });
-            usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            usuarioToolStripMenuItem.Size = new Size(59, 20);
-            usuarioToolStripMenuItem.Text = "Usuario";
+            tsiUsuario.DropDownItems.AddRange(new ToolStripItem[] { tsiAgregar, tsiMostrar, tsiEditar, tsiCambiarEstado, tsiEliminar });
+            tsiUsuario.Name = "tsiUsuario";
+            tsiUsuario.Size = new Size(73, 24);
+            tsiUsuario.Text = "Usuario";
             // 
-            // agregarToolStripMenuItem
+            // tsiAgregar
             // 
-            agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            agregarToolStripMenuItem.Size = new Size(157, 22);
-            agregarToolStripMenuItem.Text = "Agregar";
-            agregarToolStripMenuItem.Click += agregarToolStripMenuItem_Click;
+            tsiAgregar.Name = "tsiAgregar";
+            tsiAgregar.Size = new Size(197, 26);
+            tsiAgregar.Text = "Agregar";
+            tsiAgregar.Click += tsiAgregar_Click;
             // 
-            // editarToolStripMenuItem
+            // tsiMostrar
             // 
-            editarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nombreDeUsuarioToolStripMenuItem, claveToolStripMenuItem, nombreToolStripMenuItem, apellidoToolStripMenuItem, emailToolStripMenuItem });
-            editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            editarToolStripMenuItem.Size = new Size(157, 22);
-            editarToolStripMenuItem.Text = "Editar";
+            tsiMostrar.DropDownItems.AddRange(new ToolStripItem[] { tsiMostrarTodos, tsiPorNombreDeUsuario });
+            tsiMostrar.Name = "tsiMostrar";
+            tsiMostrar.Size = new Size(197, 26);
+            tsiMostrar.Text = "Mostrar";
             // 
-            // eliminarToolStripMenuItem
+            // tsiMostrarTodos
             // 
-            eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            eliminarToolStripMenuItem.Size = new Size(157, 22);
-            eliminarToolStripMenuItem.Text = "Eliminar";
+            tsiMostrarTodos.Name = "tsiMostrarTodos";
+            tsiMostrarTodos.Size = new Size(242, 26);
+            tsiMostrarTodos.Text = "Todos";
+            tsiMostrarTodos.Click += tsiMostrarTodos_Click;
             // 
-            // mostrarToolStripMenuItem
+            // tsiPorNombreDeUsuario
             // 
-            mostrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { todosToolStripMenuItem, porNombreDeUsuarioToolStripMenuItem });
-            mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            mostrarToolStripMenuItem.Size = new Size(157, 22);
-            mostrarToolStripMenuItem.Text = "Mostrar";
+            tsiPorNombreDeUsuario.Name = "tsiPorNombreDeUsuario";
+            tsiPorNombreDeUsuario.Size = new Size(242, 26);
+            tsiPorNombreDeUsuario.Text = "Por nombre de usuario";
+            tsiPorNombreDeUsuario.Click += tsiPorNombreDeUsuario_Click;
             // 
-            // todosToolStripMenuItem
+            // tsiEditar
             // 
-            todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            todosToolStripMenuItem.Size = new Size(195, 22);
-            todosToolStripMenuItem.Text = "Todos";
+            tsiEditar.DropDownItems.AddRange(new ToolStripItem[] { tsiEditarNombreDeUsuario, tsiEditarClave, tsiEditarNombre, tsiEditarApellido, tsiEditarEmail });
+            tsiEditar.Name = "tsiEditar";
+            tsiEditar.Size = new Size(197, 26);
+            tsiEditar.Text = "Editar";
+            tsiEditar.Click += tsiEditar_Click;
             // 
-            // porNombreDeUsuarioToolStripMenuItem
+            // tsiEditarNombreDeUsuario
             // 
-            porNombreDeUsuarioToolStripMenuItem.Name = "porNombreDeUsuarioToolStripMenuItem";
-            porNombreDeUsuarioToolStripMenuItem.Size = new Size(195, 22);
-            porNombreDeUsuarioToolStripMenuItem.Text = "Por nombre de usuario";
+            tsiEditarNombreDeUsuario.Name = "tsiEditarNombreDeUsuario";
+            tsiEditarNombreDeUsuario.Size = new Size(220, 26);
+            tsiEditarNombreDeUsuario.Text = "Nombre de usuario";
             // 
-            // nombreDeUsuarioToolStripMenuItem
+            // tsiEditarClave
             // 
-            nombreDeUsuarioToolStripMenuItem.Name = "nombreDeUsuarioToolStripMenuItem";
-            nombreDeUsuarioToolStripMenuItem.Size = new Size(180, 22);
-            nombreDeUsuarioToolStripMenuItem.Text = "Nombre de usuario";
+            tsiEditarClave.Name = "tsiEditarClave";
+            tsiEditarClave.Size = new Size(220, 26);
+            tsiEditarClave.Text = "Clave";
             // 
-            // claveToolStripMenuItem
+            // tsiEditarNombre
             // 
-            claveToolStripMenuItem.Name = "claveToolStripMenuItem";
-            claveToolStripMenuItem.Size = new Size(180, 22);
-            claveToolStripMenuItem.Text = "Clave";
+            tsiEditarNombre.Name = "tsiEditarNombre";
+            tsiEditarNombre.Size = new Size(220, 26);
+            tsiEditarNombre.Text = "Nombre";
             // 
-            // nombreToolStripMenuItem
+            // tsiEditarApellido
             // 
-            nombreToolStripMenuItem.Name = "nombreToolStripMenuItem";
-            nombreToolStripMenuItem.Size = new Size(180, 22);
-            nombreToolStripMenuItem.Text = "Nombre";
+            tsiEditarApellido.Name = "tsiEditarApellido";
+            tsiEditarApellido.Size = new Size(220, 26);
+            tsiEditarApellido.Text = "Apellido";
             // 
-            // apellidoToolStripMenuItem
+            // tsiEditarEmail
             // 
-            apellidoToolStripMenuItem.Name = "apellidoToolStripMenuItem";
-            apellidoToolStripMenuItem.Size = new Size(180, 22);
-            apellidoToolStripMenuItem.Text = "Apellido";
+            tsiEditarEmail.Name = "tsiEditarEmail";
+            tsiEditarEmail.Size = new Size(220, 26);
+            tsiEditarEmail.Text = "Email";
             // 
-            // emailToolStripMenuItem
+            // tsiCambiarEstado
             // 
-            emailToolStripMenuItem.Name = "emailToolStripMenuItem";
-            emailToolStripMenuItem.Size = new Size(180, 22);
-            emailToolStripMenuItem.Text = "Email";
+            tsiCambiarEstado.Name = "tsiCambiarEstado";
+            tsiCambiarEstado.Size = new Size(197, 26);
+            tsiCambiarEstado.Text = "Cambiar Estado";
             // 
-            // cambiarEstadoToolStripMenuItem
+            // tsiEliminar
             // 
-            cambiarEstadoToolStripMenuItem.Name = "cambiarEstadoToolStripMenuItem";
-            cambiarEstadoToolStripMenuItem.Size = new Size(157, 22);
-            cambiarEstadoToolStripMenuItem.Text = "Cambiar estado";
+            tsiEliminar.Name = "tsiEliminar";
+            tsiEliminar.Size = new Size(197, 26);
+            tsiEliminar.Text = "Eliminar";
             // 
             // frmMenu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmMenu";
-            Text = "Menu ";
+            Text = "Menu";
+            Load += frmMenu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -163,20 +159,19 @@
 
         #endregion
 
-        private ToolStrip toolStrip1;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem usuarioToolStripMenuItem;
-        private ToolStripMenuItem agregarToolStripMenuItem;
-        private ToolStripMenuItem editarToolStripMenuItem;
-        private ToolStripMenuItem nombreDeUsuarioToolStripMenuItem;
-        private ToolStripMenuItem claveToolStripMenuItem;
-        private ToolStripMenuItem nombreToolStripMenuItem;
-        private ToolStripMenuItem apellidoToolStripMenuItem;
-        private ToolStripMenuItem emailToolStripMenuItem;
-        private ToolStripMenuItem eliminarToolStripMenuItem;
-        private ToolStripMenuItem mostrarToolStripMenuItem;
-        private ToolStripMenuItem todosToolStripMenuItem;
-        private ToolStripMenuItem porNombreDeUsuarioToolStripMenuItem;
-        private ToolStripMenuItem cambiarEstadoToolStripMenuItem;
+        private ToolStripMenuItem tsiUsuario;
+        private ToolStripMenuItem tsiAgregar;
+        private ToolStripMenuItem tsiMostrar;
+        private ToolStripMenuItem tsiMostrarTodos;
+        private ToolStripMenuItem tsiPorNombreDeUsuario;
+        private ToolStripMenuItem tsiEditar;
+        private ToolStripMenuItem tsiEditarNombreDeUsuario;
+        private ToolStripMenuItem tsiEditarClave;
+        private ToolStripMenuItem tsiEditarNombre;
+        private ToolStripMenuItem tsiEditarApellido;
+        private ToolStripMenuItem tsiEditarEmail;
+        private ToolStripMenuItem tsiCambiarEstado;
+        private ToolStripMenuItem tsiEliminar;
     }
 }
