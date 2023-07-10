@@ -13,7 +13,5 @@ namespace TPI_Datos
         public CD_Conexion() { }
 
         public List<Usuario> usuarios = new List<Usuario>();
-
-        
     }
 }
