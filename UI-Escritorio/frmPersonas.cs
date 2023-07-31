@@ -10,16 +10,13 @@ using System.Windows.Forms;
 
 namespace UI_Escritorio
 {
-    public partial class frmEliminar : Form
+    public partial class frmPersonas : Form
     {
-        public frmEliminar()
+        public frmPersonas()
         {
             InitializeComponent();
         }
 
-        private void frmEliminar_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

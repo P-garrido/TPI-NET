@@ -1,6 +1,6 @@
 ﻿namespace UI_Escritorio
 {
-    partial class frmEliminar
+    partial class frmPersonas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblNombreUsuario = new Label();
-            SuspendLayout();
-            // 
-            // lblNombreUsuario
-            // 
-            lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Location = new Point(88, 78);
-            lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(139, 20);
-            lblNombreUsuario.TabIndex = 0;
-            lblNombreUsuario.Text = "Nombre de Usuario";
-            // 
-            // frmEliminar
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            components = new System.ComponentModel.Container();
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(lblNombreUsuario);
-            Name = "frmEliminar";
-            Text = "Eliminar usuario";
-            Load += frmEliminar_Load;
-            ResumeLayout(false);
-            PerformLayout();
+            Text = "Form1";
         }
 
         #endregion
-
-        private Label lblNombreUsuario;
     }
 }

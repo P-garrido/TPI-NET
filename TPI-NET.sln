@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPI-Negocios", "TPI-Negocio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI-Consola", "UI-Consola\UI-Consola.csproj", "{6FD37603-4A97-45E9-B675-5DA2E4D26A9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI-Escritorio", "UI-Escritorio\UI-Escritorio.csproj", "{544F298C-F4F4-4C0A-A863-7674FE080431}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI-Escritorio", "UI-Escritorio\UI-Escritorio.csproj", "{FC224D1B-70CE-48C3-875B-6383179B9D82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{6FD37603-4A97-45E9-B675-5DA2E4D26A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FD37603-4A97-45E9-B675-5DA2E4D26A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FD37603-4A97-45E9-B675-5DA2E4D26A9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{544F298C-F4F4-4C0A-A863-7674FE080431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{544F298C-F4F4-4C0A-A863-7674FE080431}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{544F298C-F4F4-4C0A-A863-7674FE080431}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{544F298C-F4F4-4C0A-A863-7674FE080431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC224D1B-70CE-48C3-875B-6383179B9D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC224D1B-70CE-48C3-875B-6383179B9D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC224D1B-70CE-48C3-875B-6383179B9D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC224D1B-70CE-48C3-875B-6383179B9D82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

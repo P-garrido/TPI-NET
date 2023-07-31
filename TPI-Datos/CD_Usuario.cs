@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
@@ -13,115 +15,63 @@ namespace TPI_Datos
 
         public CD_Usuario() { }
 
-        CD_Conexion conexion = new CD_Conexion();
+        private CD_Conexion conexion = new CD_Conexion();
 
-        public Usuario buscarUsuario(string nomUsu)
+        SqlDataReader reader;
+        DataTable table = new DataTable();
+        SqlCommand comando = new SqlCommand();
+
+        public DataTable mostrarUsuarios()
         {
-            //var usuario = (Usuario)(from Usuario u in this.usuarios where u.NombreUsuario == nomUsu select u);
-            //Console.WriteLine(usuario.Nombre, usuario.Apellido, usuario.Email);
-            Usuario usuarioACambiar = null;
-            foreach (Usuario usuario in this.conexion.usuarios)
-            {
-                if (usuario.NombreUsuario == nomUsu)
-                {
-                    usuarioACambiar = usuario;
-                    break;
-                }
-            }
-            return usuarioACambiar;
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT * FROM usuarios";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
         }
 
-        public bool agregarUsuario(string nomUsu, string clave, string nombre, string apellido, string email)
+        public void agregarUsuario(Usuario usu)
         {
-            foreach (Usuario usuario in this.conexion.usuarios)
-            {
-                if (usuario.NombreUsuario == nomUsu)
-                {
-                    return true;
-                }
-            }
-
-            Usuario usu = new Usuario(nomUsu, clave, nombre, apellido, email);
-            this.conexion.usuarios.Add(usu);
-            return false;
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"INSERT INTO usuarios VALUES('{usu.NombreUsuario}','{usu.Clave}','{usu.Nombre}','{usu.Apellido}','{usu.Email}','{usu.IdPersona}')";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
         }
 
-        public List<Usuario> mostrarUsuarios()
-        {
-            List<Usuario> usus = new List<Usuario>();
-            foreach (Usuario usuario in this.conexion.usuarios)
-            {
-                usus.Add(usuario);
-            }
-            return usus;
-        }
 
-        public Usuario mostrarUsuario(string nomUsu)
+        public void actualizarUsuario(Usuario usu, string nomUsu)
         {
-
-            Usuario usu = buscarUsuario(nomUsu);
-            return usu;
-        
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"UPDATE usuarios SET nombre_usuario= '{usu.NombreUsuario}', clave= '{usu.Clave}', nombre= '{usu.Nombre}'," +
+                $"apellido= '{usu.Apellido}', email= '{usu.Email}', idPersona= '{usu.IdPersona}' WHERE nombreUsuario = '{nomUsu}' ";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
         }
 
         public void eliminarUsuario(string nomUsu)
         {
-            Usuario usu = buscarUsuario(nomUsu);
-            this.conexion.usuarios.Remove(usu);
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"DELETE FROM usuarios WHERE nombre_usuario='{nomUsu}'";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
         }
 
-        public bool actualizarNombreUsuario(string nomUsu, Usuario usu)
+        public DataTable mostrarUsuario(string nomUsu)
         {
-            foreach (Usuario usuario in this.conexion.usuarios)
-            {
-                if (usuario.NombreUsuario == nomUsu)
-                {
-                    return true;
-                }
-            }
-            
-            usu.NombreUsuario = nomUsu;
-            return false;
-        }
-
-        public void actualizarNombre(string nomUsu, Usuario usu)
-        {
-       
-            usu.Nombre = nomUsu;
-
-        }
-
-        public void actualizarApellido(string nomUsu, Usuario usu)
-        {
-           
-            usu.Apellido = nomUsu;
-
-        }
-
-        public void actualizarClave(string nomUsu, Usuario usu)
-        {
-            usu.Clave = nomUsu;
-
-        }
-
-        public void actualizarEmail(string nomUsu, Usuario usu)
-        {
-            usu.Email = nomUsu;
-
-        }
-
-        public bool actualizarEstado(string nomUsu)
-        {
-            Usuario usuarioACambiar = buscarUsuario(nomUsu);
-            usuarioACambiar.Habilitado = !usuarioACambiar.Habilitado;
-
-            switch (usuarioACambiar.Habilitado)
-            {
-                case true:
-                    return true;
-                case false:
-                    return false;
-            }
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"SELECT * FROM usuarios WHERE nombre_usuario = '{nomUsu}'";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
         }
 
 

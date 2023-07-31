@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +15,18 @@ namespace TPI_Negocios
 
         CD_Usuario CDUsuario = new CD_Usuario();
 
-        public bool agregarUsuario(string nomUsu, string clave, string nombre, string apellido, string email)
+        public void agregarUsuario(string nomUsu, string clave, string nombre, string apellido, string email, int idPersona)
         {
-            return this.CDUsuario.agregarUsuario(nomUsu, clave, nombre, apellido, email);
+            Usuario usu = new Usuario(nomUsu, clave, nombre, apellido, email, idPersona);
+            this.CDUsuario.agregarUsuario(usu);
         }
 
-        public List<Usuario> mostrarUsuarios()
+        public DataTable mostrarUsuarios()
         {
             return this.CDUsuario.mostrarUsuarios();
         }
 
-        public Usuario mostrarUsuario(string nomUsu)
+        public DataTable mostrarUsuario(string nomUsu)
         {
             return this.CDUsuario.mostrarUsuario(nomUsu);
         }
@@ -34,40 +36,12 @@ namespace TPI_Negocios
             this.CDUsuario.eliminarUsuario(nomUsu);
         }
 
-        public bool actualizarNombreUsuario(string nomUsu, Usuario usu)
+        public void actualizarUsuario(string nomUsu, Usuario usu)
         {
-            return this.CDUsuario.actualizarNombreUsuario(nomUsu, usu);
+            this.CDUsuario.actualizarUsuario(usu, nomUsu);
         }
 
-        public void actualizarNombre(string nomUsu, Usuario usu)
-        {
-            this.CDUsuario.actualizarNombre(nomUsu, usu);
-        }
-
-        public void actualizarApellido(string nomUsu, Usuario usu)
-        {
-            this.CDUsuario.actualizarApellido(nomUsu, usu);
-        }
-
-        public void actualizarClave(string nomUsu, Usuario usu)
-        {
-            this.CDUsuario.actualizarClave(nomUsu, usu);
-        }
-
-        public void actualizarEmail(string nomUsu, Usuario usu)
-        {
-            this.CDUsuario.actualizarEmail(nomUsu, usu);
-        }
-
-        public bool actualizarEstado(string nomUsu)
-        {
-           return this.CDUsuario.actualizarEstado(nomUsu);
-        }
-
-        public Usuario buscarUsuario(string nomUsu)
-        {
-            return this.CDUsuario.buscarUsuario(nomUsu);
-        }
+      
 
     }
 }

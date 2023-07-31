@@ -14,8 +14,9 @@ namespace TPI_Entidades
         private string _nombre;
         private string _apellido;
         private string _email;
+        private int _idPersona;
 
-        public Usuario(string nomUsu, string clave, string nombre, string apellido, string email)
+        public Usuario(string nomUsu, string clave, string nombre, string apellido, string email, int idPersona)
         {
             this._nombreUsuario = nomUsu;
             this._clave = clave;
@@ -23,6 +24,7 @@ namespace TPI_Entidades
             this._nombre = nombre;
             this._apellido = apellido;
             this._email = email;
+            this._idPersona = idPersona;
         }
 
         public string Apellido
@@ -76,6 +78,15 @@ namespace TPI_Entidades
             set
             {
                 _nombreUsuario = value;
+            }
+        }
+
+        public int IdPersona
+        {
+            get => _idPersona;
+            set
+            {
+                _idPersona = value;
             }
         }
     }
