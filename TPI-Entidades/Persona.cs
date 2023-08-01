@@ -6,18 +6,30 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class Persona
+    public class Persona
     {
 
         private string _apellido;
         private string _direccion;
         private string _email;
-        private System.DateTime _fechaNacimiento;
+        private DateTime _fechaNacimiento;
         private int _IdPlan;
         private int _legajo;
         private string _nombre;
         private string _telefono;
-        private string _tipoPersona;
+        private int _tipoPersona;
+
+        public Persona(string ape, string dir, string email, DateTime fechaNac, int idPlan, int leg, string nom, string tel, int tipoPer) {
+            _apellido = ape;
+            _direccion = dir;
+            _email = email;
+            _fechaNacimiento = fechaNac;
+            _tipoPersona = tipoPer;
+            _IdPlan = idPlan;
+            _legajo = leg;
+            _nombre = nom;
+            _telefono = tel;
+        }
 
         public string Apellido {
             get => _apellido;
@@ -75,7 +87,7 @@ namespace TPI_Entidades
             }
         }
 
-        public string TipoPersona {
+        public int TipoPersona {
             get => _tipoPersona;
             set {
                 _tipoPersona = value;

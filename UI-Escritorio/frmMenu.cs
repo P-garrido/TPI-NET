@@ -6,7 +6,26 @@ namespace UI_Escritorio
         {
             InitializeComponent();
         }
+        frmUsuarios formUsuarios = new frmUsuarios();
+        frmIdentificacion formIdentificacion = new frmIdentificacion();
+        
 
-       
+        private void tsmAdministrar_Click(object sender, EventArgs e)
+        {
+            
+            if (formIdentificacion.ShowDialog() == DialogResult.OK)
+            {
+                formUsuarios.Show();
+
+            }
+            else
+            {
+                formIdentificacion.Dispose();
+            }
+            
+            
+            
+                
+        }
     }
 }
