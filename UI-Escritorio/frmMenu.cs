@@ -8,11 +8,12 @@ namespace UI_Escritorio
         }
         frmUsuarios formUsuarios = new frmUsuarios();
         frmIdentificacion formIdentificacion = new frmIdentificacion();
-        
+        frmPlanes formPlanes = new frmPlanes();
+
 
         private void tsmAdministrar_Click(object sender, EventArgs e)
         {
-            
+
             if (formIdentificacion.ShowDialog() == DialogResult.OK)
             {
                 formUsuarios.Show();
@@ -22,10 +23,15 @@ namespace UI_Escritorio
             {
                 formIdentificacion.Dispose();
             }
-            
-            
-            
-                
+
+
+
+
+        }
+
+        private void tsmAdminPlanes_Click(object sender, EventArgs e)
+        {
+            formPlanes.Show();
         }
     }
 }

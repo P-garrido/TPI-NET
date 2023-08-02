@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class Plan
+    public class Plan
     {
         private string _descripcion;
         private int _idEspecialidad;
+
+        public Plan(string desc, int idEsp)
+        {
+            _descripcion = desc;
+            _idEspecialidad = idEsp;
+        }
 
         public string Descripcion {
             get => _descripcion;

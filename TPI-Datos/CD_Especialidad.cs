@@ -9,7 +9,7 @@ using TPI_Entidades;
 
 namespace TPI_Datos
 {
-    public class CD_Plan
+    public class CD_Especialidad
     {
 
         private CD_Conexion conexion = new CD_Conexion();
@@ -18,54 +18,54 @@ namespace TPI_Datos
         DataTable table = new DataTable();
         SqlCommand comando = new SqlCommand();
 
-        public DataTable mostrarPlanes()
+        public DataTable mostrarEspecialidades()
         {
 
             comando.Connection = conexion.abrirConexion();
             table.Clear();
-            comando.CommandText = "SELECT * FROM planes";
+            comando.CommandText = "SELECT * FROM Especialidades";
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();
             return table;
         }
 
-        public DataTable mostrarPlan(string descPlan)
+        public DataTable mostrarEspecialidad(string descEspecialidad)
         {
             comando.Connection = conexion.abrirConexion();
             table.Clear();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"SELECT * FROM planes WHERE desc_plan = '{descPlan}'";
+            comando.CommandText = $"SELECT * FROM especialidades WHERE desc_Especialidad = '{descEspecialidad}'";
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();
             return table;
         }
 
-        public void agregarPlan(Plan pla)
+        public void agregarEspecialidad(Especialidad esp)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"INSERT INTO planes VALUES('{pla.Descripcion}','{pla.IdEspecialidad}')";
+            comando.CommandText = $"INSERT INTO especialidades VALUES('{esp.Descripcion}')";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
 
 
-        public void actualizarPlan(Plan pla, string nomPla)
+        public void actualizarEspecialidad(Especialidad esp, string nomEsp)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"UPDATE planes SET desc_plan= '{pla.Descripcion}', id_especialidad= '{pla.IdEspecialidad}' WHERE desc_plan = '{nomPla}' ";
+            comando.CommandText = $"UPDATE especialidades SET desc_especialidad= '{esp.Descripcion}' WHERE desc_especialidad = '{nomEsp}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
 
-        public void eliminarPlan(string nomPla)
+        public void eliminarEspecialidad(string nomEsp)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"DELETE FROM planes WHERE desc_plan='{nomPla}'";
+            comando.CommandText = $"DELETE FROM especialidades WHERE desc_especialidad='{nomEsp}'";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }

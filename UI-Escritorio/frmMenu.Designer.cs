@@ -34,13 +34,15 @@
             tsmLogout = new ToolStripMenuItem();
             tsmUsuarios = new ToolStripMenuItem();
             tsmAdministrar = new ToolStripMenuItem();
+            tsmPlanes = new ToolStripMenuItem();
+            tsmAdminPlanes = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmPlanes });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
@@ -57,13 +59,13 @@
             // tsmLogin
             // 
             tsmLogin.Name = "tsmLogin";
-            tsmLogin.Size = new Size(224, 26);
+            tsmLogin.Size = new Size(139, 26);
             tsmLogin.Text = "Login";
             // 
             // tsmLogout
             // 
             tsmLogout.Name = "tsmLogout";
-            tsmLogout.Size = new Size(224, 26);
+            tsmLogout.Size = new Size(139, 26);
             tsmLogout.Text = "Logout";
             // 
             // tsmUsuarios
@@ -79,6 +81,20 @@
             tsmAdministrar.Size = new Size(224, 26);
             tsmAdministrar.Text = "Administrar";
             tsmAdministrar.Click += tsmAdministrar_Click;
+            // 
+            // tsmPlanes
+            // 
+            tsmPlanes.DropDownItems.AddRange(new ToolStripItem[] { tsmAdminPlanes });
+            tsmPlanes.Name = "tsmPlanes";
+            tsmPlanes.Size = new Size(65, 24);
+            tsmPlanes.Text = "Planes";
+            // 
+            // tsmAdminPlanes
+            // 
+            tsmAdminPlanes.Name = "tsmAdminPlanes";
+            tsmAdminPlanes.Size = new Size(224, 26);
+            tsmAdminPlanes.Text = "Administrar";
+            tsmAdminPlanes.Click += tsmAdminPlanes_Click;
             // 
             // frmMenu
             // 
@@ -103,5 +119,7 @@
         private ToolStripMenuItem tsmLogout;
         private ToolStripMenuItem tsmUsuarios;
         private ToolStripMenuItem tsmAdministrar;
+        private ToolStripMenuItem tsmPlanes;
+        private ToolStripMenuItem tsmAdminPlanes;
     }
 }
