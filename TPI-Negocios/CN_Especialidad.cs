@@ -10,7 +10,7 @@ using TPI_Datos;
 
 namespace TPI_Negocios
 {
-    public class CNEspecialidad
+    public class CN_Especialidad
     {
 
         CD_Especialidad CDEspecialidad = new CD_Especialidad();

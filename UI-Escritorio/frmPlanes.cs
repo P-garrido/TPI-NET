@@ -15,6 +15,10 @@ namespace UI_Escritorio
     {
 
         CN_Plan CNPlan = new CN_Plan();
+        CN_Especialidad CNEspecialidad = new CN_Especialidad();
+
+        int idEsp;
+
         public frmPlanes()
         {
             InitializeComponent();
@@ -32,7 +36,8 @@ namespace UI_Escritorio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            int idEsp = 0;
+            DataTable esp = CNEspecialidad.mostrarEspecialidad(txtdescEsp.Text);
+            idEsp = (int) esp.Rows[0]["id_especialidad"];
             CNPlan.agregarPlan(txtDescPlan.Text, idEsp);
             mostrarPlanes();
         }
