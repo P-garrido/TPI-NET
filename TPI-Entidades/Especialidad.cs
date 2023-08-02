@@ -16,8 +16,9 @@ namespace TPI_Entidades
 
 
         public string Descripcion {
-            get => default;
+            get => _descripcion;
             set {
+                _descripcion = value;
             }
         }
     }

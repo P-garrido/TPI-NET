@@ -36,13 +36,15 @@
             tsmAdministrar = new ToolStripMenuItem();
             tsmPlanes = new ToolStripMenuItem();
             tsmAdminPlanes = new ToolStripMenuItem();
+            tsmEspecialidades = new ToolStripMenuItem();
+            tsmAdminEsp = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmPlanes });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmPlanes, tsmEspecialidades });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
@@ -78,7 +80,7 @@
             // tsmAdministrar
             // 
             tsmAdministrar.Name = "tsmAdministrar";
-            tsmAdministrar.Size = new Size(224, 26);
+            tsmAdministrar.Size = new Size(169, 26);
             tsmAdministrar.Text = "Administrar";
             tsmAdministrar.Click += tsmAdministrar_Click;
             // 
@@ -95,6 +97,20 @@
             tsmAdminPlanes.Size = new Size(224, 26);
             tsmAdminPlanes.Text = "Administrar";
             tsmAdminPlanes.Click += tsmAdminPlanes_Click;
+            // 
+            // tsmEspecialidades
+            // 
+            tsmEspecialidades.DropDownItems.AddRange(new ToolStripItem[] { tsmAdminEsp });
+            tsmEspecialidades.Name = "tsmEspecialidades";
+            tsmEspecialidades.Size = new Size(121, 24);
+            tsmEspecialidades.Text = "Especialidades";
+            // 
+            // tsmAdminEsp
+            // 
+            tsmAdminEsp.Name = "tsmAdminEsp";
+            tsmAdminEsp.Size = new Size(224, 26);
+            tsmAdminEsp.Text = "Administrar";
+            tsmAdminEsp.Click += tsmAdminEsp_Click;
             // 
             // frmMenu
             // 
@@ -121,5 +137,7 @@
         private ToolStripMenuItem tsmAdministrar;
         private ToolStripMenuItem tsmPlanes;
         private ToolStripMenuItem tsmAdminPlanes;
+        private ToolStripMenuItem tsmEspecialidades;
+        private ToolStripMenuItem tsmAdminEsp;
     }
 }

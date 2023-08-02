@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using TPI_Datos;
 using TPI_Entidades;
-using TPI_Datos;
 
 namespace TPI_Negocios
 {
