@@ -53,7 +53,7 @@
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
-            lblDescripcion.Location = new Point(99, 192);
+            lblDescripcion.Location = new Point(281, 194);
             lblDescripcion.Name = "lblDescripcion";
             lblDescripcion.Size = new Size(69, 15);
             lblDescripcion.TabIndex = 1;
@@ -61,14 +61,14 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(167, 189);
+            txtDescripcion.Location = new Point(415, 194);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(100, 23);
             txtDescripcion.TabIndex = 2;
             // 
             // txtAnioEsp
             // 
-            txtAnioEsp.Location = new Point(425, 189);
+            txtAnioEsp.Location = new Point(415, 251);
             txtAnioEsp.Name = "txtAnioEsp";
             txtAnioEsp.Size = new Size(100, 23);
             txtAnioEsp.TabIndex = 4;
@@ -76,7 +76,7 @@
             // lblAnioEspecialidad
             // 
             lblAnioEspecialidad.AutoSize = true;
-            lblAnioEspecialidad.Location = new Point(291, 192);
+            lblAnioEspecialidad.Location = new Point(281, 251);
             lblAnioEspecialidad.Name = "lblAnioEspecialidad";
             lblAnioEspecialidad.Size = new Size(128, 15);
             lblAnioEspecialidad.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             // txtPlan
             // 
-            txtPlan.Location = new Point(629, 189);
+            txtPlan.Location = new Point(415, 314);
             txtPlan.Name = "txtPlan";
             txtPlan.Size = new Size(100, 23);
             txtPlan.TabIndex = 6;
@@ -92,7 +92,7 @@
             // lblPlan
             // 
             lblPlan.AutoSize = true;
-            lblPlan.Location = new Point(585, 192);
+            lblPlan.Location = new Point(281, 314);
             lblPlan.Name = "lblPlan";
             lblPlan.Size = new Size(30, 15);
             lblPlan.TabIndex = 5;
@@ -100,25 +100,27 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(249, 257);
+            btnEliminar.Location = new Point(260, 386);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 7;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(370, 257);
+            btnEditar.Location = new Point(381, 386);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
             btnEditar.TabIndex = 8;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(489, 257);
+            btnGuardar.Location = new Point(500, 386);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(75, 23);
             btnGuardar.TabIndex = 9;

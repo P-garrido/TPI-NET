@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPI_Entidades;
 using TPI_Negocios;
 
 namespace UI_Escritorio
@@ -33,11 +34,58 @@ namespace UI_Escritorio
         {
             DataTable pl = CN_Plan.mostrarPlan(txtPlan.Text);
             int planId = (int)pl.Rows[0]["id_plan"];
-            CN_Comisiones.agregarComision(txtDescripcion.Text, DateOnly.Parse(txtAnioEsp.Text),planId);
+            CN_Comisiones.agregarComision(txtDescripcion.Text, DateOnly.Parse(txtAnioEsp.Text), planId);
             txtDescripcion.Text = "";
             txtAnioEsp.Text = "";
             txtPlan.Text = "";
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvComisiones.SelectedRows.Count > 0)
+            {
+                DialogResult confirmacion = MessageBox.Show("¿Estas seguro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmacion == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int idCom = (int)dgvComisiones.CurrentRow.Cells["id_comision"].Value;
+                        CN_Comisiones.eliminarComision(idCom);
+                        MessageBox.Show("Comision eliminada");
+                        mostrarComisiones();
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show("A ocurrido un error" + er);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciones una fila");
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvComisiones.SelectedRows.Count > 0)
+            {
+                if (txtDescripcion.Text == "" || txtDescripcion.Text == "" || txtPlan.Text == "")
+                {
+                    MessageBox.Show("Complete todos los campos");
+                }
+                else
+                {
+                    int idCom = (int)dgvComisiones.CurrentRow.Cells["id_comision"].Value;
+                    Comision comision = new Comision(txtDescripcion.Text, DateOnly.Parse(txtAnioEsp.Text), int.Parse(txtPlan.Text));
+                    CN_Comisiones.actualizarComision(idCom, comision);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciones una fila");
+            }
         }
     }
 }

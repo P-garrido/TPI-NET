@@ -35,9 +35,9 @@ namespace TPI_Negocios
             this.CDComisiones.eliminarComision(idCom);
         }
 
-        //public void actualizarPersona(string nomPer, Persona per)
-        //{
-        //    this.CDComisiones.actualizarPersona(per, nomPer);
-        //}
+        public void actualizarComision(int idCom, Comision com)
+        {
+            this.CDComisiones.actualizarComision(com, idCom);
+        }
     }
 }
