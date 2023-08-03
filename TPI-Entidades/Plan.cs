@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class Plan
+    public class Plan
     {
         private string _descripcion;
         private int _idEspecialidad;
