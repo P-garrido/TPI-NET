@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class Comision
+    public class Comision
     {
 
-        private int _anioEspecialidad;
+        private DateOnly _anioEspecialidad;
         private string _descripcion;
         private int _idPlan;
+        public Comision(string desc, DateOnly anioEsp, int idPlan)
+        {
+            _descripcion = desc;
+            _idPlan = idPlan;
+            _anioEspecialidad = anioEsp;
+        }
 
         public int AnioEspecialidad {
             get => default;
