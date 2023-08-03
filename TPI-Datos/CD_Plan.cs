@@ -61,11 +61,11 @@ namespace TPI_Datos
             conexion.cerrarConexion();
         }
 
-        public void eliminarPlan(string nomPla)
+        public void eliminarPlan(int idPlan)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"DELETE FROM planes WHERE desc_plan='{nomPla}'";
+            comando.CommandText = $"DELETE FROM planes WHERE id_plan='{idPlan}'";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }

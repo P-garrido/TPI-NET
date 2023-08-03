@@ -18,6 +18,7 @@ namespace UI_Escritorio
         CN_Especialidad CNEspecialidad = new CN_Especialidad();
 
         int idEsp;
+        int idPlan;
 
         public frmPlanes()
         {
@@ -37,9 +38,37 @@ namespace UI_Escritorio
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             DataTable esp = CNEspecialidad.mostrarEspecialidad(txtdescEsp.Text);
-            idEsp = (int) esp.Rows[0]["id_especialidad"];
+            idEsp = (int)esp.Rows[0]["id_especialidad"];
             CNPlan.agregarPlan(txtDescPlan.Text, idEsp);
             mostrarPlanes();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvPlanes.SelectedRows.Count > 0)
+            {
+                DialogResult confirmacion = MessageBox.Show("¿Estas seguro?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmacion == DialogResult.Yes)
+                {
+                    try
+                    {
+                        idPlan = (int)dgvPlanes.CurrentRow.Cells["id_plan"].Value;
+                        CNPlan.eliminarPlan(idPlan);
+                        MessageBox.Show("Plan eliminado");
+                        mostrarPlanes();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se puede eliminar el usuario por " + ex);
+                    }
+
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una fila");
+            }
         }
     }
 }
