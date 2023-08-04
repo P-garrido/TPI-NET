@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class Curso
+    public class Curso
     {
 
         private int _anioCalendario;
@@ -14,6 +14,14 @@ namespace TPI_Entidades
         private string _descripcion;
         private int _idComision;
         private int _idMateria;
+
+        public Curso(int idMateria, int idComision, int anioCal, int cup)
+        {
+            _anioCalendario = anioCal;
+            _idMateria = idMateria;
+            _idComision = idComision;
+            _cupo = cup;
+        }
 
         public int AnioCalendario {
             get => _anioCalendario;

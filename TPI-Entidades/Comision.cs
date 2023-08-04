@@ -8,7 +8,7 @@ namespace TPI_Entidades
 {
     public class Comision
     {
-
+        private int _idComision;
         private int _anioEspecialidad;
         private string _descripcion;
         private int _idPlan;
@@ -17,6 +17,15 @@ namespace TPI_Entidades
             _descripcion = desc;
             _idPlan = idPlan;
             _anioEspecialidad = anioEsp;
+        }
+
+        public int IdComision
+        {
+            get => _idComision;
+            set
+            {
+                _idComision = value;
+            }
         }
 
         public int AnioEspecialidad {

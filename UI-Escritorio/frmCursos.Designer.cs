@@ -29,16 +29,20 @@
         private void InitializeComponent()
         {
             lblNomMateria = new Label();
-            txtNomMateria = new TextBox();
-            dataGridView1 = new DataGridView();
-            txtComision = new TextBox();
+            dgvCursos = new DataGridView();
             lblComision = new Label();
-            txtAnioCal = new TextBox();
             lblAnioCalendario = new Label();
-            txtCupo = new TextBox();
             lblCupo = new Label();
-            comboBox1 = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            numAnioCal = new NumericUpDown();
+            numCupo = new NumericUpDown();
+            btnEliminar = new Button();
+            btnEditar = new Button();
+            btnGuardar = new Button();
+            cmbMateria = new ComboBox();
+            cmbComision = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dgvCursos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numAnioCal).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numCupo).BeginInit();
             SuspendLayout();
             // 
             // lblNomMateria
@@ -50,28 +54,14 @@
             lblNomMateria.TabIndex = 0;
             lblNomMateria.Text = "Materia";
             // 
-            // txtNomMateria
+            // dgvCursos
             // 
-            txtNomMateria.Location = new Point(94, 183);
-            txtNomMateria.Name = "txtNomMateria";
-            txtNomMateria.Size = new Size(100, 23);
-            txtNomMateria.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(638, 160);
-            dataGridView1.TabIndex = 2;
-            // 
-            // txtComision
-            // 
-            txtComision.Location = new Point(94, 219);
-            txtComision.Name = "txtComision";
-            txtComision.Size = new Size(100, 23);
-            txtComision.TabIndex = 4;
+            dgvCursos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCursos.Location = new Point(12, 12);
+            dgvCursos.Name = "dgvCursos";
+            dgvCursos.RowTemplate.Height = 25;
+            dgvCursos.Size = new Size(638, 160);
+            dgvCursos.TabIndex = 2;
             // 
             // lblComision
             // 
@@ -82,13 +72,6 @@
             lblComision.TabIndex = 3;
             lblComision.Text = "Comision";
             // 
-            // txtAnioCal
-            // 
-            txtAnioCal.Location = new Point(94, 257);
-            txtAnioCal.Name = "txtAnioCal";
-            txtAnioCal.Size = new Size(100, 23);
-            txtAnioCal.TabIndex = 6;
-            // 
             // lblAnioCalendario
             // 
             lblAnioCalendario.AutoSize = true;
@@ -97,13 +80,6 @@
             lblAnioCalendario.Size = new Size(89, 15);
             lblAnioCalendario.TabIndex = 5;
             lblAnioCalendario.Text = "Año Calendario";
-            // 
-            // txtCupo
-            // 
-            txtCupo.Location = new Point(94, 295);
-            txtCupo.Name = "txtCupo";
-            txtCupo.Size = new Size(100, 23);
-            txtCupo.TabIndex = 8;
             // 
             // lblCupo
             // 
@@ -114,32 +90,92 @@
             lblCupo.TabIndex = 7;
             lblCupo.Text = "Cupo";
             // 
-            // comboBox1
+            // numAnioCal
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(228, 183);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 9;
+            numAnioCal.Location = new Point(102, 260);
+            numAnioCal.Name = "numAnioCal";
+            numAnioCal.Size = new Size(120, 23);
+            numAnioCal.TabIndex = 11;
+            // 
+            // numCupo
+            // 
+            numCupo.Location = new Point(103, 298);
+            numCupo.Name = "numCupo";
+            numCupo.Size = new Size(120, 23);
+            numCupo.TabIndex = 12;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(12, 338);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 13;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(113, 338);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(75, 23);
+            btnEditar.TabIndex = 14;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(213, 338);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.TabIndex = 15;
+            btnGuardar.Text = "Guardar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // cmbMateria
+            // 
+            cmbMateria.FormattingEnabled = true;
+            cmbMateria.Location = new Point(101, 186);
+            cmbMateria.Name = "cmbMateria";
+            cmbMateria.Size = new Size(121, 23);
+            cmbMateria.TabIndex = 16;
+            cmbMateria.Text = "Elija una materia";
+            cmbMateria.SelectedIndexChanged += cmbMateria_SelectedIndexChanged;
+            // 
+            // cmbComision
+            // 
+            cmbComision.FormattingEnabled = true;
+            cmbComision.Location = new Point(102, 222);
+            cmbComision.Name = "cmbComision";
+            cmbComision.Size = new Size(121, 23);
+            cmbComision.TabIndex = 17;
+            cmbComision.Text = "Elija una comisión";
+            cmbComision.SelectedIndexChanged += cmbComision_SelectedIndexChanged;
             // 
             // frmCursos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(865, 330);
-            Controls.Add(comboBox1);
-            Controls.Add(txtCupo);
+            ClientSize = new Size(865, 373);
+            Controls.Add(cmbComision);
+            Controls.Add(cmbMateria);
+            Controls.Add(btnGuardar);
+            Controls.Add(btnEditar);
+            Controls.Add(btnEliminar);
+            Controls.Add(numCupo);
+            Controls.Add(numAnioCal);
             Controls.Add(lblCupo);
-            Controls.Add(txtAnioCal);
             Controls.Add(lblAnioCalendario);
-            Controls.Add(txtComision);
             Controls.Add(lblComision);
-            Controls.Add(dataGridView1);
-            Controls.Add(txtNomMateria);
+            Controls.Add(dgvCursos);
             Controls.Add(lblNomMateria);
             Name = "frmCursos";
             Text = "Menú Cursos";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += frmCursos_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvCursos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numAnioCal).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numCupo).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -148,13 +184,19 @@
 
         private Label lblNomMateria;
         private TextBox txtNomMateria;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCursos;
         private TextBox txtComision;
         private Label lblComision;
         private TextBox txtAnioCal;
         private Label lblAnioCalendario;
         private TextBox txtCupo;
         private Label lblCupo;
-        private ComboBox comboBox1;
+        private NumericUpDown numAnioCal;
+        private NumericUpDown numCupo;
+        private Button btnEliminar;
+        private Button btnEditar;
+        private Button btnGuardar;
+        private ComboBox cmbMateria;
+        private ComboBox cmbComision;
     }
 }

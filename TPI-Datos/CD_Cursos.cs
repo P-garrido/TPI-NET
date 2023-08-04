@@ -9,9 +9,9 @@ using TPI_Entidades;
 
 namespace TPI_Datos
 {
-    public class CD_Comisiones
+    public class CD_Cursos
     {
-        public CD_Comisiones() { }
+        public CD_Cursos() { }
 
         private CD_Conexion conexion = new CD_Conexion();
 
@@ -19,69 +19,57 @@ namespace TPI_Datos
         DataTable table = new DataTable();
         SqlCommand comando = new SqlCommand();
 
-        public DataTable mostrarComisiones()
+        public DataTable mostrarCursos()
         {
 
             comando.Connection = conexion.abrirConexion();
             table.Clear();
-            comando.CommandText = "SELECT * FROM comisiones";
+            comando.CommandText = "SELECT * FROM cursos";
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();
             return table;
         }
 
-        public void agregarComision(Comision com)
+        public void agregarCurso(Curso cur)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"INSERT INTO comisiones (desc_comision, anio_especialidad, id_plan) VALUES('{com.Descripcion}','{com.AnioEspecialidad}','{com.IdPlan}')";
+            comando.CommandText = $"INSERT INTO cursos VALUES('{cur.IdMateria}','{cur.IdComision}','{cur.AnioCalendario}','{cur.Cupo}')";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
 
 
-        public void actualizarComision(Comision com, int idCom)
+        public void actualizarCurso(Curso cur, int idCurso )
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"UPDATE comisiones SET desc_comision= '{com.Descripcion}', anio_especialidad= '{com.AnioEspecialidad}', id_plan= '{com.IdPlan}' WHERE id_comision = '{idCom}' ";
+            comando.CommandText = $"UPDATE cursos SET id_materia= '{cur.IdMateria}', id_comision= '{cur.IdComision}', anio_calendario= '{cur.AnioCalendario}'," +
+                $"cupo= '{cur.Cupo}' WHERE id_curso= '{idCurso}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
 
-        public void eliminarComision(int idCom)
+        public void eliminarCurso(int idCurso)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"DELETE FROM comisiones WHERE id_comision='{idCom}'";
+            comando.CommandText = $"DELETE FROM cursos WHERE id_curso='{idCurso}'";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
 
-        public DataTable mostrarComision(int idCom)
+        public DataTable mostrarCurso(int idCurso)
         {
             comando.Connection = conexion.abrirConexion();
             table.Clear();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"SELECT * FROM comisiones WHERE id_comision = '{idCom}'";
+            comando.CommandText = $"SELECT * FROM cursos WHERE id_curso= '{idCurso}'";
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();
             return table;
         }
-
-        public DataTable mostrarComisionPorDescripcion(string descCom)
-        {
-            comando.Connection = conexion.abrirConexion();
-            table.Clear();
-            comando.CommandType = CommandType.Text;
-            comando.CommandText = $"SELECT * FROM comisiones WHERE desc_comision = '{descCom}'";
-            reader = comando.ExecuteReader();
-            table.Load(reader);
-            conexion.cerrarConexion();
-            return table;
-        }
-
     }
 }
