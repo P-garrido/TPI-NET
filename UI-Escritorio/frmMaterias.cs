@@ -29,6 +29,7 @@ namespace UI_Escritorio
         private void frmMaterias_Load(object sender, EventArgs e)
         {
             mostrarMaterias();
+            cargarOpcionesPlan();
         }
 
         public void mostrarMaterias()
@@ -36,16 +37,27 @@ namespace UI_Escritorio
             dgvMaterias.DataSource = CNMateria.mostrarMaterias();
         }
 
+        public void cargarOpcionesPlan()
+        {
+            DataTable planes = CNPlan.mostrarPlanes();
+            for (int i = 0; i < planes.Rows.Count; i++)
+            {
+                cmbPlan.Items.Add(planes.Rows[i]["desc_plan"].ToString());
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            DataTable pla = CNPlan.mostrarPlan(txtPlan.Text);
+            DataTable pla = CNPlan.mostrarPlan(descPla);
             idPla = (int)pla.Rows[0]["id_plan"];
-            CNMateria.agregarMateria(txtDescripcionMateria.Text, txtHorasSemanales.Text, txtHorasTotales.Text, idPla);
+            CNMateria.agregarMateria(txtDescripcionMateria.Text, Decimal.ToInt32(numHorasSemanales.Value), Decimal.ToInt32(numHorasTotales.Value), idPla);
             mostrarMaterias();
             txtDescripcionMateria.Text = "";
-            txtHorasTotales.Text = "";
-            txtHorasSemanales.Text = "";
-            txtPlan.Text = "";
+            numHorasTotales.Value = 0;
+            numHorasSemanales.Value = 0;
+            descPla = "";
+            cmbPlan.SelectedIndex = -1;
+            cmbPlan.Text = "Elija un plan";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -80,35 +92,40 @@ namespace UI_Escritorio
         {
             if (dgvMaterias.SelectedRows.Count > 0)
             {
-                    try
+                try
+                {
+                    if (txtDescripcionMateria.Text == "" || numHorasSemanales.Value == 0 || numHorasTotales.Value == 0 || descPla == "")
                     {
-                        if (txtDescripcionMateria.Text == "" || txtHorasSemanales.Text == "" || txtHorasTotales.Text == "" || txtPlan.Text == "")
-                        {
-                            MessageBox.Show("Complete todos los campos");
-                        }
-                        else
-                        {
-                            DataTable pla = CNPlan.mostrarPlan(txtPlan.Text);
-                            idPla = (int)pla.Rows[0]["id_plan"];
-                            string descMat = (string) dgvMaterias.CurrentRow.Cells["desc_materia"].Value;
-                            Materia mat = new Materia(txtDescripcionMateria.Text, int.Parse(txtHorasSemanales.Text), int.Parse(txtHorasTotales.Text), idPla);
-                            CNMateria.actualizarMateria(mat, descMat);
-                            mostrarMaterias();
-                            txtDescripcionMateria.Text = "";
-                            txtHorasTotales.Text = "";
-                            txtHorasSemanales.Text = "";
-                            txtPlan.Text = "";
+                        MessageBox.Show("Complete todos los campos");
                     }
-                    }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("No se puede editar la materia por " + ex);
+                        DataTable pla = CNPlan.mostrarPlan(descPla);
+                        idPla = (int)pla.Rows[0]["id_plan"];
+                        string descMat = (string)dgvMaterias.CurrentRow.Cells["desc_materia"].Value;
+                        Materia mat = new Materia(txtDescripcionMateria.Text, Decimal.ToInt32(numHorasSemanales.Value), Decimal.ToInt32(numHorasTotales.Value), idPla);
+                        CNMateria.actualizarMateria(mat, descMat);
+                        mostrarMaterias();
+                        txtDescripcionMateria.Text = "";
+                        numHorasTotales.Value = 0;
+                        numHorasSemanales.Value = 0;
+                        descPla = "";
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se puede editar la materia por " + ex);
+                }
             }
             else
             {
                 MessageBox.Show("Seleccione una fila");
             }
+        }
+
+        private void cmbPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            descPla = (string)cmbPlan.SelectedItem;
         }
     }
 }

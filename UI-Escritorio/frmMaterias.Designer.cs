@@ -31,16 +31,18 @@
             dgvMaterias = new DataGridView();
             lblDescripcionMateria = new Label();
             txtDescripcionMateria = new TextBox();
-            txtHorasSemanales = new TextBox();
             frmHorasSemanales = new Label();
-            txtHorasTotales = new TextBox();
             lblHorasTotales = new Label();
-            txtPlan = new TextBox();
             lblPlan = new Label();
             btnEliminar = new Button();
             btnEditar = new Button();
             btnGuardar = new Button();
+            numHorasSemanales = new NumericUpDown();
+            numHorasTotales = new NumericUpDown();
+            cmbPlan = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvMaterias).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numHorasSemanales).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numHorasTotales).BeginInit();
             SuspendLayout();
             // 
             // dgvMaterias
@@ -68,13 +70,6 @@
             txtDescripcionMateria.Size = new Size(100, 23);
             txtDescripcionMateria.TabIndex = 2;
             // 
-            // txtHorasSemanales
-            // 
-            txtHorasSemanales.Location = new Point(102, 223);
-            txtHorasSemanales.Name = "txtHorasSemanales";
-            txtHorasSemanales.Size = new Size(100, 23);
-            txtHorasSemanales.TabIndex = 4;
-            // 
             // frmHorasSemanales
             // 
             frmHorasSemanales.AutoSize = true;
@@ -84,13 +79,6 @@
             frmHorasSemanales.TabIndex = 3;
             frmHorasSemanales.Text = "Hs. Semanales";
             // 
-            // txtHorasTotales
-            // 
-            txtHorasTotales.Location = new Point(102, 262);
-            txtHorasTotales.Name = "txtHorasTotales";
-            txtHorasTotales.Size = new Size(100, 23);
-            txtHorasTotales.TabIndex = 6;
-            // 
             // lblHorasTotales
             // 
             lblHorasTotales.AutoSize = true;
@@ -99,13 +87,6 @@
             lblHorasTotales.Size = new Size(63, 15);
             lblHorasTotales.TabIndex = 5;
             lblHorasTotales.Text = "Hs. Totales";
-            // 
-            // txtPlan
-            // 
-            txtPlan.Location = new Point(102, 302);
-            txtPlan.Name = "txtPlan";
-            txtPlan.Size = new Size(100, 23);
-            txtPlan.TabIndex = 8;
             // 
             // lblPlan
             // 
@@ -146,19 +127,45 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
+            // numHorasSemanales
+            // 
+            numHorasSemanales.Location = new Point(101, 224);
+            numHorasSemanales.Name = "numHorasSemanales";
+            numHorasSemanales.Size = new Size(101, 23);
+            numHorasSemanales.TabIndex = 12;
+            // 
+            // numHorasTotales
+            // 
+            numHorasTotales.Location = new Point(101, 263);
+            numHorasTotales.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+            numHorasTotales.Name = "numHorasTotales";
+            numHorasTotales.Size = new Size(101, 23);
+            numHorasTotales.TabIndex = 13;
+            // 
+            // cmbPlan
+            // 
+            cmbPlan.AccessibleRole = AccessibleRole.None;
+            cmbPlan.FormattingEnabled = true;
+            cmbPlan.Location = new Point(101, 305);
+            cmbPlan.Name = "cmbPlan";
+            cmbPlan.Size = new Size(139, 23);
+            cmbPlan.TabIndex = 14;
+            cmbPlan.Text = "Elija un Plan";
+            cmbPlan.SelectedIndexChanged += cmbPlan_SelectedIndexChanged;
+            // 
             // frmMaterias
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(423, 371);
+            Controls.Add(cmbPlan);
+            Controls.Add(numHorasTotales);
+            Controls.Add(numHorasSemanales);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
-            Controls.Add(txtPlan);
             Controls.Add(lblPlan);
-            Controls.Add(txtHorasTotales);
             Controls.Add(lblHorasTotales);
-            Controls.Add(txtHorasSemanales);
             Controls.Add(frmHorasSemanales);
             Controls.Add(txtDescripcionMateria);
             Controls.Add(lblDescripcionMateria);
@@ -167,6 +174,8 @@
             Text = "Menú Materias";
             Load += frmMaterias_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMaterias).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numHorasSemanales).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numHorasTotales).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -176,14 +185,14 @@
         private DataGridView dgvMaterias;
         private Label lblDescripcionMateria;
         private TextBox txtDescripcionMateria;
-        private TextBox txtHorasSemanales;
         private Label frmHorasSemanales;
-        private TextBox txtHorasTotales;
         private Label lblHorasTotales;
-        private TextBox txtPlan;
         private Label lblPlan;
         private Button btnEliminar;
         private Button btnEditar;
         private Button btnGuardar;
+        private NumericUpDown numHorasSemanales;
+        private NumericUpDown numHorasTotales;
+        private ComboBox cmbPlan;
     }
 }

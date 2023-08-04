@@ -10,6 +10,7 @@ namespace UI_Escritorio
         frmIdentificacion formIdentificacion = new frmIdentificacion();
         frmMaterias formMaterias = new frmMaterias();
         frmComisiones formComisiones = new frmComisiones();
+        frmCursos formCursos = new frmCursos();
 
         private void tsmAdministrar_Click(object sender, EventArgs e)
         {
@@ -37,6 +38,11 @@ namespace UI_Escritorio
         private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formComisiones.Show();
+        }
+
+        private void tsmCursos_Click(object sender, EventArgs e)
+        {
+            formCursos.Show();
         }
     }
 }
