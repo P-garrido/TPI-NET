@@ -41,16 +41,14 @@ namespace TPI_Datos
         }
 
 
-        //public void actualizarPersona(Persona per, string nomPer)
-        //{
-        //    comando.Connection = conexion.abrirConexion();
-        //    comando.CommandType = CommandType.Text;
-        //    comando.CommandText = $"UPDATE personas SET nombre= '{per.Nombre}', apellido= '{per.Apellido}', direccion= '{per.Direccion}'," +
-        //        $"email= '{per.Email}', telefono= '{per.Telefono}', fecha_nac= '{per.FechaNacimiento}', legajo= '{per.Legajo}', tipo_persona='{per.TipoPersona}'" +
-        //        $" WHERE nombrePersona = '{nomPer}' ";
-        //    comando.ExecuteNonQuery();
-        //    conexion.cerrarConexion();
-        //}
+        public void actualizarComision(Comision com, int idCom)
+        {
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"UPDATE comisiones SET desc_comision= '{com.Descripcion}', anio_especialidad= '{com.AnioEspecialidad}', id_plan= '{com.IdPlan}' WHERE id_comision = '{idCom}' ";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
+        }
 
         public void eliminarComision(int idCom)
         {
