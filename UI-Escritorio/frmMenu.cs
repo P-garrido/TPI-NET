@@ -9,7 +9,7 @@ namespace UI_Escritorio
         frmUsuarios formUsuarios = new frmUsuarios();
         frmIdentificacion formIdentificacion = new frmIdentificacion();
         frmMaterias formMaterias = new frmMaterias();
-
+        frmComisiones formComisiones = new frmComisiones();
 
         private void tsmAdministrar_Click(object sender, EventArgs e)
         {
@@ -32,6 +32,11 @@ namespace UI_Escritorio
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formMaterias.Show();
+        }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formComisiones.Show();
         }
     }
 }

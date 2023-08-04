@@ -35,13 +35,14 @@
             materiasToolStripMenuItem = new ToolStripMenuItem();
             tsmUsuarios = new ToolStripMenuItem();
             tsmAdministrar = new ToolStripMenuItem();
+            tsmComisiones = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
@@ -89,6 +90,13 @@
             tsmAdministrar.Text = "Administrar";
             tsmAdministrar.Click += tsmAdministrar_Click;
             // 
+            // tsmComisiones
+            // 
+            tsmComisiones.Name = "tsmComisiones";
+            tsmComisiones.Size = new Size(81, 20);
+            tsmComisiones.Text = "Comisiones";
+            tsmComisiones.Click += comisionesToolStripMenuItem_Click;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -114,5 +122,6 @@
         private ToolStripMenuItem tsmUsuarios;
         private ToolStripMenuItem tsmAdministrar;
         private ToolStripMenuItem materiasToolStripMenuItem;
+        private ToolStripMenuItem tsmComisiones;
     }
 }

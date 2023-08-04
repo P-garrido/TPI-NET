@@ -35,7 +35,7 @@ namespace TPI_Datos
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"INSERT INTO comisiones VALUES('{com.Descripcion}','{com.AnioEspecialidad}','{com.IdPlan}')";
+            comando.CommandText = $"INSERT INTO comisiones (desc_comision, anio_especialidad, id_plan) VALUES('{com.Descripcion}','{com.AnioEspecialidad}','{com.IdPlan}')";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }

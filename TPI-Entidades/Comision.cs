@@ -9,10 +9,10 @@ namespace TPI_Entidades
     public class Comision
     {
 
-        private DateOnly _anioEspecialidad;
+        private int _anioEspecialidad;
         private string _descripcion;
         private int _idPlan;
-        public Comision(string desc, DateOnly anioEsp, int idPlan)
+        public Comision(string desc, int anioEsp, int idPlan)
         {
             _descripcion = desc;
             _idPlan = idPlan;
@@ -20,20 +20,23 @@ namespace TPI_Entidades
         }
 
         public int AnioEspecialidad {
-            get => default;
+            get => _anioEspecialidad;
             set {
+                _anioEspecialidad = value;
             }
         }
 
         public string Descripcion {
-            get => default;
+            get => _descripcion;
             set {
+                _descripcion = value;
             }
         }
 
         public int IdPlan {
-            get => default;
+            get => _idPlan;
             set {
+                _idPlan = value;
             }
         }
     }

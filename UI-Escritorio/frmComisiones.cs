@@ -34,10 +34,11 @@ namespace UI_Escritorio
         {
             DataTable pl = CN_Plan.mostrarPlan(txtPlan.Text);
             int planId = (int)pl.Rows[0]["id_plan"];
-            CN_Comisiones.agregarComision(txtDescripcion.Text, DateOnly.Parse(txtAnioEsp.Text), planId);
+            CN_Comisiones.agregarComision(txtDescripcion.Text, int.Parse(txtAnioEsp.Text), planId);
             txtDescripcion.Text = "";
             txtAnioEsp.Text = "";
             txtPlan.Text = "";
+            mostrarComisiones();
 
         }
 
@@ -63,7 +64,7 @@ namespace UI_Escritorio
             }
             else
             {
-                MessageBox.Show("Selecciones una fila");
+                MessageBox.Show("Seleccione una fila");
             }
         }
 
@@ -78,13 +79,14 @@ namespace UI_Escritorio
                 else
                 {
                     int idCom = (int)dgvComisiones.CurrentRow.Cells["id_comision"].Value;
-                    Comision comision = new Comision(txtDescripcion.Text, DateOnly.Parse(txtAnioEsp.Text), int.Parse(txtPlan.Text));
+                    Comision comision = new Comision(txtDescripcion.Text, int.Parse(txtAnioEsp.Text), idCom);
                     CN_Comisiones.actualizarComision(idCom, comision);
+                    mostrarComisiones();
                 }
             }
             else
             {
-                MessageBox.Show("Selecciones una fila");
+                MessageBox.Show("Seleccione una fila");
             }
         }
     }

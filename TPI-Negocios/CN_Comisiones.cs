@@ -14,7 +14,7 @@ namespace TPI_Negocios
         CD_Comisiones CDComisiones = new CD_Comisiones();
 
 
-        public void agregarComision(string desc, DateOnly anioEsp, int idPlan)
+        public void agregarComision(string desc, int anioEsp, int idPlan)
         {
             Comision com = new Comision(desc, anioEsp, idPlan);
             this.CDComisiones.agregarComision(com);
