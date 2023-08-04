@@ -127,5 +127,11 @@ namespace UI_Escritorio
         {
             descPla = (string)cmbPlan.SelectedItem;
         }
+
+        private void frmMaterias_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }

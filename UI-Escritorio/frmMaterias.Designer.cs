@@ -172,6 +172,7 @@
             Controls.Add(dgvMaterias);
             Name = "frmMaterias";
             Text = "Menú Materias";
+            FormClosing += frmMaterias_FormClosing;
             Load += frmMaterias_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMaterias).EndInit();
             ((System.ComponentModel.ISupportInitialize)numHorasSemanales).EndInit();
