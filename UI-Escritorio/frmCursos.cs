@@ -44,7 +44,7 @@ namespace UI_Escritorio
             DataTable materias = CNMateria.mostrarMaterias();
             for (int i = 0; i < materias.Rows.Count; i++)
             {
-                cmbMateria.Items.Add(materias.Rows[i]["id_materia"]);
+                cmbMateria.Items.Add(materias.Rows[i]["desc_materia"]);
             }
         }
 
@@ -53,7 +53,7 @@ namespace UI_Escritorio
             DataTable comisiones = CNComision.mostrarComisiones();
             for (int i = 0; i < comisiones.Rows.Count; i++)
             {
-                cmbComision.Items.Add(comisiones.Rows[i]["id_comision"]);
+                cmbComision.Items.Add(comisiones.Rows[i]["desc_comision"]);
             }
         }
 
@@ -92,6 +92,13 @@ namespace UI_Escritorio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            //DataTable pla = CNPlan.mostrarPlan(descPla);
+            //idPla = (int)pla.Rows[0]["id_plan"];
+
+            DataTable mat = CNMateria.mostrarMateria(descMat);
+            idMat = (int)mat.Rows[0]["id_materia"];
+            DataTable com = CNComision.mostrarComisionPorDescripcion(descCom);
+            idCom = (int)com.Rows[0]["id_comision"];
             CNCurso.agregarCurso(idMat, idCom, Decimal.ToInt32(numAnioCal.Value), Decimal.ToInt32(numCupo.Value));
             mostrarCursos();
             numAnioCal.Value = 0;
@@ -99,12 +106,12 @@ namespace UI_Escritorio
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            idMat = (int)cmbMateria.SelectedItem;
+            descMat = (string)cmbMateria.SelectedItem;
         }
 
         private void cmbComision_SelectedIndexChanged(object sender, EventArgs e)
         {
-            idCom = (int)cmbComision.SelectedItem;
+            descCom = (string)cmbComision.SelectedItem;
         }
     }
 }
