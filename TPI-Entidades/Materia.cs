@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class Materia
+    public class Materia
     {
 
         private string _descripcion;
         private int _horasSemanales;
         private int _horasTotales;
         private int _idPlan;
+
+        public Materia(string descMat, int hsSem, int hsTot, int idPl)
+        {
+            _descripcion = descMat;
+            _horasSemanales = hsSem;
+            _horasTotales = hsTot; 
+            _idPlan = idPl;
+        }
 
         public string Descripcion {
             get => _descripcion;
