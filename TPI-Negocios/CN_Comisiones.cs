@@ -30,6 +30,11 @@ namespace TPI_Negocios
             return this.CDComisiones.mostrarComision(idCom);
         }
 
+        public DataTable mostrarComisionPorDescripcion(string descCom)
+        {
+            return this.CDComisiones.mostrarComisionPorDescripcion(descCom);
+        }
+
         public void eliminarComision(int idCom)
         {
             this.CDComisiones.eliminarComision(idCom);

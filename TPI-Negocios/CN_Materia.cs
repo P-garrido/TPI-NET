@@ -13,9 +13,9 @@ namespace TPI_Negocios
     {
         CD_Materia CDMateria = new CD_Materia();
 
-        public void agregarMateria(string descMat, string hsSem, string hsTot, int idPlan)
+        public void agregarMateria(string descMat, int hsSem, int hsTot, int idPlan)
         {
-            Materia mat = new Materia(descMat, int.Parse(hsSem), int.Parse(hsTot), idPlan);
+            Materia mat = new Materia(descMat, hsSem, hsTot, idPlan);
 
             this.CDMateria.agregarMateria(mat);
         }
