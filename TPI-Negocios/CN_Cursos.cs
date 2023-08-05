@@ -36,9 +36,9 @@ namespace TPI_Negocios
             this.CDCursos.eliminarCurso(idCurso);
         }
 
-        public void actualizarComision(int idCur)
+        public void actualizarCurso(Curso cur, int idCur)
         {
-            this.CDCursos.eliminarCurso(idCur);
+            this.CDCursos.actualizarCurso(cur, idCur);
         }
     }
 }

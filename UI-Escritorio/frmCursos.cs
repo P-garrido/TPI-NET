@@ -21,10 +21,12 @@ namespace UI_Escritorio
         CN_Materia CNMateria = new CN_Materia();
 
         int idCurso = 0;
-        int indexMat = 0;
         string descCom = "";
         int idMat = 0;
         int idCom = 0;
+        int idPla = 0;
+        int anio = 0;
+        int cupo = 0;
         string descMat = "";
 
         public frmCursos()
@@ -92,9 +94,6 @@ namespace UI_Escritorio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //DataTable pla = CNPlan.mostrarPlan(descPla);
-            //idPla = (int)pla.Rows[0]["id_plan"];
-
             DataTable mat = CNMateria.mostrarMateria(descMat);
             idMat = (int)mat.Rows[0]["id_materia"];
             DataTable com = CNComision.mostrarComisionPorDescripcion(descCom);
@@ -113,5 +112,43 @@ namespace UI_Escritorio
         {
             descCom = (string)cmbComision.SelectedItem;
         }
+
+            private void btnEditar_Click(object sender, EventArgs e)
+            {
+                if (dgvCursos.SelectedRows.Count > 0)
+                {
+                    try
+                    {
+                        if (cmbMateria.SelectedIndex == -1 || cmbMateria.SelectedIndex == -1 || numAnioCal.Value == 0 || numCupo.Value == 0)
+                        {
+                            MessageBox.Show("Complete todos los campos");
+                        }
+                        else
+                        {
+                            DataTable mat = CNMateria.mostrarMateria(cmbMateria.SelectedItem.ToString());
+                            idMat = (int)mat.Rows[0]["id_materia"];
+                            DataTable com = CNComision.mostrarComisionPorDescripcion(cmbComision.SelectedItem.ToString());
+                            idCom = (int)com.Rows[0]["id_comision"];
+                            anio = Decimal.ToInt32(numAnioCal.Value);
+                            cupo = Decimal.ToInt32(numCupo.Value);
+                            Curso cur = new Curso(idMat, idCom, anio, cupo);
+                            CNCurso.actualizarCurso(cur, (int) dgvCursos.CurrentRow.Cells["id_curso"].Value);
+                            mostrarCursos();
+                            cmbMateria.SelectedIndex = -1;
+                            cmbComision.SelectedIndex = -1;
+                            numAnioCal.Value = 0;
+                            numCupo.Value = 0;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se puede editar la materia por " + ex);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una fila");
+                }
+            }
     }
 }
