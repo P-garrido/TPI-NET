@@ -8,6 +8,11 @@ namespace UI_Escritorio
         }
         frmUsuarios formUsuarios = new frmUsuarios();
         frmIdentificacion formIdentificacion = new frmIdentificacion();
+
+        frmPlanes formPlanes = new frmPlanes();
+        frmEspeciaidades formEspecialidades = new frmEspeciaidades();
+
+
         frmMaterias formMaterias = new frmMaterias();
         frmComisiones formComisiones = new frmComisiones();
         frmCursos formCursos = new frmCursos();
@@ -22,13 +27,23 @@ namespace UI_Escritorio
             }
             else
             {
-                formIdentificacion.Dispose();
+                formIdentificacion.Hide();
             }
 
 
 
 
         }
+
+
+        private void tsmAdminPlanes_Click(object sender, EventArgs e)
+        {
+            formPlanes.Show();
+        }
+
+        private void tsmAdminEsp_Click(object sender, EventArgs e)
+        {
+            formEspecialidades.Show();
 
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -43,6 +58,7 @@ namespace UI_Escritorio
         private void tsmCursos_Click(object sender, EventArgs e)
         {
             formCursos.Show();
+
         }
     }
 }

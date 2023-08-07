@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class Espcialidad
+    public class Especialidad
     {
         private string _descripcion;
 
+        public Especialidad(string descEsp) {
+            _descripcion = descEsp;
+        }
+
+
         public string Descripcion {
-            get => default;
+            get => _descripcion;
             set {
+                _descripcion = value;
             }
         }
     }

@@ -37,6 +37,7 @@ namespace TPI_Negocios
 
         public void actualizarPersona(string nomPer, Persona per)
         {
+
             this.CDPersona.actualizarPersona(per, nomPer);
         }
     }

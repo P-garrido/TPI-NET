@@ -11,6 +11,12 @@ namespace TPI_Entidades
         private string _descripcion;
         private int _idEspecialidad;
 
+        public Plan(string desc, int idEsp)
+        {
+            _descripcion = desc;
+            _idEspecialidad = idEsp;
+        }
+
         public string Descripcion {
             get => _descripcion;
             set {

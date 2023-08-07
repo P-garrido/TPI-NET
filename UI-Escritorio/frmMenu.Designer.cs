@@ -35,15 +35,24 @@
             materiasToolStripMenuItem = new ToolStripMenuItem();
             tsmUsuarios = new ToolStripMenuItem();
             tsmAdministrar = new ToolStripMenuItem();
+
+            tsmPlanes = new ToolStripMenuItem();
+            tsmAdminPlanes = new ToolStripMenuItem();
+            tsmEspecialidades = new ToolStripMenuItem();
+            tsmAdminEsp = new ToolStripMenuItem();
+
             tsmComisiones = new ToolStripMenuItem();
             tsmCursos = new ToolStripMenuItem();
+
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos });
+
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades });
+
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
@@ -61,13 +70,17 @@
             // tsmLogin
             // 
             tsmLogin.Name = "tsmLogin";
+
             tsmLogin.Size = new Size(119, 22);
+
             tsmLogin.Text = "Login";
             // 
             // tsmLogout
             // 
             tsmLogout.Name = "tsmLogout";
+
             tsmLogout.Size = new Size(119, 22);
+
             tsmLogout.Text = "Logout";
             // 
             // materiasToolStripMenuItem
@@ -87,6 +100,39 @@
             // tsmAdministrar
             // 
             tsmAdministrar.Name = "tsmAdministrar";
+
+            tsmAdministrar.Size = new Size(169, 26);
+            tsmAdministrar.Text = "Administrar";
+            tsmAdministrar.Click += tsmAdministrar_Click;
+            // 
+            // tsmPlanes
+            // 
+            tsmPlanes.DropDownItems.AddRange(new ToolStripItem[] { tsmAdminPlanes });
+            tsmPlanes.Name = "tsmPlanes";
+            tsmPlanes.Size = new Size(65, 24);
+            tsmPlanes.Text = "Planes";
+            // 
+            // tsmAdminPlanes
+            // 
+            tsmAdminPlanes.Name = "tsmAdminPlanes";
+            tsmAdminPlanes.Size = new Size(224, 26);
+            tsmAdminPlanes.Text = "Administrar";
+            tsmAdminPlanes.Click += tsmAdminPlanes_Click;
+            // 
+            // tsmEspecialidades
+            // 
+            tsmEspecialidades.DropDownItems.AddRange(new ToolStripItem[] { tsmAdminEsp });
+            tsmEspecialidades.Name = "tsmEspecialidades";
+            tsmEspecialidades.Size = new Size(121, 24);
+            tsmEspecialidades.Text = "Especialidades";
+            // 
+            // tsmAdminEsp
+            // 
+            tsmAdminEsp.Name = "tsmAdminEsp";
+            tsmAdminEsp.Size = new Size(224, 26);
+            tsmAdminEsp.Text = "Administrar";
+            tsmAdminEsp.Click += tsmAdminEsp_Click;
+
             tsmAdministrar.Size = new Size(136, 22);
             tsmAdministrar.Text = "Administrar";
             tsmAdministrar.Click += tsmAdministrar_Click;
@@ -104,6 +150,7 @@
             tsmCursos.Size = new Size(55, 20);
             tsmCursos.Text = "Cursos";
             tsmCursos.Click += tsmCursos_Click;
+
             // 
             // frmMenu
             // 
@@ -129,8 +176,15 @@
         private ToolStripMenuItem tsmLogout;
         private ToolStripMenuItem tsmUsuarios;
         private ToolStripMenuItem tsmAdministrar;
+
+        private ToolStripMenuItem tsmPlanes;
+        private ToolStripMenuItem tsmAdminPlanes;
+        private ToolStripMenuItem tsmEspecialidades;
+        private ToolStripMenuItem tsmAdminEsp;
+
         private ToolStripMenuItem materiasToolStripMenuItem;
         private ToolStripMenuItem tsmComisiones;
         private ToolStripMenuItem tsmCursos;
+
     }
 }
