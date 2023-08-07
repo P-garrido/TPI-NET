@@ -110,5 +110,11 @@ namespace UI_Escritorio
                 MessageBox.Show("Selecciona una fila");
             }
         }
+
+        private void frmEspeciaidades_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }

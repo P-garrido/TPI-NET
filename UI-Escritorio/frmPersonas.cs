@@ -35,7 +35,7 @@ namespace UI_Escritorio
         {
             DataTable plan = CNPlan.mostrarPlan(txtPlan.Text);
             int idPlan = (int)plan.Rows[0]["id_plan"];
-            CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(txtFechaNac.Text), idPlan,int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, int.Parse(txtTipoPersona.Text));
+            CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(txtFechaNac.Text), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, int.Parse(txtTipoPersona.Text));
             txtLegajo.Text = "";
             txtDireccion.Text = "";
             txtNombre.Text = "";
@@ -46,6 +46,12 @@ namespace UI_Escritorio
             txtTipoPersona.Text = "";
             txtPlan.Text = "";
             mostrarPersonas();
+        }
+
+        private void frmPersonas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
         }
     }
 }

@@ -51,7 +51,7 @@ namespace UI_Escritorio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+
             if (!editar)
             {
                 try
@@ -135,6 +135,12 @@ namespace UI_Escritorio
             {
                 MessageBox.Show("Selecciona una fila");
             }
+        }
+
+        private void frmPlanes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
         }
     }
 }

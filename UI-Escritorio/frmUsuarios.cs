@@ -43,5 +43,11 @@ namespace UI_Escritorio
             txtEmail.Text = "";
             mostrarUsuarios();
         }
+
+        private void frmUsuarios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }

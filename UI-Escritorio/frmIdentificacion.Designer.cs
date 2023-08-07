@@ -36,17 +36,18 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(77, 92);
+            label1.Location = new Point(67, 69);
             label1.Name = "label1";
-            label1.Size = new Size(277, 20);
+            label1.Size = new Size(220, 15);
             label1.TabIndex = 0;
             label1.Text = "¿Se encuentra registrado como Persona?";
             // 
             // btnRegistrado
             // 
-            btnRegistrado.Location = new Point(232, 150);
+            btnRegistrado.Location = new Point(203, 112);
+            btnRegistrado.Margin = new Padding(3, 2, 3, 2);
             btnRegistrado.Name = "btnRegistrado";
-            btnRegistrado.Size = new Size(94, 29);
+            btnRegistrado.Size = new Size(82, 22);
             btnRegistrado.TabIndex = 1;
             btnRegistrado.Text = "Si";
             btnRegistrado.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             // 
             // btnNoRegistrado
             // 
-            btnNoRegistrado.Location = new Point(77, 150);
+            btnNoRegistrado.Location = new Point(67, 112);
+            btnNoRegistrado.Margin = new Padding(3, 2, 3, 2);
             btnNoRegistrado.Name = "btnNoRegistrado";
-            btnNoRegistrado.Size = new Size(94, 29);
+            btnNoRegistrado.Size = new Size(82, 22);
             btnNoRegistrado.TabIndex = 2;
             btnNoRegistrado.Text = "No";
             btnNoRegistrado.UseVisualStyleBackColor = true;
@@ -64,14 +66,16 @@
             // 
             // frmIdentificacion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(430, 279);
+            ClientSize = new Size(376, 209);
             Controls.Add(btnNoRegistrado);
             Controls.Add(btnRegistrado);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmIdentificacion";
             Text = "Identificación";
+            FormClosing += frmIdentificacion_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

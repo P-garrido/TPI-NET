@@ -31,13 +31,13 @@
             dgvComisiones = new DataGridView();
             lblDescripcion = new Label();
             txtDescripcion = new TextBox();
-            txtAnioEsp = new TextBox();
             lblAnioEspecialidad = new Label();
-            txtPlan = new TextBox();
             lblPlan = new Label();
             btnEliminar = new Button();
             btnEditar = new Button();
             btnGuardar = new Button();
+            txtAnioEsp = new TextBox();
+            txtPlan = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvComisiones).BeginInit();
             SuspendLayout();
             // 
@@ -63,15 +63,8 @@
             // 
             txtDescripcion.Location = new Point(415, 194);
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(100, 23);
+            txtDescripcion.Size = new Size(120, 23);
             txtDescripcion.TabIndex = 2;
-            // 
-            // txtAnioEsp
-            // 
-            txtAnioEsp.Location = new Point(415, 251);
-            txtAnioEsp.Name = "txtAnioEsp";
-            txtAnioEsp.Size = new Size(100, 23);
-            txtAnioEsp.TabIndex = 4;
             // 
             // lblAnioEspecialidad
             // 
@@ -81,13 +74,6 @@
             lblAnioEspecialidad.Size = new Size(128, 15);
             lblAnioEspecialidad.TabIndex = 3;
             lblAnioEspecialidad.Text = "Anio de la especialidad";
-            // 
-            // txtPlan
-            // 
-            txtPlan.Location = new Point(415, 314);
-            txtPlan.Name = "txtPlan";
-            txtPlan.Size = new Size(100, 23);
-            txtPlan.TabIndex = 6;
             // 
             // lblPlan
             // 
@@ -128,23 +114,38 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
+            // txtAnioEsp
+            // 
+            txtAnioEsp.Location = new Point(415, 251);
+            txtAnioEsp.Name = "txtAnioEsp";
+            txtAnioEsp.Size = new Size(120, 23);
+            txtAnioEsp.TabIndex = 12;
+            // 
+            // txtPlan
+            // 
+            txtPlan.Location = new Point(415, 314);
+            txtPlan.Name = "txtPlan";
+            txtPlan.Size = new Size(120, 23);
+            txtPlan.TabIndex = 13;
+            // 
             // frmComisiones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(870, 480);
+            Controls.Add(txtPlan);
+            Controls.Add(txtAnioEsp);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
-            Controls.Add(txtPlan);
             Controls.Add(lblPlan);
-            Controls.Add(txtAnioEsp);
             Controls.Add(lblAnioEspecialidad);
             Controls.Add(txtDescripcion);
             Controls.Add(lblDescripcion);
             Controls.Add(dgvComisiones);
             Name = "frmComisiones";
             Text = "Comisiones";
+            FormClosing += frmComisiones_FormClosing;
             Load += frmComisiones_Load;
             ((System.ComponentModel.ISupportInitialize)dgvComisiones).EndInit();
             ResumeLayout(false);
@@ -156,12 +157,12 @@
         private DataGridView dgvComisiones;
         private Label lblDescripcion;
         private TextBox txtDescripcion;
-        private TextBox txtAnioEsp;
         private Label lblAnioEspecialidad;
-        private TextBox txtPlan;
         private Label lblPlan;
         private Button btnEliminar;
         private Button btnEditar;
         private Button btnGuardar;
+        private TextBox txtAnioEsp;
+        private TextBox txtPlan;
     }
 }

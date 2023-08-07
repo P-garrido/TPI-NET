@@ -173,6 +173,7 @@
             Controls.Add(lblNomMateria);
             Name = "frmCursos";
             Text = "Menú Cursos";
+            FormClosing += frmCursos_FormClosing;
             Load += frmCursos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCursos).EndInit();
             ((System.ComponentModel.ISupportInitialize)numAnioCal).EndInit();

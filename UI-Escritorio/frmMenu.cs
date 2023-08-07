@@ -45,6 +45,7 @@ namespace UI_Escritorio
         {
             formEspecialidades.Show();
 
+        }
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formMaterias.Show();

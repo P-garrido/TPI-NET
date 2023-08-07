@@ -113,42 +113,48 @@ namespace UI_Escritorio
             descCom = (string)cmbComision.SelectedItem;
         }
 
-            private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dgvCursos.SelectedRows.Count > 0)
             {
-                if (dgvCursos.SelectedRows.Count > 0)
+                try
                 {
-                    try
+                    if (cmbMateria.SelectedIndex == -1 || cmbMateria.SelectedIndex == -1 || numAnioCal.Value == 0 || numCupo.Value == 0)
                     {
-                        if (cmbMateria.SelectedIndex == -1 || cmbMateria.SelectedIndex == -1 || numAnioCal.Value == 0 || numCupo.Value == 0)
-                        {
-                            MessageBox.Show("Complete todos los campos");
-                        }
-                        else
-                        {
-                            DataTable mat = CNMateria.mostrarMateria(cmbMateria.SelectedItem.ToString());
-                            idMat = (int)mat.Rows[0]["id_materia"];
-                            DataTable com = CNComision.mostrarComisionPorDescripcion(cmbComision.SelectedItem.ToString());
-                            idCom = (int)com.Rows[0]["id_comision"];
-                            anio = Decimal.ToInt32(numAnioCal.Value);
-                            cupo = Decimal.ToInt32(numCupo.Value);
-                            Curso cur = new Curso(idMat, idCom, anio, cupo);
-                            CNCurso.actualizarCurso(cur, (int) dgvCursos.CurrentRow.Cells["id_curso"].Value);
-                            mostrarCursos();
-                            cmbMateria.SelectedIndex = -1;
-                            cmbComision.SelectedIndex = -1;
-                            numAnioCal.Value = 0;
-                            numCupo.Value = 0;
-                        }
+                        MessageBox.Show("Complete todos los campos");
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("No se puede editar la materia por " + ex);
+                        DataTable mat = CNMateria.mostrarMateria(cmbMateria.SelectedItem.ToString());
+                        idMat = (int)mat.Rows[0]["id_materia"];
+                        DataTable com = CNComision.mostrarComisionPorDescripcion(cmbComision.SelectedItem.ToString());
+                        idCom = (int)com.Rows[0]["id_comision"];
+                        anio = Decimal.ToInt32(numAnioCal.Value);
+                        cupo = Decimal.ToInt32(numCupo.Value);
+                        Curso cur = new Curso(idMat, idCom, anio, cupo);
+                        CNCurso.actualizarCurso(cur, (int)dgvCursos.CurrentRow.Cells["id_curso"].Value);
+                        mostrarCursos();
+                        cmbMateria.SelectedIndex = -1;
+                        cmbComision.SelectedIndex = -1;
+                        numAnioCal.Value = 0;
+                        numCupo.Value = 0;
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Seleccione una fila");
+                    MessageBox.Show("No se puede editar la materia por " + ex);
                 }
             }
+            else
+            {
+                MessageBox.Show("Seleccione una fila");
+            }
+        }
+
+        private void frmCursos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }

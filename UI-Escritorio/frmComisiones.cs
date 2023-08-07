@@ -16,6 +16,8 @@ namespace UI_Escritorio
     {
         CN_Comisiones CN_Comisiones = new CN_Comisiones();
         CN_Plan CN_Plan = new CN_Plan();
+
+        bool editar = false;
         public frmComisiones()
         {
             InitializeComponent();
@@ -89,5 +91,13 @@ namespace UI_Escritorio
                 MessageBox.Show("Seleccione una fila");
             }
         }
+
+        private void frmComisiones_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
+
+
     }
 }

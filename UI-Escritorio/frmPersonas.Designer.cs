@@ -56,180 +56,193 @@
             // dgvPersonas
             // 
             dgvPersonas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPersonas.Location = new Point(12, 12);
+            dgvPersonas.Location = new Point(10, 9);
+            dgvPersonas.Margin = new Padding(3, 2, 3, 2);
             dgvPersonas.Name = "dgvPersonas";
             dgvPersonas.RowHeadersWidth = 51;
             dgvPersonas.RowTemplate.Height = 29;
-            dgvPersonas.Size = new Size(776, 188);
+            dgvPersonas.Size = new Size(679, 141);
             dgvPersonas.TabIndex = 0;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(19, 225);
+            lblNombre.Location = new Point(17, 169);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(64, 20);
+            lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(146, 226);
+            txtNombre.Location = new Point(128, 170);
+            txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(125, 27);
+            txtNombre.Size = new Size(110, 23);
             txtNombre.TabIndex = 2;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(146, 264);
+            txtApellido.Location = new Point(128, 198);
+            txtApellido.Margin = new Padding(3, 2, 3, 2);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(125, 27);
+            txtApellido.Size = new Size(110, 23);
             txtApellido.TabIndex = 4;
             // 
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(19, 263);
+            lblApellido.Location = new Point(17, 197);
             lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(66, 20);
+            lblApellido.Size = new Size(51, 15);
             lblApellido.TabIndex = 3;
             lblApellido.Text = "Apellido";
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(146, 297);
+            txtDireccion.Location = new Point(128, 223);
+            txtDireccion.Margin = new Padding(3, 2, 3, 2);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(125, 27);
+            txtDireccion.Size = new Size(110, 23);
             txtDireccion.TabIndex = 6;
             // 
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Location = new Point(19, 296);
+            lblDireccion.Location = new Point(17, 222);
             lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(72, 20);
+            lblDireccion.Size = new Size(57, 15);
             lblDireccion.TabIndex = 5;
             lblDireccion.Text = "Direccion";
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(146, 331);
+            txtEmail.Location = new Point(128, 248);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(125, 27);
+            txtEmail.Size = new Size(110, 23);
             txtEmail.TabIndex = 8;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(11, 334);
+            lblEmail.Location = new Point(10, 250);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(46, 20);
+            lblEmail.Size = new Size(36, 15);
             lblEmail.TabIndex = 7;
             lblEmail.Text = "Email";
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(146, 364);
+            txtTelefono.Location = new Point(128, 273);
+            txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(125, 27);
+            txtTelefono.Size = new Size(110, 23);
             txtTelefono.TabIndex = 10;
             // 
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(19, 363);
+            lblTelefono.Location = new Point(17, 272);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(67, 20);
+            lblTelefono.Size = new Size(52, 15);
             lblTelefono.TabIndex = 9;
             lblTelefono.Text = "Telefono";
             // 
             // txtFechaNac
             // 
-            txtFechaNac.Location = new Point(146, 397);
+            txtFechaNac.Location = new Point(128, 298);
+            txtFechaNac.Margin = new Padding(3, 2, 3, 2);
             txtFechaNac.Name = "txtFechaNac";
-            txtFechaNac.Size = new Size(125, 27);
+            txtFechaNac.Size = new Size(110, 23);
             txtFechaNac.TabIndex = 12;
             // 
             // lblFecha_nac
             // 
             lblFecha_nac.AutoSize = true;
-            lblFecha_nac.Location = new Point(11, 396);
+            lblFecha_nac.Location = new Point(10, 297);
             lblFecha_nac.Name = "lblFecha_nac";
-            lblFecha_nac.Size = new Size(128, 20);
+            lblFecha_nac.Size = new Size(103, 15);
             lblFecha_nac.TabIndex = 11;
             lblFecha_nac.Text = "Fecha Nacimiento";
             // 
             // txtTipoPersona
             // 
-            txtTipoPersona.Location = new Point(146, 430);
+            txtTipoPersona.Location = new Point(128, 322);
+            txtTipoPersona.Margin = new Padding(3, 2, 3, 2);
             txtTipoPersona.Name = "txtTipoPersona";
-            txtTipoPersona.Size = new Size(125, 27);
+            txtTipoPersona.Size = new Size(110, 23);
             txtTipoPersona.TabIndex = 14;
             // 
             // lblTipoPersona
             // 
             lblTipoPersona.AutoSize = true;
-            lblTipoPersona.Location = new Point(11, 429);
+            lblTipoPersona.Location = new Point(10, 322);
             lblTipoPersona.Name = "lblTipoPersona";
-            lblTipoPersona.Size = new Size(94, 20);
+            lblTipoPersona.Size = new Size(75, 15);
             lblTipoPersona.TabIndex = 13;
             lblTipoPersona.Text = "Tipo Persona";
             // 
             // txtLegajo
             // 
-            txtLegajo.Location = new Point(146, 477);
+            txtLegajo.Location = new Point(128, 358);
+            txtLegajo.Margin = new Padding(3, 2, 3, 2);
             txtLegajo.Name = "txtLegajo";
-            txtLegajo.Size = new Size(125, 27);
+            txtLegajo.Size = new Size(110, 23);
             txtLegajo.TabIndex = 16;
             // 
             // lblLegajo
             // 
             lblLegajo.AutoSize = true;
-            lblLegajo.Location = new Point(12, 476);
+            lblLegajo.Location = new Point(10, 357);
             lblLegajo.Name = "lblLegajo";
-            lblLegajo.Size = new Size(54, 20);
+            lblLegajo.Size = new Size(42, 15);
             lblLegajo.TabIndex = 15;
             lblLegajo.Text = "Legajo";
             // 
             // txtPlan
             // 
-            txtPlan.Location = new Point(146, 526);
+            txtPlan.Location = new Point(128, 394);
+            txtPlan.Margin = new Padding(3, 2, 3, 2);
             txtPlan.Name = "txtPlan";
-            txtPlan.Size = new Size(125, 27);
+            txtPlan.Size = new Size(110, 23);
             txtPlan.TabIndex = 18;
             // 
             // lblPlan
             // 
             lblPlan.AutoSize = true;
-            lblPlan.Location = new Point(19, 525);
+            lblPlan.Location = new Point(17, 394);
             lblPlan.Name = "lblPlan";
-            lblPlan.Size = new Size(37, 20);
+            lblPlan.Size = new Size(30, 15);
             lblPlan.TabIndex = 17;
             lblPlan.Text = "Plan";
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(12, 612);
+            btnEliminar.Location = new Point(10, 459);
+            btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.Size = new Size(82, 22);
             btnEliminar.TabIndex = 19;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(124, 612);
+            btnEditar.Location = new Point(108, 459);
+            btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(94, 29);
+            btnEditar.Size = new Size(82, 22);
             btnEditar.TabIndex = 20;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(237, 612);
+            btnGuardar.Location = new Point(207, 459);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(94, 29);
+            btnGuardar.Size = new Size(82, 22);
             btnGuardar.TabIndex = 21;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -237,9 +250,9 @@
             // 
             // frmPersonas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 686);
+            ClientSize = new Size(700, 514);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
@@ -262,8 +275,10 @@
             Controls.Add(txtNombre);
             Controls.Add(lblNombre);
             Controls.Add(dgvPersonas);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmPersonas";
             Text = "Personas";
+            FormClosing += frmPersonas_FormClosing;
             Load += frmPersonas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPersonas).EndInit();
             ResumeLayout(false);

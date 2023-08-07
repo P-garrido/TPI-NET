@@ -112,6 +112,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmEspeciaidades";
             Text = "Especiaidades";
+            FormClosing += frmEspeciaidades_FormClosing;
             Load += frmEspeciaidades_Load;
             ((System.ComponentModel.ISupportInitialize)dgvEspecialidades).EndInit();
             ResumeLayout(false);

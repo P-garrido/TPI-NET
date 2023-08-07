@@ -135,6 +135,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmPlanes";
             Text = "Planes";
+            FormClosing += frmPlanes_FormClosing;
             Load += frmPlanes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPlanes).EndInit();
             ResumeLayout(false);

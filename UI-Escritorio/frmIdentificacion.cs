@@ -21,13 +21,19 @@ namespace UI_Escritorio
 
         private void btnNoRegistrado_Click(object sender, EventArgs e)
         {
-           this.DialogResult = DialogResult.Cancel;
+            this.DialogResult = DialogResult.Cancel;
             formPersonas.Show();
         }
 
         private void btnRegistrado_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void frmIdentificacion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
         }
     }
 }
