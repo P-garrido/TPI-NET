@@ -42,6 +42,7 @@ namespace TPI_Datos
             return table;
         }
 
+
         public void agregarPlan(Plan pla)
         {
             comando.Connection = conexion.abrirConexion();

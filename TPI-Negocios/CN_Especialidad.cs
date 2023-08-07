@@ -24,6 +24,11 @@ namespace TPI_Negocios
             return CDEspecialidad.mostrarEspecialidad(descEsp);
         }
 
+        public DataTable mostrarEspecialidadId(int idEsp)
+        {
+            return CDEspecialidad.mostrarEspecialidadId(idEsp);
+        }
+
         public void agregarEspecialidad(string descEsp)
         {
             Especialidad esp = new Especialidad(descEsp);

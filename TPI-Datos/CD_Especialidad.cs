@@ -35,7 +35,18 @@ namespace TPI_Datos
             comando.Connection = conexion.abrirConexion();
             table.Clear();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"SELECT * FROM especialidades WHERE desc_Especialidad = '{descEspecialidad}'";
+            comando.CommandText = $"SELECT * FROM especialidades WHERE desc_especialidad = '{descEspecialidad}'";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+        public DataTable mostrarEspecialidadId(int idEspecialidad)
+        {
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"SELECT * FROM especialidades WHERE id_especialidad = '{idEspecialidad}'";
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();

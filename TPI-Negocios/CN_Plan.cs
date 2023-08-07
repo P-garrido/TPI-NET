@@ -35,10 +35,10 @@ namespace TPI_Negocios
             this.CDPlan.eliminarPlan(idPlan);
         }
 
-        public void actualizarPlan(string nomPla, string descPla, int idEsp)
+        public void actualizarPlan(string nomPlaViejo, string descPla, int idEsp)
         {
             Plan pla = new Plan(descPla, idEsp);
-            this.CDPlan.actualizarPlan(pla, nomPla);
+            this.CDPlan.actualizarPlan(pla, nomPlaViejo);
         }
     }
 }
