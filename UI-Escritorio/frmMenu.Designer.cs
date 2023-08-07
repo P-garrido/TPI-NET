@@ -32,54 +32,75 @@
             tsmCuenta = new ToolStripMenuItem();
             tsmLogin = new ToolStripMenuItem();
             tsmLogout = new ToolStripMenuItem();
+            materiasToolStripMenuItem = new ToolStripMenuItem();
             tsmUsuarios = new ToolStripMenuItem();
             tsmAdministrar = new ToolStripMenuItem();
+
             tsmPlanes = new ToolStripMenuItem();
             tsmAdminPlanes = new ToolStripMenuItem();
             tsmEspecialidades = new ToolStripMenuItem();
             tsmAdminEsp = new ToolStripMenuItem();
+
+            tsmComisiones = new ToolStripMenuItem();
+            tsmCursos = new ToolStripMenuItem();
+
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmPlanes, tsmEspecialidades });
+
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades });
+
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.Padding = new Padding(5, 2, 0, 2);
+            menuStrip1.Size = new Size(700, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // tsmCuenta
             // 
-            tsmCuenta.DropDownItems.AddRange(new ToolStripItem[] { tsmLogin, tsmLogout });
+            tsmCuenta.DropDownItems.AddRange(new ToolStripItem[] { tsmLogin, tsmLogout, materiasToolStripMenuItem });
             tsmCuenta.Name = "tsmCuenta";
-            tsmCuenta.Size = new Size(69, 24);
+            tsmCuenta.Size = new Size(57, 20);
             tsmCuenta.Text = "Cuenta";
             // 
             // tsmLogin
             // 
             tsmLogin.Name = "tsmLogin";
-            tsmLogin.Size = new Size(139, 26);
+
+            tsmLogin.Size = new Size(119, 22);
+
             tsmLogin.Text = "Login";
             // 
             // tsmLogout
             // 
             tsmLogout.Name = "tsmLogout";
-            tsmLogout.Size = new Size(139, 26);
+
+            tsmLogout.Size = new Size(119, 22);
+
             tsmLogout.Text = "Logout";
+            // 
+            // materiasToolStripMenuItem
+            // 
+            materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
+            materiasToolStripMenuItem.Size = new Size(119, 22);
+            materiasToolStripMenuItem.Text = "Materias";
+            materiasToolStripMenuItem.Click += materiasToolStripMenuItem_Click;
             // 
             // tsmUsuarios
             // 
             tsmUsuarios.DropDownItems.AddRange(new ToolStripItem[] { tsmAdministrar });
             tsmUsuarios.Name = "tsmUsuarios";
-            tsmUsuarios.Size = new Size(79, 24);
+            tsmUsuarios.Size = new Size(64, 20);
             tsmUsuarios.Text = "Usuarios";
             // 
             // tsmAdministrar
             // 
             tsmAdministrar.Name = "tsmAdministrar";
+
             tsmAdministrar.Size = new Size(169, 26);
             tsmAdministrar.Text = "Administrar";
             tsmAdministrar.Click += tsmAdministrar_Click;
@@ -111,14 +132,34 @@
             tsmAdminEsp.Size = new Size(224, 26);
             tsmAdminEsp.Text = "Administrar";
             tsmAdminEsp.Click += tsmAdminEsp_Click;
+
+            tsmAdministrar.Size = new Size(136, 22);
+            tsmAdministrar.Text = "Administrar";
+            tsmAdministrar.Click += tsmAdministrar_Click;
+            // 
+            // tsmComisiones
+            // 
+            tsmComisiones.Name = "tsmComisiones";
+            tsmComisiones.Size = new Size(81, 20);
+            tsmComisiones.Text = "Comisiones";
+            tsmComisiones.Click += comisionesToolStripMenuItem_Click;
+            // 
+            // tsmCursos
+            // 
+            tsmCursos.Name = "tsmCursos";
+            tsmCursos.Size = new Size(55, 20);
+            tsmCursos.Text = "Cursos";
+            tsmCursos.Click += tsmCursos_Click;
+
             // 
             // frmMenu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmMenu";
             Text = "Menu";
             menuStrip1.ResumeLayout(false);
@@ -135,9 +176,15 @@
         private ToolStripMenuItem tsmLogout;
         private ToolStripMenuItem tsmUsuarios;
         private ToolStripMenuItem tsmAdministrar;
+
         private ToolStripMenuItem tsmPlanes;
         private ToolStripMenuItem tsmAdminPlanes;
         private ToolStripMenuItem tsmEspecialidades;
         private ToolStripMenuItem tsmAdminEsp;
+
+        private ToolStripMenuItem materiasToolStripMenuItem;
+        private ToolStripMenuItem tsmComisiones;
+        private ToolStripMenuItem tsmCursos;
+
     }
 }

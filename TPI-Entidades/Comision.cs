@@ -6,28 +6,46 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class Comision
+    public class Comision
     {
-
+        private int _idComision;
         private int _anioEspecialidad;
         private string _descripcion;
         private int _idPlan;
+        public Comision(string desc, int anioEsp, int idPlan)
+        {
+            _descripcion = desc;
+            _idPlan = idPlan;
+            _anioEspecialidad = anioEsp;
+        }
+
+        public int IdComision
+        {
+            get => _idComision;
+            set
+            {
+                _idComision = value;
+            }
+        }
 
         public int AnioEspecialidad {
-            get => default;
+            get => _anioEspecialidad;
             set {
+                _anioEspecialidad = value;
             }
         }
 
         public string Descripcion {
-            get => default;
+            get => _descripcion;
             set {
+                _descripcion = value;
             }
         }
 
         public int IdPlan {
-            get => default;
+            get => _idPlan;
             set {
+                _idPlan = value;
             }
         }
     }
