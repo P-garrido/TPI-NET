@@ -25,6 +25,11 @@ namespace TPI_Negocios
             return this.CDMateria.mostrarMaterias();
         }
 
+        public DataTable mostrarMateriasCompleto()
+        {
+            return this.CDMateria.mostrarMateriasCompleto();
+        }
+
         public DataTable mostrarMateria(string descMat)
         {
             return this.CDMateria.mostrarMateria(descMat);

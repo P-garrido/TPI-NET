@@ -67,7 +67,7 @@ namespace UI_Escritorio
 
         public void mostrarCursos()
         {
-            dgvCursos.DataSource = CNCurso.mostrarCursos();
+            dgvCursos.DataSource = CNCurso.mostrarCursosCompleto();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace UI_Escritorio
                 {
                     try
                     {
-                        idCurso = (int)dgvCursos.CurrentRow.Cells["id_curso"].Value;
+                        idCurso = (int)dgvCursos.CurrentRow.Cells["ID Curso"].Value;
                         CNCurso.eliminarCurso(idCurso);
                         MessageBox.Show("Materia eliminada");
                         mostrarCursos();
@@ -106,7 +106,7 @@ namespace UI_Escritorio
             idCom = (int)com.Rows[0]["id_comision"];
             CNCurso.agregarCurso(idMat, idCom, Decimal.ToInt32(numAnioCal.Value), Decimal.ToInt32(numCupo.Value));
             mostrarCursos();
-            numAnioCal.Value = 0;
+            numAnioCal.Value = numAnioCal.Minimum;
         }
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,12 +138,12 @@ namespace UI_Escritorio
                         anio = Decimal.ToInt32(numAnioCal.Value);
                         cupo = Decimal.ToInt32(numCupo.Value);
                         Curso cur = new Curso(idMat, idCom, anio, cupo);
-                        CNCurso.actualizarCurso(cur, (int)dgvCursos.CurrentRow.Cells["id_curso"].Value);
+                        CNCurso.actualizarCurso(cur, (int)dgvCursos.CurrentRow.Cells["ID Curso"].Value);
                         mostrarCursos();
                         cmbMateria.SelectedIndex = -1;
                         cmbComision.SelectedIndex = -1;
-                        numAnioCal.Value = 0;
-                        numCupo.Value = 0;
+                        numAnioCal.Value = numAnioCal.Minimum;
+                        numCupo.Value = numCupo.Minimum;
                     }
                 }
                 catch (Exception ex)

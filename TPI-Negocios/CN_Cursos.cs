@@ -26,6 +26,11 @@ namespace TPI_Negocios
             return this.CDCursos.mostrarCursos();
         }
 
+        public DataTable mostrarCursosCompleto()
+        {
+            return this.CDCursos.mostrarCursosCompleto();
+        }
+
         public DataTable mostrarCurso(int idCurso)
         {
             return this.CDCursos.mostrarCurso(idCurso);

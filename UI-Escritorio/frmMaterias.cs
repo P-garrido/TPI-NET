@@ -34,7 +34,7 @@ namespace UI_Escritorio
 
         public void mostrarMaterias()
         {
-            dgvMaterias.DataSource = CNMateria.mostrarMaterias();
+            dgvMaterias.DataSource = CNMateria.mostrarMateriasCompleto();
         }
 
         public void cargarOpcionesPlan()
@@ -69,7 +69,7 @@ namespace UI_Escritorio
                 {
                     try
                     {
-                        idMateria = (int)dgvMaterias.CurrentRow.Cells["id_materia"].Value;
+                        idMateria = (int)dgvMaterias.CurrentRow.Cells["ID Materia"].Value;
                         CNMateria.eliminarMateria(idMateria);
                         MessageBox.Show("Materia eliminada");
                         mostrarMaterias();
@@ -102,7 +102,7 @@ namespace UI_Escritorio
                     {
                         DataTable pla = CNPlan.mostrarPlan(descPla);
                         idPla = (int)pla.Rows[0]["id_plan"];
-                        string descMat = (string)dgvMaterias.CurrentRow.Cells["desc_materia"].Value;
+                        string descMat = (string)dgvMaterias.CurrentRow.Cells["Nombre"].Value;
                         Materia mat = new Materia(txtDescripcionMateria.Text, Decimal.ToInt32(numHorasSemanales.Value), Decimal.ToInt32(numHorasTotales.Value), idPla);
                         CNMateria.actualizarMateria(mat, descMat);
                         mostrarMaterias();
