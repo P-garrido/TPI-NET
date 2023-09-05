@@ -21,10 +21,21 @@ namespace TPI_Datos
 
         public DataTable mostrarCursos()
         {
-
             comando.Connection = conexion.abrirConexion();
             table.Clear();
             comando.CommandText = "SELECT * FROM cursos";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
+        public DataTable mostrarCursosCompleto()
+        {
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_curso 'ID Curso', desc_materia Materia, desc_comision Comisión, anio_calendario 'Año Calendario', cupo Cupo FROM cursos cur " +
+                                  "INNER JOIN materias mat ON cur.id_materia = mat.id_materia INNER JOIN comisiones com ON com.id_comision = cur.id_comision";
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();

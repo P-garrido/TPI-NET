@@ -93,9 +93,12 @@
             // numAnioCal
             // 
             numAnioCal.Location = new Point(102, 260);
+            numAnioCal.Maximum = new decimal(new int[] { 2023, 0, 0, 0 });
+            numAnioCal.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
             numAnioCal.Name = "numAnioCal";
             numAnioCal.Size = new Size(120, 23);
             numAnioCal.TabIndex = 11;
+            numAnioCal.Value = new decimal(new int[] { 2000, 0, 0, 0 });
             // 
             // numCupo
             // 
