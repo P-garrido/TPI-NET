@@ -22,12 +22,18 @@ namespace UI_Escritorio
 
         int idCurso = 0;
         string descCom = "";
+        string nomMat = "";
+        string nomCom = "";
         int idMat = 0;
         int idCom = 0;
         int idPla = 0;
         int anio = 0;
         int cupo = 0;
         string descMat = "";
+        DataTable materias;
+        DataTable comisiones;
+        DataTable mat;
+        DataTable com;
 
         public frmCursos()
         {
@@ -36,14 +42,14 @@ namespace UI_Escritorio
 
         private void frmCursos_Load(object sender, EventArgs e)
         {
-            mostrarCursos();
             cargarOpcionesMaterias();
             cargarOpcionesComisiones();
+            mostrarCursos();
         }
 
         public void cargarOpcionesMaterias()
         {
-            DataTable materias = CNMateria.mostrarMaterias();
+            materias = CNMateria.mostrarMaterias();
             for (int i = 0; i < materias.Rows.Count; i++)
             {
                 cmbMateria.Items.Add(materias.Rows[i]["desc_materia"]);
@@ -52,7 +58,7 @@ namespace UI_Escritorio
 
         public void cargarOpcionesComisiones()
         {
-            DataTable comisiones = CNComision.mostrarComisiones();
+            comisiones = CNComision.mostrarComisiones();
             for (int i = 0; i < comisiones.Rows.Count; i++)
             {
                 cmbComision.Items.Add(comisiones.Rows[i]["desc_comision"]);

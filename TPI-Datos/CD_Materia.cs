@@ -31,6 +31,7 @@ namespace TPI_Datos
             return table;
         }
 
+
         public void agregarMateria(Materia mat)
         {
             comando.Connection = conexion.abrirConexion();
@@ -66,6 +67,18 @@ namespace TPI_Datos
             table.Clear();
             comando.CommandType = CommandType.Text;
             comando.CommandText = $"SELECT * FROM materias WHERE desc_materia= '{descMat}'";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
+        public DataTable mostrarMateriaPorId(int idMat)
+        {
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"SELECT * FROM materias WHERE id_materia= '{idMat}'";
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();
