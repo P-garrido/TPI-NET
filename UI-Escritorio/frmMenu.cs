@@ -1,3 +1,6 @@
+using TPI_Entidades;
+using TPI_Negocios;
+
 namespace UI_Escritorio
 {
     public partial class frmMenu : Form
@@ -16,6 +19,10 @@ namespace UI_Escritorio
         frmMaterias formMaterias = new frmMaterias();
         frmComisiones formComisiones = new frmComisiones();
         frmCursos formCursos = new frmCursos();
+
+        Usuario usuario = null;
+
+        CN_Persona CNPersona = new CN_Persona();
 
         private void tsmAdministrar_Click(object sender, EventArgs e)
         {
@@ -59,6 +66,20 @@ namespace UI_Escritorio
         private void tsmCursos_Click(object sender, EventArgs e)
         {
             formCursos.Show();
+
+        }
+
+        public void obtenerUsuario(Usuario usu)
+        {
+            usuario = usu;
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            if (CNPersona.buscarPersonaPorId(usuario.IdPersona) == 1)
+            {
+                tsmAdminEsp.Visible = false;
+            }
 
         }
     }

@@ -74,6 +74,17 @@ namespace TPI_Datos
             return table;
         }
 
+        public DataTable validarUsuario(string nomUsu, string pass)
+        {
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = $"SELECT * FROM usuarios WHERE nombre_usuario= '{nomUsu}' AND clave='{pass}'";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
 
     }
 }

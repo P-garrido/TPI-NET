@@ -14,11 +14,27 @@ namespace TPI_Negocios
         public CN_Usuario() { }
 
         CD_Usuario CDUsuario = new CD_Usuario();
+        Usuario usu = null;
 
         public void agregarUsuario(string nomUsu, string clave, string nombre, string apellido, string email, int idPersona)
         {
             Usuario usu = new Usuario(nomUsu, clave, nombre, apellido, email, idPersona);
             this.CDUsuario.agregarUsuario(usu);
+        }
+
+        public Usuario validarUsuario(string nomUsu, string pass)
+        {
+            DataTable dt = CDUsuario.validarUsuario(nomUsu, pass);
+            if(dt.Rows.Count > 0)
+            {
+                usu = new Usuario(dt.Rows[0]["nombre_usuario"].ToString(), dt.Rows[0]["clave"].ToString(), dt.Rows[0]["nombre"].ToString(), dt.Rows[0]["apellido"].ToString(),
+               dt.Rows[0]["email"].ToString(), (int)dt.Rows[0]["id_persona"]);
+            }
+            else
+            {
+                usu = null;
+            }
+            return usu;
         }
 
         public DataTable mostrarUsuarios()

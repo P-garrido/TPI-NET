@@ -13,10 +13,11 @@ namespace TPI_Negocios
     {
 
         CD_Persona CDPersona = new CD_Persona();
+        Persona per = null;
 
         public void agregarPersona(string ape, string dir, string email,DateTime  fechaNac,int idPlan, int leg, string nom, string tel,  int tipoPer)
         {
-            Persona per = new Persona(ape, dir, email, fechaNac, idPlan, leg, nom, tel, tipoPer);
+            per = new Persona(ape, dir, email, fechaNac, idPlan, leg, nom, tel, tipoPer);
             this.CDPersona.agregarPersona(per);
         }
 
@@ -39,6 +40,15 @@ namespace TPI_Negocios
         {
 
             this.CDPersona.actualizarPersona(per, nomPer);
+        }
+
+        public int buscarPersonaPorId(int idPer)
+        {
+            DataTable dt = CDPersona.buscarPersona(idPer);
+
+            int tipoPer = (int)dt.Rows[0]["tipo_persona"];
+            return tipoPer;
+
         }
     }
 }

@@ -74,5 +74,17 @@ namespace TPI_Datos
             conexion.cerrarConexion();
             return table;
         }
+
+        public DataTable buscarPersona(int idPer)
+        {
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"SELECT * FROM Personas WHERE id_persona = '{idPer}'";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
     }
 }
