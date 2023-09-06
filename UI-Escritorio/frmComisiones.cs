@@ -29,7 +29,7 @@ namespace UI_Escritorio
         }
         public void mostrarComisiones()
         {
-            dgvComisiones.DataSource = CN_Comisiones.mostrarComisiones();
+            dgvComisiones.DataSource = CN_Comisiones.mostrarComisionesCompleto();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

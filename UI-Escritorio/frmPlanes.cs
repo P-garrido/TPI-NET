@@ -46,7 +46,7 @@ namespace UI_Escritorio
 
         public void mostrarPlanes()
         {
-            dgvPlanes.DataSource = CNPlan.mostrarPlanes();
+            dgvPlanes.DataSource = CNPlan.mostrarPlanesCompleto();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

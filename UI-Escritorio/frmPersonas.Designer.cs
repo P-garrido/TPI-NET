@@ -45,11 +45,11 @@
             lblTipoPersona = new Label();
             txtLegajo = new TextBox();
             lblLegajo = new Label();
-            txtPlan = new TextBox();
             lblPlan = new Label();
             btnEliminar = new Button();
             btnEditar = new Button();
             btnGuardar = new Button();
+            cmbPlanes = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPersonas).BeginInit();
             SuspendLayout();
             // 
@@ -200,14 +200,6 @@
             lblLegajo.TabIndex = 15;
             lblLegajo.Text = "Legajo";
             // 
-            // txtPlan
-            // 
-            txtPlan.Location = new Point(128, 394);
-            txtPlan.Margin = new Padding(3, 2, 3, 2);
-            txtPlan.Name = "txtPlan";
-            txtPlan.Size = new Size(110, 23);
-            txtPlan.TabIndex = 18;
-            // 
             // lblPlan
             // 
             lblPlan.AutoSize = true;
@@ -226,6 +218,7 @@
             btnEliminar.TabIndex = 19;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
@@ -236,6 +229,7 @@
             btnEditar.TabIndex = 20;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnGuardar
             // 
@@ -248,15 +242,23 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
+            // cmbPlanes
+            // 
+            cmbPlanes.FormattingEnabled = true;
+            cmbPlanes.Location = new Point(128, 394);
+            cmbPlanes.Name = "cmbPlanes";
+            cmbPlanes.Size = new Size(121, 23);
+            cmbPlanes.TabIndex = 22;
+            // 
             // frmPersonas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 514);
+            Controls.Add(cmbPlanes);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
-            Controls.Add(txtPlan);
             Controls.Add(lblPlan);
             Controls.Add(txtLegajo);
             Controls.Add(lblLegajo);
@@ -304,10 +306,10 @@
         private Label lblTipoPersona;
         private TextBox txtLegajo;
         private Label lblLegajo;
-        private TextBox txtPlan;
         private Label lblPlan;
         private Button btnEliminar;
         private Button btnEditar;
         private Button btnGuardar;
+        private ComboBox cmbPlanes;
     }
 }

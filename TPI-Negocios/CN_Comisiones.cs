@@ -25,6 +25,11 @@ namespace TPI_Negocios
             return this.CDComisiones.mostrarComisiones();
         }
 
+        public DataTable mostrarComisionesCompleto()
+        {
+            return this.CDComisiones.mostrarComisionesCompleto();
+        }
+
         public DataTable mostrarComision(int idCom)
         {
             return this.CDComisiones.mostrarComision(idCom);

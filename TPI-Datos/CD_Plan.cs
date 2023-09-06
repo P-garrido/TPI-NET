@@ -30,6 +30,18 @@ namespace TPI_Datos
             return table;
         }
 
+        public DataTable mostrarPlanesCompleto()
+        {
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_plan 'ID Plan', desc_plan 'Descripción', desc_especialidad 'Especialidad' FROM planes pla INNER JOIN especialidades esp ON esp.id_especialidad = pla.id_especialidad";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
         public DataTable mostrarPlan(string descPlan)
         {
             comando.Connection = conexion.abrirConexion();

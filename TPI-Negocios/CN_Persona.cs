@@ -26,6 +26,11 @@ namespace TPI_Negocios
             return this.CDPersona.mostrarPersonas();
         }
 
+        public DataTable mostrarPersonasCompleto()
+        {
+            return this.CDPersona.mostrarPersonasCompleto();
+        }
+
         public DataTable mostrarPersona(int legPer)
         {
             return this.CDPersona.mostrarPersona(legPer);

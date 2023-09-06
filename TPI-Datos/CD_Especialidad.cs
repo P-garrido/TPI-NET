@@ -30,6 +30,18 @@ namespace TPI_Datos
             return table;
         }
 
+        public DataTable mostrarEspecialidadesCompleto()
+        {
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_especialidad 'ID Especialidad', desc_especialidad 'Descripción' FROM Especialidades";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
         public DataTable mostrarEspecialidad(string descEspecialidad)
         {
             comando.Connection = conexion.abrirConexion();
