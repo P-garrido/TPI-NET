@@ -27,7 +27,7 @@ namespace UI_Escritorio
 
         public void mostrarUsuarios()
         {
-            dgvUsuarios.DataSource = CNusuario.mostrarUsuarios();
+            dgvUsuarios.DataSource = CNusuario.mostrarUsuariosCompleto();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

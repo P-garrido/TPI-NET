@@ -42,6 +42,11 @@ namespace TPI_Negocios
             return this.CDUsuario.mostrarUsuarios();
         }
 
+        public DataTable mostrarUsuariosCompleto()
+        {
+            return this.CDUsuario.mostrarUsuariosCompleto();
+        }
+
         public DataTable mostrarUsuario(string nomUsu)
         {
             return this.CDUsuario.mostrarUsuario(nomUsu);
