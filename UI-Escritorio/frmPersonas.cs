@@ -22,6 +22,11 @@ namespace UI_Escritorio
         string nomPersona = "";
         int idPla = 0;
         string nomPer = "";
+        DateTime fechaNac;
+        int anio;
+        int mes;
+        int dia;
+        string stringFecha = "";
         public frmPersonas()
         {
             InitializeComponent();
@@ -52,11 +57,11 @@ namespace UI_Escritorio
         {
             DataTable plan = CNPlan.mostrarPlan(descPla);
             int idPlan = (int)plan.Rows[0]["id_plan"];
-            CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(txtFechaNac.Text), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, int.Parse(txtTipoPersona.Text));
+            CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(stringFecha), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, int.Parse(txtTipoPersona.Text));
             txtLegajo.Text = "";
             txtDireccion.Text = "";
             txtNombre.Text = "";
-            txtFechaNac.Text = "";
+            stringFecha = "";
             txtApellido.Text = "";
             txtEmail.Text = "";
             txtTelefono.Text = "";
@@ -68,11 +73,6 @@ namespace UI_Escritorio
         {
             this.Hide();
             e.Cancel = true;
-        }
-
-        private void cmbPlan_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            descPla = (string)cmbPlanes.SelectedItem;
         }
 
 
@@ -148,6 +148,21 @@ namespace UI_Escritorio
             //{
             //    MessageBox.Show("Seleccione una fila");
             //}
+        }
+
+        private void dtpFechaNac_ValueChanged(object sender, EventArgs e)
+        {
+            fechaNac = dtpFechaNac.Value;
+            anio = fechaNac.Year;
+            mes = fechaNac.Month;
+            dia = fechaNac.Day;
+            stringFecha = anio.ToString() + '/' + mes.ToString() + '/' + dia.ToString();
+        }
+
+        private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            descPla = (string)cmbPlanes.SelectedItem;
+            MessageBox.Show(descPla);
         }
     }
 }

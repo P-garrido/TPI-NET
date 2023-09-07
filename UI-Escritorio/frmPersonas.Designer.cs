@@ -39,7 +39,6 @@
             lblEmail = new Label();
             txtTelefono = new TextBox();
             lblTelefono = new Label();
-            txtFechaNac = new TextBox();
             lblFecha_nac = new Label();
             txtTipoPersona = new TextBox();
             lblTipoPersona = new Label();
@@ -50,6 +49,7 @@
             btnEditar = new Button();
             btnGuardar = new Button();
             cmbPlanes = new ComboBox();
+            dtpFechaNac = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dgvPersonas).BeginInit();
             SuspendLayout();
             // 
@@ -149,14 +149,6 @@
             lblTelefono.TabIndex = 9;
             lblTelefono.Text = "Telefono";
             // 
-            // txtFechaNac
-            // 
-            txtFechaNac.Location = new Point(128, 298);
-            txtFechaNac.Margin = new Padding(3, 2, 3, 2);
-            txtFechaNac.Name = "txtFechaNac";
-            txtFechaNac.Size = new Size(110, 23);
-            txtFechaNac.TabIndex = 12;
-            // 
             // lblFecha_nac
             // 
             lblFecha_nac.AutoSize = true;
@@ -249,12 +241,23 @@
             cmbPlanes.Name = "cmbPlanes";
             cmbPlanes.Size = new Size(121, 23);
             cmbPlanes.TabIndex = 22;
+            cmbPlanes.SelectedIndexChanged += cmbPlanes_SelectedIndexChanged;
+            // 
+            // dtpFechaNac
+            // 
+            dtpFechaNac.Format = DateTimePickerFormat.Short;
+            dtpFechaNac.Location = new Point(128, 297);
+            dtpFechaNac.Name = "dtpFechaNac";
+            dtpFechaNac.Size = new Size(110, 23);
+            dtpFechaNac.TabIndex = 23;
+            dtpFechaNac.ValueChanged += dtpFechaNac_ValueChanged;
             // 
             // frmPersonas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 514);
+            Controls.Add(dtpFechaNac);
             Controls.Add(cmbPlanes);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
@@ -264,7 +267,6 @@
             Controls.Add(lblLegajo);
             Controls.Add(txtTipoPersona);
             Controls.Add(lblTipoPersona);
-            Controls.Add(txtFechaNac);
             Controls.Add(lblFecha_nac);
             Controls.Add(txtTelefono);
             Controls.Add(lblTelefono);
@@ -300,7 +302,6 @@
         private Label lblEmail;
         private TextBox txtTelefono;
         private Label lblTelefono;
-        private TextBox txtFechaNac;
         private Label lblFecha_nac;
         private TextBox txtTipoPersona;
         private Label lblTipoPersona;
@@ -311,5 +312,6 @@
         private Button btnEditar;
         private Button btnGuardar;
         private ComboBox cmbPlanes;
+        private DateTimePicker dtpFechaNac;
     }
 }
