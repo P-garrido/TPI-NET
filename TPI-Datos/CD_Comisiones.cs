@@ -83,5 +83,16 @@ namespace TPI_Datos
             return table;
         }
 
+        //public DataTable mostrarComisionesConCurso()
+        //{
+        //    comando.Connection = conexion.abrirConexion();
+        //    table.Clear();
+        //    comando.CommandText = "SELECT * FROM comisiones com INNER JOIN cursos cur ON com.id_comision=cur.id_comision";
+        //    reader = comando.ExecuteReader();
+        //    table.Load(reader);
+        //    conexion.cerrarConexion();
+        //    return table;
+        //}
+
     }
 }

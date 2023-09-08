@@ -45,5 +45,17 @@ namespace TPI_Negocios
         {
             this.CDCursos.actualizarCurso(cur, idCur);
         }
+
+        public DataTable mostrarCursosConCupos(int idMat)
+        {
+            //Verificar que los cupos no sean nulos
+            DataTable cursos = CDCursos.mostrarCursosCompletoPorMateria(idMat);
+            return cursos;
+        }
+
+        public DataTable buscarCurso(int idMat, int idCom)
+        {
+            return CDCursos.buscarCurso(idMat, idCom);
+        }
     }
 }
