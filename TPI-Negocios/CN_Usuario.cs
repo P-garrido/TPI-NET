@@ -57,6 +57,11 @@ namespace TPI_Negocios
             this.CDUsuario.eliminarUsuario(nomUsu);
         }
 
+        public void eliminarUsuariosDePersona(int idPer)
+        {
+            this.CDUsuario.eliminarUsuariosDePersona(idPer);
+        }
+
         public void actualizarUsuario(string nomUsu, Usuario usu)
         {
             this.CDUsuario.actualizarUsuario(usu, nomUsu);
