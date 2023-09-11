@@ -111,12 +111,12 @@
             // 
             // cmbEspecialidad
             // 
+            cmbEspecialidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEspecialidad.FormattingEnabled = true;
             cmbEspecialidad.Location = new Point(193, 207);
             cmbEspecialidad.Name = "cmbEspecialidad";
             cmbEspecialidad.Size = new Size(137, 23);
             cmbEspecialidad.TabIndex = 8;
-            cmbEspecialidad.Text = "Elija una especialidad";
             cmbEspecialidad.SelectedIndexChanged += cmbEspecialidad_SelectedIndexChanged;
             // 
             // frmPlanes

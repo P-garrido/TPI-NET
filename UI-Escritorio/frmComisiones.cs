@@ -112,7 +112,7 @@ namespace UI_Escritorio
 
         private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            descPla = (string) cmbPlanes.SelectedItem;
+            descPla = (string)cmbPlanes.SelectedItem;
         }
     }
 }
