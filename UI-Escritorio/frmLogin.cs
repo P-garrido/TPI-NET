@@ -18,6 +18,7 @@ namespace UI_Escritorio
         Usuario usuarioLogueado = null;
         frmIdentificacion formIdentificacion = new frmIdentificacion();
         frmMenu formMenu = new frmMenu();
+        frmUsuarios formUsuarios = new frmUsuarios();
         public frmLogin()
         {
             InitializeComponent();
@@ -25,7 +26,16 @@ namespace UI_Escritorio
 
         private void lklCrearUsu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            formIdentificacion.Show();
+            formIdentificacion.ShowDialog();
+            //if (formIdentificacion.ShowDialog() == DialogResult.OK)
+            //{
+            //    formUsuarios.Show();
+
+            //}
+            //else
+            //{
+            //    formIdentificacion.Hide();
+            //}
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

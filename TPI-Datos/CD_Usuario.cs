@@ -33,6 +33,20 @@ namespace TPI_Datos
             return table;
         }
 
+        public DataTable mostrarUsuariosCompleto()
+        {
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_usuario 'ID Usuario', nombre_usuario 'Nombre de Usuario', clave 'Clave', " +
+                "habilitado 'Habilitado', nombre 'Nombre', apellido 'Apellido', email 'Email', cambia_clave 'Cambia Clave'" +
+                ", id_persona 'ID Persona' FROM usuarios ";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
         public void agregarUsuario(Usuario usu)
         {
             comando.Connection = conexion.abrirConexion();

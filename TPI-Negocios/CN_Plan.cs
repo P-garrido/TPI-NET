@@ -19,6 +19,11 @@ namespace TPI_Negocios
             return this.CDPlan.mostrarPlanes();
         }
 
+        public DataTable mostrarPlanesCompleto()
+        {
+            return this.CDPlan.mostrarPlanesCompleto();
+        }
+
         public DataTable mostrarPlan(string descPlan)
         {
             return this.CDPlan.mostrarPlan(descPlan);

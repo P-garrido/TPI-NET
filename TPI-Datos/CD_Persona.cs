@@ -32,6 +32,20 @@ namespace TPI_Datos
             return table;
         }
 
+        public DataTable mostrarPersonasCompleto()
+        {
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_persona 'ID Persona', nombre 'Nombre', apellido 'Apellido', direccion 'Dirección', " +
+                "email 'Email', telefono 'Teléfono', fecha_nac 'Fecha de Nacimiento', legajo 'Legajo', tipo_persona 'Tipo de Persona', desc_plan 'Plan'" +
+                "FROM personas per INNER JOIN planes pla ON per.id_plan = pla.id_plan";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
         public void agregarPersona(Persona per)
         {
             comando.Connection = conexion.abrirConexion();
