@@ -63,7 +63,7 @@ namespace TPI_Datos
             comando.CommandType = CommandType.Text;
             comando.CommandText = $"UPDATE personas SET nombre= '{per.Nombre}', apellido= '{per.Apellido}', direccion= '{per.Direccion}'," +
                 $"email= '{per.Email}', telefono= '{per.Telefono}', fecha_nac= '{per.FechaNacimiento}', legajo= '{per.Legajo}', tipo_persona='{per.TipoPersona}'" +
-                $" WHERE nombrePersona = '{nomPer}' ";
+                $" WHERE nombre = '{nomPer}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }

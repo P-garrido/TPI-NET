@@ -28,6 +28,8 @@ namespace UI_Escritorio
         int mes;
         int dia;
         string stringFecha = "";
+        int tipoPer;
+
         public frmPersonas()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace UI_Escritorio
         {
             mostrarPersonas();
             cargarOpcionesPlan();
+            cargarOpcionesTipoPersona();
 
         }
 
@@ -47,6 +50,12 @@ namespace UI_Escritorio
             {
                 cmbPlanes.Items.Add(planes.Rows[i]["desc_plan"].ToString());
             }
+        }
+
+        public void cargarOpcionesTipoPersona()
+        {
+            cmbTipoPersona.Items.Add("Docente");
+            cmbTipoPersona.Items.Add("Alumno");
         }
 
         public void mostrarPersonas()
@@ -61,7 +70,7 @@ namespace UI_Escritorio
             DataTable plan = CNPlan.mostrarPlan(descPla);
             int idPlan = (int)plan.Rows[0]["id_plan"];
             CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(numAño.Value.ToString() +
-                 '-' + numMes.Value.ToString() + '-' + numDia.Value.ToString()), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, int.Parse(txtTipoPersona.Text));
+                 '-' + numMes.Value.ToString() + '-' + numDia.Value.ToString()), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, tipoPer);
             txtLegajo.Text = "";
             txtDireccion.Text = "";
             txtNombre.Text = "";
@@ -69,7 +78,7 @@ namespace UI_Escritorio
             txtApellido.Text = "";
             txtEmail.Text = "";
             txtTelefono.Text = "";
-            txtTipoPersona.Text = "";
+            cmbTipoPersona.SelectedIndex = -1;
             mostrarPersonas();
         }
 
@@ -97,7 +106,7 @@ namespace UI_Escritorio
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("No se puede eliminar la materia por " + ex);
+                        MessageBox.Show("No se puede eliminar la persona por " + ex);
                     }
 
 
@@ -113,51 +122,67 @@ namespace UI_Escritorio
         // no item at position 0. Empezar devuelta?
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //if (dgvPersonas.SelectedRows.Count > 0)
-            //{
-            //    try
-            //    {
-            //        if (txtNombre.Text == "" || txtApellido.Text == "" || txtDireccion.Text == "" || txtEmail.Text == "" || 
-            //            txtTelefono.Text == "" || txtFechaNac.Text == "" || txtTipoPersona.Text == "" || txtLegajo.Text == "" 
-            //            || descPla == "")
-            //        {
-            //            MessageBox.Show("Complete todos los campos");
-            //        }
-            //        else
-            //        {
-            //            DataTable pla = CNPlan.mostrarPlan(descPla);
-            //            idPla = (int)pla.Rows[0]["id_plan"];
-            //            nomPer = (string)dgvPersonas.CurrentRow.Cells["Nombre"].Value;
-            //            Persona per = new Persona(txtApellido.Text, txtDireccion.Text,txtEmail.Text, DateTime.Parse(txtFechaNac.Text), idPla,
-            //                int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, (int) dgvPersonas.CurrentRow.Cells["Tipo de Persona"].Value);
-            //            CNPersona.actualizarPersona(nomPer, per);
-            //            mostrarPersonas();
-            //            txtNombre.Text = "";
-            //            txtApellido.Text = "";
-            //            txtDireccion.Text = "";
-            //            txtEmail.Text = "";
-            //            txtTelefono.Text = "";
-            //            txtFechaNac.Text = "";
-            //            txtTipoPersona.Text = "";
-            //            txtLegajo.Text = "";
-            //            cmbPlanes.SelectedIndex = -1;
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("No se puede editar la materia por " + ex);
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Seleccione una fila");
-            //}
+            if (dgvPersonas.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    if (txtNombre.Text == "" || txtApellido.Text == "" || txtDireccion.Text == "" || txtEmail.Text == "" ||
+                        txtTelefono.Text == "" || numAño.Value == numAño.Minimum || numMes.Value == numMes.Minimum || numDia.Value ==
+                        numMes.Minimum || cmbTipoPersona.SelectedIndex == -1 || txtLegajo.Text == ""
+                        || descPla == "")
+                    {
+                        MessageBox.Show("Complete todos los campos");
+                    }
+                    else
+                    {
+                        DataTable pla = CNPlan.mostrarPlan(descPla);
+                        idPla = (int)pla.Rows[0]["id_plan"];
+                        nomPer = (string)dgvPersonas.CurrentRow.Cells["Nombre"].Value;
+                        Persona per = new Persona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(numAño.Value.ToString() +
+                 '-' + numMes.Value.ToString() + '-' + numDia.Value.ToString()), idPla,
+                            int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, (int)dgvPersonas.CurrentRow.Cells["Tipo de Persona"].Value);
+                        CNPersona.actualizarPersona(nomPer, per);
+                        mostrarPersonas();
+                        txtNombre.Text = "";
+                        txtApellido.Text = "";
+                        txtDireccion.Text = "";
+                        txtEmail.Text = "";
+                        txtTelefono.Text = "";
+                        numAño.Value = numAño.Minimum;
+                        numMes.Value = numMes.Minimum;
+                        numDia.Value = numDia.Minimum;
+                        cmbTipoPersona.SelectedIndex = -1;
+                        txtLegajo.Text = "";
+                        cmbPlanes.SelectedIndex = -1;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se puede editar la persona por " + ex);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila");
+            }
         }
 
 
         private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
         {
             descPla = (string)cmbPlanes.SelectedItem;
+        }
+
+        private void cmbTipoPersona_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((string)cmbTipoPersona.SelectedItem == "Alumno")
+            {
+                tipoPer = 1;
+            }
+            else
+            {
+                tipoPer = 0;
+            }
         }
     }
 }

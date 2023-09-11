@@ -40,7 +40,6 @@
             txtTelefono = new TextBox();
             lblTelefono = new Label();
             lblFecha_nac = new Label();
-            txtTipoPersona = new TextBox();
             lblTipoPersona = new Label();
             txtLegajo = new TextBox();
             lblLegajo = new Label();
@@ -52,6 +51,7 @@
             numAño = new NumericUpDown();
             numMes = new NumericUpDown();
             numDia = new NumericUpDown();
+            cmbTipoPersona = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPersonas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numAño).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numMes).BeginInit();
@@ -163,14 +163,6 @@
             lblFecha_nac.TabIndex = 11;
             lblFecha_nac.Text = "Fecha Nacimiento (AAAA/MM/DD)";
             // 
-            // txtTipoPersona
-            // 
-            txtTipoPersona.Location = new Point(128, 322);
-            txtTipoPersona.Margin = new Padding(3, 2, 3, 2);
-            txtTipoPersona.Name = "txtTipoPersona";
-            txtTipoPersona.Size = new Size(110, 23);
-            txtTipoPersona.TabIndex = 14;
-            // 
             // lblTipoPersona
             // 
             lblTipoPersona.AutoSize = true;
@@ -278,11 +270,22 @@
             numDia.TabIndex = 25;
             numDia.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
+            // cmbTipoPersona
+            // 
+            cmbTipoPersona.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipoPersona.FormattingEnabled = true;
+            cmbTipoPersona.Location = new Point(128, 322);
+            cmbTipoPersona.Name = "cmbTipoPersona";
+            cmbTipoPersona.Size = new Size(121, 23);
+            cmbTipoPersona.TabIndex = 26;
+            cmbTipoPersona.SelectedIndexChanged += cmbTipoPersona_SelectedIndexChanged;
+            // 
             // frmPersonas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 514);
+            Controls.Add(cmbTipoPersona);
             Controls.Add(numDia);
             Controls.Add(numMes);
             Controls.Add(numAño);
@@ -293,7 +296,6 @@
             Controls.Add(lblPlan);
             Controls.Add(txtLegajo);
             Controls.Add(lblLegajo);
-            Controls.Add(txtTipoPersona);
             Controls.Add(lblTipoPersona);
             Controls.Add(lblFecha_nac);
             Controls.Add(txtTelefono);
@@ -334,7 +336,6 @@
         private TextBox txtTelefono;
         private Label lblTelefono;
         private Label lblFecha_nac;
-        private TextBox txtTipoPersona;
         private Label lblTipoPersona;
         private TextBox txtLegajo;
         private Label lblLegajo;
@@ -346,5 +347,6 @@
         private NumericUpDown numAño;
         private NumericUpDown numMes;
         private NumericUpDown numDia;
+        private ComboBox cmbTipoPersona;
     }
 }
