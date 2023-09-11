@@ -14,7 +14,7 @@ namespace TPI_Datos
 
         public CD_Conexion() { }
 
-        private SqlConnection conexion = new SqlConnection("Server=DESKTOP-TN05UQ7\\SQLEXPRESS; DataBase=Academia; Integrated Security= yes");
+        private SqlConnection conexion = new SqlConnection("Server=MS-06\\SQLEXPRESS; DataBase=Academia; Integrated Security= yes");
 
         public SqlConnection abrirConexion()
         {
