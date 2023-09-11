@@ -82,5 +82,29 @@ namespace TPI_Datos
             conexion.cerrarConexion();
             return table;
         }
+
+        public DataTable mostrarCursosCompletoPorMateria(int idMat)
+        {
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = $"SELECT * FROM cursos cur INNER JOIN materias mat ON cur.id_materia = mat.id_materia AND cur.cupo>0 INNER JOIN comisiones com ON com.id_comision = cur.id_comision WHERE cur.id_materia='{idMat}'";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
+        public DataTable buscarCurso(int idMat, int idCom)
+        {
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"SELECT * FROM cursos WHERE id_materia= {idMat} AND id_comision={idCom}";
+            
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
     }
 }
