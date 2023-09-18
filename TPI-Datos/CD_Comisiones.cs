@@ -31,6 +31,18 @@ namespace TPI_Datos
             return table;
         }
 
+        public DataTable mostrarComisionesCompleto()
+        {
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_comision 'ID Comision', desc_comision Descripción , anio_especialidad 'Año Especialidad' , desc_plan 'Plan de Estudios' FROM comisiones com INNER JOIN planes pla ON pla.id_plan = com.id_plan";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
         public void agregarComision(Comision com)
         {
             comando.Connection = conexion.abrirConexion();
@@ -83,6 +95,7 @@ namespace TPI_Datos
             return table;
         }
 
+
         //public DataTable mostrarComisionesConCurso()
         //{
         //    comando.Connection = conexion.abrirConexion();
@@ -93,6 +106,7 @@ namespace TPI_Datos
         //    conexion.cerrarConexion();
         //    return table;
         //}
+
 
     }
 }

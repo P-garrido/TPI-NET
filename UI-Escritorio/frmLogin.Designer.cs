@@ -39,51 +39,54 @@
             // lblNomUsuario
             // 
             lblNomUsuario.AutoSize = true;
-            lblNomUsuario.Location = new Point(169, 125);
+            lblNomUsuario.Location = new Point(148, 94);
             lblNomUsuario.Name = "lblNomUsuario";
-            lblNomUsuario.Size = new Size(139, 20);
+            lblNomUsuario.Size = new Size(110, 15);
             lblNomUsuario.TabIndex = 0;
             lblNomUsuario.Text = "Nombre de Usuario";
             // 
             // txtNomUsuario
             // 
-            txtNomUsuario.Location = new Point(336, 132);
+            txtNomUsuario.Location = new Point(294, 99);
+            txtNomUsuario.Margin = new Padding(3, 2, 3, 2);
             txtNomUsuario.Name = "txtNomUsuario";
-            txtNomUsuario.Size = new Size(125, 27);
+            txtNomUsuario.Size = new Size(110, 23);
             txtNomUsuario.TabIndex = 1;
             // 
             // txtPass
             // 
-            txtPass.Location = new Point(336, 209);
+            txtPass.Location = new Point(294, 157);
+            txtPass.Margin = new Padding(3, 2, 3, 2);
             txtPass.Name = "txtPass";
-            txtPass.Size = new Size(125, 27);
+            txtPass.Size = new Size(110, 23);
             txtPass.TabIndex = 3;
             // 
             // lblPass
             // 
             lblPass.AutoSize = true;
-            lblPass.Location = new Point(169, 202);
+            lblPass.Location = new Point(148, 152);
             lblPass.Name = "lblPass";
-            lblPass.Size = new Size(83, 20);
+            lblPass.Size = new Size(67, 15);
             lblPass.TabIndex = 2;
             lblPass.Text = "Contraseña";
             // 
             // lklCrearUsu
             // 
             lklCrearUsu.AutoSize = true;
-            lklCrearUsu.Location = new Point(173, 319);
+            lklCrearUsu.Location = new Point(151, 239);
             lklCrearUsu.Name = "lklCrearUsu";
-            lklCrearUsu.Size = new Size(106, 20);
+            lklCrearUsu.Size = new Size(78, 15);
             lklCrearUsu.TabIndex = 4;
             lklCrearUsu.TabStop = true;
-            lklCrearUsu.Text = "Crear Uusuario";
+            lklCrearUsu.Text = "Crear Usuario";
             lklCrearUsu.LinkClicked += lklCrearUsu_LinkClicked;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(353, 314);
+            btnAceptar.Location = new Point(309, 236);
+            btnAceptar.Margin = new Padding(3, 2, 3, 2);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(94, 29);
+            btnAceptar.Size = new Size(82, 22);
             btnAceptar.TabIndex = 5;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -91,15 +94,16 @@
             // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(599, 443);
+            ClientSize = new Size(524, 332);
             Controls.Add(btnAceptar);
             Controls.Add(lklCrearUsu);
             Controls.Add(txtPass);
             Controls.Add(lblPass);
             Controls.Add(txtNomUsuario);
             Controls.Add(lblNomUsuario);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmLogin";
             Text = "frmLogin";
             ResumeLayout(false);

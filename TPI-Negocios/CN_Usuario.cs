@@ -42,6 +42,11 @@ namespace TPI_Negocios
             return this.CDUsuario.mostrarUsuarios();
         }
 
+        public DataTable mostrarUsuariosCompleto()
+        {
+            return this.CDUsuario.mostrarUsuariosCompleto();
+        }
+
         public DataTable mostrarUsuario(string nomUsu)
         {
             return this.CDUsuario.mostrarUsuario(nomUsu);
@@ -50,6 +55,11 @@ namespace TPI_Negocios
         public void eliminarUsuario(string nomUsu)
         {
             this.CDUsuario.eliminarUsuario(nomUsu);
+        }
+
+        public void eliminarUsuariosDePersona(int idPer)
+        {
+            this.CDUsuario.eliminarUsuariosDePersona(idPer);
         }
 
         public void actualizarUsuario(string nomUsu, Usuario usu)

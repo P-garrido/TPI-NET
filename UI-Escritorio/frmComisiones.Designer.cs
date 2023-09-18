@@ -37,7 +37,7 @@
             btnEditar = new Button();
             btnGuardar = new Button();
             txtAnioEsp = new TextBox();
-            txtPlan = new TextBox();
+            cmbPlanes = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvComisiones).BeginInit();
             SuspendLayout();
             // 
@@ -121,19 +121,22 @@
             txtAnioEsp.Size = new Size(120, 23);
             txtAnioEsp.TabIndex = 12;
             // 
-            // txtPlan
+            // cmbPlanes
             // 
-            txtPlan.Location = new Point(415, 314);
-            txtPlan.Name = "txtPlan";
-            txtPlan.Size = new Size(120, 23);
-            txtPlan.TabIndex = 13;
+            cmbPlanes.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPlanes.FormattingEnabled = true;
+            cmbPlanes.Location = new Point(414, 311);
+            cmbPlanes.Name = "cmbPlanes";
+            cmbPlanes.Size = new Size(121, 23);
+            cmbPlanes.TabIndex = 14;
+            cmbPlanes.SelectedIndexChanged += cmbPlanes_SelectedIndexChanged;
             // 
             // frmComisiones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(870, 480);
-            Controls.Add(txtPlan);
+            Controls.Add(cmbPlanes);
             Controls.Add(txtAnioEsp);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
@@ -163,6 +166,6 @@
         private Button btnEditar;
         private Button btnGuardar;
         private TextBox txtAnioEsp;
-        private TextBox txtPlan;
+        private ComboBox cmbPlanes;
     }
 }

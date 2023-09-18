@@ -32,7 +32,7 @@ namespace UI_Escritorio
 
         public void mostrarEspecialidades()
         {
-            dgvEspecialidades.DataSource = CNEspecialidad.mostrarEspecialidades();
+            dgvEspecialidades.DataSource = CNEspecialidad.mostrarEspecialidadesCompleto();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

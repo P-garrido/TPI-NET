@@ -19,6 +19,11 @@ namespace TPI_Negocios
             return CDEspecialidad.mostrarEspecialidades();
         }
 
+        public DataTable mostrarEspecialidadesCompleto()
+        {
+            return CDEspecialidad.mostrarEspecialidadesCompleto();
+        }
+
         public DataTable mostrarEspecialidad(string descEsp)
         {
             return CDEspecialidad.mostrarEspecialidad(descEsp);

@@ -39,18 +39,23 @@
             lblEmail = new Label();
             txtTelefono = new TextBox();
             lblTelefono = new Label();
-            txtFechaNac = new TextBox();
             lblFecha_nac = new Label();
-            txtTipoPersona = new TextBox();
             lblTipoPersona = new Label();
             txtLegajo = new TextBox();
             lblLegajo = new Label();
-            txtPlan = new TextBox();
             lblPlan = new Label();
             btnEliminar = new Button();
             btnEditar = new Button();
             btnGuardar = new Button();
+            cmbPlanes = new ComboBox();
+            numAño = new NumericUpDown();
+            numMes = new NumericUpDown();
+            numDia = new NumericUpDown();
+            cmbTipoPersona = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPersonas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numAño).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numMes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numDia).BeginInit();
             SuspendLayout();
             // 
             // dgvPersonas
@@ -149,30 +154,14 @@
             lblTelefono.TabIndex = 9;
             lblTelefono.Text = "Telefono";
             // 
-            // txtFechaNac
-            // 
-            txtFechaNac.Location = new Point(128, 298);
-            txtFechaNac.Margin = new Padding(3, 2, 3, 2);
-            txtFechaNac.Name = "txtFechaNac";
-            txtFechaNac.Size = new Size(110, 23);
-            txtFechaNac.TabIndex = 12;
-            // 
             // lblFecha_nac
             // 
             lblFecha_nac.AutoSize = true;
             lblFecha_nac.Location = new Point(10, 297);
             lblFecha_nac.Name = "lblFecha_nac";
-            lblFecha_nac.Size = new Size(103, 15);
+            lblFecha_nac.Size = new Size(194, 15);
             lblFecha_nac.TabIndex = 11;
-            lblFecha_nac.Text = "Fecha Nacimiento";
-            // 
-            // txtTipoPersona
-            // 
-            txtTipoPersona.Location = new Point(128, 322);
-            txtTipoPersona.Margin = new Padding(3, 2, 3, 2);
-            txtTipoPersona.Name = "txtTipoPersona";
-            txtTipoPersona.Size = new Size(110, 23);
-            txtTipoPersona.TabIndex = 14;
+            lblFecha_nac.Text = "Fecha Nacimiento (AAAA/MM/DD)";
             // 
             // lblTipoPersona
             // 
@@ -200,14 +189,6 @@
             lblLegajo.TabIndex = 15;
             lblLegajo.Text = "Legajo";
             // 
-            // txtPlan
-            // 
-            txtPlan.Location = new Point(128, 394);
-            txtPlan.Margin = new Padding(3, 2, 3, 2);
-            txtPlan.Name = "txtPlan";
-            txtPlan.Size = new Size(110, 23);
-            txtPlan.TabIndex = 18;
-            // 
             // lblPlan
             // 
             lblPlan.AutoSize = true;
@@ -226,6 +207,7 @@
             btnEliminar.TabIndex = 19;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
@@ -236,6 +218,7 @@
             btnEditar.TabIndex = 20;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnGuardar
             // 
@@ -248,21 +231,73 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
+            // cmbPlanes
+            // 
+            cmbPlanes.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPlanes.FormattingEnabled = true;
+            cmbPlanes.Location = new Point(128, 394);
+            cmbPlanes.Name = "cmbPlanes";
+            cmbPlanes.Size = new Size(121, 23);
+            cmbPlanes.TabIndex = 22;
+            cmbPlanes.SelectedIndexChanged += cmbPlanes_SelectedIndexChanged;
+            // 
+            // numAño
+            // 
+            numAño.Location = new Point(207, 297);
+            numAño.Maximum = new decimal(new int[] { 2023, 0, 0, 0 });
+            numAño.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
+            numAño.Name = "numAño";
+            numAño.Size = new Size(56, 23);
+            numAño.TabIndex = 23;
+            numAño.Value = new decimal(new int[] { 1900, 0, 0, 0 });
+            // 
+            // numMes
+            // 
+            numMes.Location = new Point(269, 297);
+            numMes.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            numMes.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numMes.Name = "numMes";
+            numMes.Size = new Size(35, 23);
+            numMes.TabIndex = 24;
+            numMes.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // numDia
+            // 
+            numDia.Location = new Point(310, 297);
+            numDia.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            numDia.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numDia.Name = "numDia";
+            numDia.Size = new Size(35, 23);
+            numDia.TabIndex = 25;
+            numDia.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // cmbTipoPersona
+            // 
+            cmbTipoPersona.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipoPersona.FormattingEnabled = true;
+            cmbTipoPersona.Location = new Point(128, 322);
+            cmbTipoPersona.Name = "cmbTipoPersona";
+            cmbTipoPersona.Size = new Size(121, 23);
+            cmbTipoPersona.TabIndex = 26;
+            cmbTipoPersona.SelectedIndexChanged += cmbTipoPersona_SelectedIndexChanged;
+            // 
             // frmPersonas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 514);
+            Controls.Add(cmbTipoPersona);
+            Controls.Add(numDia);
+            Controls.Add(numMes);
+            Controls.Add(numAño);
+            Controls.Add(cmbPlanes);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
-            Controls.Add(txtPlan);
             Controls.Add(lblPlan);
             Controls.Add(txtLegajo);
             Controls.Add(lblLegajo);
-            Controls.Add(txtTipoPersona);
             Controls.Add(lblTipoPersona);
-            Controls.Add(txtFechaNac);
             Controls.Add(lblFecha_nac);
             Controls.Add(txtTelefono);
             Controls.Add(lblTelefono);
@@ -281,6 +316,9 @@
             FormClosing += frmPersonas_FormClosing;
             Load += frmPersonas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPersonas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numAño).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numMes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numDia).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -298,16 +336,18 @@
         private Label lblEmail;
         private TextBox txtTelefono;
         private Label lblTelefono;
-        private TextBox txtFechaNac;
         private Label lblFecha_nac;
-        private TextBox txtTipoPersona;
         private Label lblTipoPersona;
         private TextBox txtLegajo;
         private Label lblLegajo;
-        private TextBox txtPlan;
         private Label lblPlan;
         private Button btnEliminar;
         private Button btnEditar;
         private Button btnGuardar;
+        private ComboBox cmbPlanes;
+        private NumericUpDown numAño;
+        private NumericUpDown numMes;
+        private NumericUpDown numDia;
+        private ComboBox cmbTipoPersona;
     }
 }

@@ -30,6 +30,34 @@ namespace TPI_Datos
             return table;
         }
 
+        //public List<TPI_Entidades.Especialidad> RecuperarTodos()
+        //{
+        //    List<TPI_Entidades.Especialidad> lista = new List<TPI_Entidades.Especialidad>();
+        //    comando.Connection = conexion.abrirConexion();
+        //    comando.CommandText = "SELECT id_especialidad 'ID Especialidad', desc_especialidad 'Descripción' FROM Especialidades";
+        //    reader = comando.ExecuteReader();
+        //    while(reader.Read())
+        //    {
+        //        TPI_Entidades.Especialidad unaEspecialidad = new TPI_Entidades.Especialidad();
+        //        unaEspecialidad.Descripcion = (reader)
+        //            lista.Add(unaEspecialdad),
+        //    }
+        //    conexion.cerrarConexion();
+        //    return lista;
+        //}
+
+        public DataTable mostrarEspecialidadesCompleto()
+        {
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_especialidad 'ID Especialidad', desc_especialidad 'Descripción' FROM Especialidades";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
         public DataTable mostrarEspecialidad(string descEspecialidad)
         {
             comando.Connection = conexion.abrirConexion();

@@ -14,6 +14,7 @@ namespace UI_Escritorio
     {
 
         frmPersonas formPersonas = new frmPersonas();
+        frmUsuarios formUsuarios = new frmUsuarios();  
         public frmIdentificacion()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace UI_Escritorio
         private void btnRegistrado_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+            formUsuarios.Show();
         }
 
         private void frmIdentificacion_FormClosing(object sender, FormClosingEventArgs e)

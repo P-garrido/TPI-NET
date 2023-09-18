@@ -33,6 +33,20 @@ namespace TPI_Datos
             return table;
         }
 
+        public DataTable mostrarPersonasCompleto()
+        {
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_persona 'ID Persona', nombre 'Nombre', apellido 'Apellido', direccion 'Dirección', " +
+                "email 'Email', telefono 'Teléfono', fecha_nac 'Fecha de Nacimiento', legajo 'Legajo', tipo_persona 'Tipo de Persona', desc_plan 'Plan'" +
+                "FROM personas per INNER JOIN planes pla ON per.id_plan = pla.id_plan";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
         public void agregarPersona(Persona per)
         {
             comando.Connection = conexion.abrirConexion();
@@ -50,7 +64,7 @@ namespace TPI_Datos
             comando.CommandType = CommandType.Text;
             comando.CommandText = $"UPDATE personas SET nombre= '{per.Nombre}', apellido= '{per.Apellido}', direccion= '{per.Direccion}'," +
                 $"email= '{per.Email}', telefono= '{per.Telefono}', fecha_nac= '{per.FechaNacimiento}', legajo= '{per.Legajo}', tipo_persona='{per.TipoPersona}'" +
-                $" WHERE nombrePersona = '{nomPer}' ";
+                $" WHERE nombre = '{nomPer}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }

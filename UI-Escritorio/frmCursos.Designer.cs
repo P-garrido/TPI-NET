@@ -139,22 +139,22 @@
             // 
             // cmbMateria
             // 
+            cmbMateria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMateria.FormattingEnabled = true;
             cmbMateria.Location = new Point(101, 186);
             cmbMateria.Name = "cmbMateria";
             cmbMateria.Size = new Size(121, 23);
             cmbMateria.TabIndex = 16;
-            cmbMateria.Text = "Elija una materia";
             cmbMateria.SelectedIndexChanged += cmbMateria_SelectedIndexChanged;
             // 
             // cmbComision
             // 
+            cmbComision.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbComision.FormattingEnabled = true;
             cmbComision.Location = new Point(102, 222);
             cmbComision.Name = "cmbComision";
             cmbComision.Size = new Size(121, 23);
             cmbComision.TabIndex = 17;
-            cmbComision.Text = "Elija una comisión";
             cmbComision.SelectedIndexChanged += cmbComision_SelectedIndexChanged;
             // 
             // frmCursos

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPI_Datos;
 using TPI_Entidades;
 using TPI_Negocios;
 
@@ -15,9 +16,10 @@ namespace UI_Escritorio
     public partial class frmComisiones : Form
     {
         CN_Comisiones CN_Comisiones = new CN_Comisiones();
-        CN_Plan CN_Plan = new CN_Plan();
+        CN_Plan CNPlan = new CN_Plan();
 
         bool editar = false;
+        string descPla = "";
         public frmComisiones()
         {
             InitializeComponent();
@@ -26,20 +28,30 @@ namespace UI_Escritorio
         private void frmComisiones_Load(object sender, EventArgs e)
         {
             mostrarComisiones();
+            cargarOpcionesPlanes();
         }
         public void mostrarComisiones()
         {
-            dgvComisiones.DataSource = CN_Comisiones.mostrarComisiones();
+            dgvComisiones.DataSource = CN_Comisiones.mostrarComisionesCompleto();
+        }
+
+        public void cargarOpcionesPlanes()
+        {
+            DataTable planes = CNPlan.mostrarPlanes();
+            for (int i = 0; i < planes.Rows.Count; i++)
+            {
+                cmbPlanes.Items.Add(planes.Rows[i]["desc_plan"].ToString());
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            DataTable pl = CN_Plan.mostrarPlan(txtPlan.Text);
+            DataTable pl = CNPlan.mostrarPlan(descPla);
             int planId = (int)pl.Rows[0]["id_plan"];
             CN_Comisiones.agregarComision(txtDescripcion.Text, int.Parse(txtAnioEsp.Text), planId);
             txtDescripcion.Text = "";
             txtAnioEsp.Text = "";
-            txtPlan.Text = "";
+            cmbPlanes.SelectedIndex = -1;
             mostrarComisiones();
 
         }
@@ -74,7 +86,7 @@ namespace UI_Escritorio
         {
             if (dgvComisiones.SelectedRows.Count > 0)
             {
-                if (txtDescripcion.Text == "" || txtDescripcion.Text == "" || txtPlan.Text == "")
+                if (txtDescripcion.Text == "" || txtDescripcion.Text == "" || descPla == "")
                 {
                     MessageBox.Show("Complete todos los campos");
                 }
@@ -98,6 +110,9 @@ namespace UI_Escritorio
             e.Cancel = true;
         }
 
-
+        private void cmbPlanes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            descPla = (string)cmbPlanes.SelectedItem;
+        }
     }
 }
