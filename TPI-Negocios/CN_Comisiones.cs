@@ -49,5 +49,21 @@ namespace TPI_Negocios
         {
             this.CDComisiones.actualizarComision(com, idCom);
         }
+
+        //public DataTable mostrarComisionesConCupos()
+        //{
+        //    //Verificar que los cupos no sean nulos
+        //    DataTable comisiones = CDComisiones.mostrarComisionesConCurso();
+            
+        //    foreach (DataRow com in comisiones.Rows)
+        //    {
+        //        if ((int)com["cupo"] == 0)
+        //        {
+        //            com.Delete();
+        //        }
+        //    }
+        //    comisiones.AcceptChanges();
+        //    return comisiones;
+        //}
     }
 }

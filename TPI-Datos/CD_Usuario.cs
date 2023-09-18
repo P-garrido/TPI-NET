@@ -76,6 +76,15 @@ namespace TPI_Datos
             conexion.cerrarConexion();
         }
 
+        public void eliminarUsuariosDePersona(int idPer)
+        {
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"DELETE FROM usuarios WHERE id_persona='{idPer}'";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
+        }
+
         public DataTable mostrarUsuario(string nomUsu)
         {
             comando.Connection = conexion.abrirConexion();

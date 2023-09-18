@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPI_Entidades;
+using System.Runtime.ConstrainedExecution;
 
 namespace TPI_Datos
 {
@@ -67,7 +68,7 @@ namespace TPI_Datos
             comando.CommandType = CommandType.Text;
             comando.CommandText = $"UPDATE personas SET nombre= '{per.Nombre}', apellido= '{per.Apellido}', direccion= '{per.Direccion}'," +
                 $"email= '{per.Email}', telefono= '{per.Telefono}', fecha_nac= '{per.FechaNacimiento}', legajo= '{per.Legajo}', tipo_persona='{per.TipoPersona}'" +
-                $" WHERE nombrePersona = '{nomPer}' ";
+                $" WHERE nombre = '{nomPer}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
@@ -103,6 +104,15 @@ namespace TPI_Datos
             table.Load(reader);
             conexion.cerrarConexion();
             return table;
+        }
+
+        public void inscribirACurso(int idAlumno, int idCurso)
+        {
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"INSERT INTO alumnos_inscripciones (id_alumno, id_curso, condicion) VALUES('{idAlumno}','{idCurso}', 'Cursando')";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
         }
     }
 }

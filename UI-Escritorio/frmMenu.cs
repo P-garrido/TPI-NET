@@ -1,3 +1,4 @@
+using System.Data;
 using TPI_Entidades;
 using TPI_Negocios;
 
@@ -9,6 +10,10 @@ namespace UI_Escritorio
         {
             InitializeComponent();
         }
+
+        Usuario usuario = null;
+        
+
         frmUsuarios formUsuarios = new frmUsuarios();
         frmIdentificacion formIdentificacion = new frmIdentificacion();
 
@@ -19,8 +24,9 @@ namespace UI_Escritorio
         frmMaterias formMaterias = new frmMaterias();
         frmComisiones formComisiones = new frmComisiones();
         frmCursos formCursos = new frmCursos();
+        
 
-        Usuario usuario = null;
+        
 
         CN_Persona CNPersona = new CN_Persona();
 
@@ -81,6 +87,12 @@ namespace UI_Escritorio
                 tsmAdminEsp.Visible = false;
             }
 
+        }
+
+        private void tsmInscMaterias_Click(object sender, EventArgs e)
+        {
+            frmInscripcionMaterias formInscripcionMaterias = new frmInscripcionMaterias(usuario);
+            formInscripcionMaterias.Show();
         }
     }
 }

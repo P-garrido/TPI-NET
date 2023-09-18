@@ -145,12 +145,12 @@
             // cmbPlan
             // 
             cmbPlan.AccessibleRole = AccessibleRole.None;
+            cmbPlan.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPlan.FormattingEnabled = true;
             cmbPlan.Location = new Point(101, 305);
             cmbPlan.Name = "cmbPlan";
             cmbPlan.Size = new Size(139, 23);
             cmbPlan.TabIndex = 14;
-            cmbPlan.Text = "Elija un Plan";
             cmbPlan.SelectedIndexChanged += cmbPlan_SelectedIndexChanged;
             // 
             // frmMaterias

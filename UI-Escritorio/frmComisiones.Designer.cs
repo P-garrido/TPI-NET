@@ -123,6 +123,7 @@
             // 
             // cmbPlanes
             // 
+            cmbPlanes.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPlanes.FormattingEnabled = true;
             cmbPlanes.Location = new Point(414, 311);
             cmbPlanes.Name = "cmbPlanes";
