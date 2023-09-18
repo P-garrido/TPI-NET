@@ -51,7 +51,11 @@ namespace TPI_Datos
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"INSERT INTO Personas VALUES('{per.Nombre}','{per.Apellido}','{per.Direccion}','{per.Email}','{per.Telefono}','{per.FechaNacimiento}'," +
+            SqlParameter paramFecha = new SqlParameter("@Fecha", SqlDbType.DateTime);
+            paramFecha.Direction = ParameterDirection.Input;
+            paramFecha.Value = per.FechaNacimiento;
+            comando.Parameters.Add(paramFecha);
+            comando.CommandText = $"INSERT INTO Personas VALUES('{per.Nombre}','{per.Apellido}','{per.Direccion}','{per.Email}','{per.Telefono}', @Fecha," +
                 $"'{per.Legajo}','{per.TipoPersona}','{per.IdPlan}')";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();

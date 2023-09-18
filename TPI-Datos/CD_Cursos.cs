@@ -95,6 +95,7 @@ namespace TPI_Datos
             return table;
         }
 
+
         //public DataTable buscarCurso(int idMat, int idCom)
         //{
         //    comando.Connection = conexion.abrirConexion();
