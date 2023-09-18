@@ -94,16 +94,25 @@ namespace TPI_Datos
             return table;
         }
 
-        public DataTable buscarCurso(int idMat, int idCom)
-        {
-            comando.Connection = conexion.abrirConexion();
-            table.Clear();
-            comando.CommandType = CommandType.Text;
-            comando.CommandText = $"SELECT * FROM cursos WHERE id_materia= {idMat} AND id_comision={idCom}";
-            reader = comando.ExecuteReader();
-            table.Load(reader);
-            conexion.cerrarConexion();
-            return table;
-        }
+        //public DataTable buscarCurso(int idMat, int idCom)
+        //{
+        //    comando.Connection = conexion.abrirConexion();
+        //    table.Clear();
+        //    comando.CommandType = CommandType.Text;
+        //    SqlParameter idMate = new SqlParameter("@idMat", SqlDbType.Int);
+        //    idMate.Direction = ParameterDirection.Input;
+        //    idMate.Value = idMat;
+        //    comando.Parameters.Add(idMate);
+        //    SqlParameter idComi = new SqlParameter("@idCom", SqlDbType.Int);
+        //    idMate.Direction = ParameterDirection.Input;
+        //    idComi.Value = idCom;
+        //    comando.Parameters.Add(idComi);
+
+        //    comando.CommandText = "SELECT * FROM cursos WHERE id_materia= 3 AND id_comision= 2";
+        //    reader = comando.ExecuteReader();
+        //    table.Load(reader);
+        //    conexion.cerrarConexion();
+        //    return table;
+        //}
     }
 }
