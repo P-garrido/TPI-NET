@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPI_Entidades;
+using System.Runtime.ConstrainedExecution;
 
 namespace TPI_Datos
 {
@@ -99,6 +100,15 @@ namespace TPI_Datos
             table.Load(reader);
             conexion.cerrarConexion();
             return table;
+        }
+
+        public void inscribirACurso(int idAlumno, int idCurso)
+        {
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"INSERT INTO alumnos_inscripciones (id_alumno, id_curso, condicion) VALUES('{idAlumno}','{idCurso}', 'Cursando')";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
         }
     }
 }

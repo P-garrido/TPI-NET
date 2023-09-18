@@ -8,10 +8,9 @@ namespace TPI_Entidades
 {
     public class Curso
     {
-
+        private int _idCurso;
         private int _anioCalendario;
         private int _cupo;
-        private string _descripcion;
         private int _idComision;
         private int _idMateria;
 
@@ -22,6 +21,8 @@ namespace TPI_Entidades
             _idComision = idComision;
             _cupo = cup;
         }
+
+        public Curso() { }
 
         public int AnioCalendario {
             get => _anioCalendario;
@@ -37,13 +38,6 @@ namespace TPI_Entidades
             }
         }
 
-        public string Descripcion {
-            get => _descripcion;
-            set {
-                _descripcion = value;
-            }
-        }
-
         public int IdComision {
             get => _idComision;
             set {
@@ -55,6 +49,13 @@ namespace TPI_Entidades
             get => _idMateria;
             set {
                 _idMateria = value;
+            }
+        }
+
+        public int IdCurso {
+            get => _idCurso;
+            set {
+                _idCurso = value;
             }
         }
     }

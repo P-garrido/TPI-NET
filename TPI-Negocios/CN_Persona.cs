@@ -55,5 +55,11 @@ namespace TPI_Negocios
             return tipoPer;
 
         }
+
+
+        public void inscribirACurso(int idAlumno, int idCurso)
+        {
+            CDPersona.inscribirACurso(idAlumno, idCurso);
+        }
     }
 }

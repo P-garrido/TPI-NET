@@ -41,13 +41,15 @@
             tsmAdminPlanes = new ToolStripMenuItem();
             tsmEspecialidades = new ToolStripMenuItem();
             tsmAdminEsp = new ToolStripMenuItem();
+            tsmInscripciones = new ToolStripMenuItem();
+            tsmInscMaterias = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades, tsmInscripciones });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(6, 3, 0, 3);
@@ -137,6 +139,20 @@
             tsmAdminEsp.Text = "Administrar";
             tsmAdminEsp.Click += tsmAdminEsp_Click;
             // 
+            // tsmInscripciones
+            // 
+            tsmInscripciones.DropDownItems.AddRange(new ToolStripItem[] { tsmInscMaterias });
+            tsmInscripciones.Name = "tsmInscripciones";
+            tsmInscripciones.Size = new Size(108, 24);
+            tsmInscripciones.Text = "Inscripciones";
+            // 
+            // tsmInscMaterias
+            // 
+            tsmInscMaterias.Name = "tsmInscMaterias";
+            tsmInscMaterias.Size = new Size(224, 26);
+            tsmInscMaterias.Text = "Materias";
+            tsmInscMaterias.Click += tsmInscMaterias_Click;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -170,6 +186,7 @@
         private ToolStripMenuItem materiasToolStripMenuItem;
         private ToolStripMenuItem tsmComisiones;
         private ToolStripMenuItem tsmCursos;
-
+        private ToolStripMenuItem tsmInscripciones;
+        private ToolStripMenuItem tsmInscMaterias;
     }
 }
