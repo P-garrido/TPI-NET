@@ -118,5 +118,14 @@ namespace TPI_Datos
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
+
+        public void inscribirDocenteACurso(int idDoc, int idCur, int cargo)
+        {
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"INSERT INTO docentes_cursos (id_curso, id_docente, cargo) VALUES('{idCur}','{idDoc}', '{cargo}')";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
+        }
     }
 }

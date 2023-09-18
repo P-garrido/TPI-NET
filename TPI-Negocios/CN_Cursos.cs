@@ -48,7 +48,6 @@ namespace TPI_Negocios
 
         public DataTable mostrarCursosConCupos(int idMat)
         {
-            //Verificar que los cupos no sean nulos
             DataTable cursos = CDCursos.mostrarCursosCompletoPorMateria(idMat);
             return cursos;
         }
@@ -57,5 +56,11 @@ namespace TPI_Negocios
         {
             return CDCursos.buscarCurso(idMat, idCom);
         }
+
+        public DataTable mostrarCursosSinDocentes(int idMat)
+        {
+            return CDCursos.mostrarCursosSinDocente(idMat);
+        }
+
     }
 }

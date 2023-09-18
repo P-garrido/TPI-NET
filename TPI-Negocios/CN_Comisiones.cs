@@ -54,7 +54,7 @@ namespace TPI_Negocios
         //{
         //    //Verificar que los cupos no sean nulos
         //    DataTable comisiones = CDComisiones.mostrarComisionesConCurso();
-            
+
         //    foreach (DataRow com in comisiones.Rows)
         //    {
         //        if ((int)com["cupo"] == 0)
@@ -65,5 +65,7 @@ namespace TPI_Negocios
         //    comisiones.AcceptChanges();
         //    return comisiones;
         //}
+
+       
     }
 }

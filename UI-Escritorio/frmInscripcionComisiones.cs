@@ -24,6 +24,7 @@ namespace UI_Escritorio
         CN_Persona CNPersonas = new CN_Persona();
 
 
+
         public frmInscripcionComisiones()
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace UI_Escritorio
         private void frmInscripcionComisiones_Load(object sender, EventArgs e)
         {
             cargarOpcionesComisiones();
+            
         }
 
         public void cargarOpcionesComisiones()
@@ -54,11 +56,11 @@ namespace UI_Escritorio
                     cmbComisiones.Items.Add("Sin cupos");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-           
+
 
         }
 
@@ -69,20 +71,21 @@ namespace UI_Escritorio
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //Arreglar error al buscar curso (en sql server anda bien)
-            //try
-            //{
-                
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-            DataTable com = CNComisiones.mostrarComisionPorDescripcion(descComision);
-            List<TPI_Entidades.Curso> cur = CNCursos.buscarCurso(idMateria, (int)com.Rows[0]["id_comision"]);
-            CNPersonas.inscribirACurso(usuario.IdPersona, (int)cur[0].IdCurso);
-            MessageBox.Show("Inscripcion Realizada");
+            try
+            {
+                DataTable com = CNComisiones.mostrarComisionPorDescripcion(descComision);
+                List<TPI_Entidades.Curso> cur = CNCursos.buscarCurso(idMateria, (int)com.Rows[0]["id_comision"]);
+                CNPersonas.inscribirACurso(usuario.IdPersona, (int)cur[0].IdCurso);
+                MessageBox.Show("Inscripcion Realizada");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
 
         }
+
+
     }
 }

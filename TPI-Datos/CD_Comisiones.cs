@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPI_Entidades;
+using System.Security.Cryptography;
 
 namespace TPI_Datos
 {
@@ -107,6 +108,7 @@ namespace TPI_Datos
         //    return table;
         //}
 
+        
 
     }
 }

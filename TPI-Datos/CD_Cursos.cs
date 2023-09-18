@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TPI_Entidades;
 using System.Reflection.PortableExecutable;
+using System.Reflection;
 
 namespace TPI_Datos
 {
@@ -143,5 +144,18 @@ namespace TPI_Datos
             conexion.cerrarConexion();
             return lista;
         }
+
+        public DataTable mostrarCursosSinDocente(int idMat)
+        {
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = $"SELECT * FROM cursos cur INNER JOIN materias mat ON cur.id_materia = mat.id_materia INNER JOIN comisiones com ON com.id_comision = cur.id_comision WHERE cur.id_materia='{idMat}'";
+            reader = comando.ExecuteReader();
+            table.Load(reader);
+            conexion.cerrarConexion();
+            return table;
+        }
+
+
     }
 }

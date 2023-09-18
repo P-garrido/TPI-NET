@@ -61,5 +61,10 @@ namespace TPI_Negocios
         {
             CDPersona.inscribirACurso(idAlumno, idCurso);
         }
+
+        public void inscribirDocenteACurso(int idDoc, int idCur, int cargo)
+        {
+            CDPersona.inscribirDocenteACurso(idDoc, idCur, cargo);
+        }
     }
 }

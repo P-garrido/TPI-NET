@@ -12,7 +12,7 @@ namespace UI_Escritorio
         }
 
         Usuario usuario = null;
-        
+
 
         frmUsuarios formUsuarios = new frmUsuarios();
         frmIdentificacion formIdentificacion = new frmIdentificacion();
@@ -24,9 +24,9 @@ namespace UI_Escritorio
         frmMaterias formMaterias = new frmMaterias();
         frmComisiones formComisiones = new frmComisiones();
         frmCursos formCursos = new frmCursos();
-        
 
-        
+
+
 
         CN_Persona CNPersona = new CN_Persona();
 
@@ -93,6 +93,12 @@ namespace UI_Escritorio
         {
             frmInscripcionMaterias formInscripcionMaterias = new frmInscripcionMaterias(usuario);
             formInscripcionMaterias.Show();
+        }
+
+        private void tsmInscDocentes_Click(object sender, EventArgs e)
+        {
+            frmInscripcionDocentes formInscripcionDocentes = new frmInscripcionDocentes(usuario);
+            formInscripcionDocentes.Show();
         }
     }
 }
