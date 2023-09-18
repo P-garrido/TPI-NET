@@ -69,8 +69,7 @@ namespace UI_Escritorio
         {
             DataTable plan = CNPlan.mostrarPlan(descPla);
             int idPlan = (int)plan.Rows[0]["id_plan"];
-            CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(numAño.Value.ToString() +
-                 '-' + numMes.Value.ToString() + '-' + numDia.Value.ToString()), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, tipoPer);
+            CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(stringFecha), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, tipoPer);
             txtLegajo.Text = "";
             txtDireccion.Text = "";
             txtNombre.Text = "";
@@ -127,8 +126,7 @@ namespace UI_Escritorio
                 try
                 {
                     if (txtNombre.Text == "" || txtApellido.Text == "" || txtDireccion.Text == "" || txtEmail.Text == "" ||
-                        txtTelefono.Text == "" || numAño.Value == numAño.Minimum || numMes.Value == numMes.Minimum || numDia.Value ==
-                        numMes.Minimum || cmbTipoPersona.SelectedIndex == -1 || txtLegajo.Text == ""
+                        txtTelefono.Text == "" || cmbTipoPersona.SelectedIndex == -1 || txtLegajo.Text == ""
                         || descPla == "")
                     {
                         MessageBox.Show("Complete todos los campos");
@@ -138,8 +136,7 @@ namespace UI_Escritorio
                         DataTable pla = CNPlan.mostrarPlan(descPla);
                         idPla = (int)pla.Rows[0]["id_plan"];
                         nomPer = (string)dgvPersonas.CurrentRow.Cells["Nombre"].Value;
-                        Persona per = new Persona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(numAño.Value.ToString() +
-                 '-' + numMes.Value.ToString() + '-' + numDia.Value.ToString()), idPla,
+                        Persona per = new Persona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(stringFecha), idPla,
                             int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, (int)dgvPersonas.CurrentRow.Cells["Tipo de Persona"].Value);
                         CNPersona.actualizarPersona(nomPer, per);
                         mostrarPersonas();
@@ -148,9 +145,7 @@ namespace UI_Escritorio
                         txtDireccion.Text = "";
                         txtEmail.Text = "";
                         txtTelefono.Text = "";
-                        numAño.Value = numAño.Minimum;
-                        numMes.Value = numMes.Minimum;
-                        numDia.Value = numDia.Minimum;
+                        dtpFechaNac.Value = DateTime.Now;
                         cmbTipoPersona.SelectedIndex = -1;
                         txtLegajo.Text = "";
                         cmbPlanes.SelectedIndex = -1;
@@ -184,5 +179,15 @@ namespace UI_Escritorio
                 tipoPer = 0;
             }
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            fechaNac = dtpFechaNac.Value;
+            anio = fechaNac.Year;
+            mes = fechaNac.Month;
+            dia = fechaNac.Day;
+            stringFecha = anio.ToString() + '/' + mes.ToString() + '/' + dia.ToString();
+        }
+
     }
 }
