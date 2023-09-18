@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TPI_Entidades;
+using System.Reflection.PortableExecutable;
 
 namespace TPI_Datos
 {
@@ -114,5 +115,32 @@ namespace TPI_Datos
         //    conexion.cerrarConexion();
         //    return table;
         //}
+
+        public List<TPI_Entidades.Curso> buscarCurso(int idMat, int idCom)
+        {
+            List<TPI_Entidades.Curso> lista = new List<TPI_Entidades.Curso>();
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandType = CommandType.Text;
+            SqlParameter idMate = new SqlParameter("@idMat", SqlDbType.Int);
+            idMate.Direction = ParameterDirection.Input;
+            idMate.Value = idMat;
+            comando.Parameters.Add(idMate);
+            SqlParameter idComi = new SqlParameter("@idCom", SqlDbType.Int);
+            idMate.Direction = ParameterDirection.Input;
+            idComi.Value = idCom;
+            comando.Parameters.Add(idComi);
+
+            comando.CommandText = "SELECT * FROM cursos WHERE id_materia= @idMat AND id_comision= @idCom";
+            reader = comando.ExecuteReader();
+            while (reader.Read())
+            {
+                TPI_Entidades.Curso unCurso = new TPI_Entidades.Curso();
+                unCurso.IdCurso = (int)reader.GetValue(0);
+                lista.Add(unCurso);
+            }
+            conexion.cerrarConexion();
+            return lista;
+        }
     }
 }

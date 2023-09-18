@@ -53,7 +53,7 @@ namespace TPI_Negocios
             return cursos;
         }
 
-        public DataTable buscarCurso(int idMat, int idCom)
+        public List<TPI_Entidades.Curso> buscarCurso(int idMat, int idCom)
         {
             return CDCursos.buscarCurso(idMat, idCom);
         }

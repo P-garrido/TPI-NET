@@ -79,8 +79,8 @@ namespace UI_Escritorio
             //    MessageBox.Show(ex.Message);
             //}
             DataTable com = CNComisiones.mostrarComisionPorDescripcion(descComision);
-            DataTable cur = CNCursos.buscarCurso(idMateria, (int)com.Rows[0]["id_comision"]);
-            CNPersonas.inscribirACurso(usuario.IdPersona, (int)cur.Rows[0]["id_curso"]);
+            List<TPI_Entidades.Curso> cur = CNCursos.buscarCurso(idMateria, (int)com.Rows[0]["id_comision"]);
+            CNPersonas.inscribirACurso(usuario.IdPersona, (int)cur[0].IdCurso);
             MessageBox.Show("Inscripcion Realizada");
 
         }
