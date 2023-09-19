@@ -76,7 +76,8 @@ namespace UI_Escritorio
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("No se puede eliminar la materia por " + ex);
+                        MessageBox.Show("ADVERTENCIA: esta materia no puede ser eliminada en este momento porque" +
+                            "existen cursos asociados a ella. Eliminelos e intente de nuevo.");
                     }
 
 

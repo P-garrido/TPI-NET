@@ -84,7 +84,7 @@ namespace UI_Escritorio
         {
             if (CNPersona.buscarPersonaPorId(usuario.IdPersona) == 1)
             {
-                tsmAdminEsp.Visible = false;
+                //Aca hacemos invisibles/inaccesibles las cosas que el alumno no deba tocar
             }
 
         }

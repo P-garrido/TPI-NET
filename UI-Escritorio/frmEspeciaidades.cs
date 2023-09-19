@@ -18,7 +18,6 @@ namespace UI_Escritorio
 
         CN_Especialidad CNEspecialidad = new CN_Especialidad();
 
-        bool editar;
         string descEsp;
         public frmEspeciaidades()
         {
@@ -38,33 +37,20 @@ namespace UI_Escritorio
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            if (!editar)
-            {
+            if (txtDescEspecialidad.Text != "")
                 try
                 {
                     CNEspecialidad.agregarEspecialidad(txtDescEspecialidad.Text);
                     mostrarEspecialidades();
+                    txtDescEspecialidad.Text = "";
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("No se puede insertar la especialidad por " + ex);
                 }
-            }
             else
             {
-                try
-                {
-                    CNEspecialidad.actualizarEspecialidad(descEsp, txtDescEspecialidad.Text);
-                    mostrarEspecialidades();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se puede actualizar el plan por " + ex);
-                }
-                finally
-                {
-                    editar = false;
-                }
+                MessageBox.Show("Complete todos los campos");
             }
         }
 
@@ -73,9 +59,24 @@ namespace UI_Escritorio
         {
             if (dgvEspecialidades.SelectedRows.Count > 0)
             {
-                descEsp = dgvEspecialidades.CurrentRow.Cells["desc_especialidad"].Value.ToString();
-                txtDescEspecialidad.Text = descEsp;
-                editar = true;
+               if (txtDescEspecialidad.Text == "")
+                {
+                    MessageBox.Show("Complete todos los campos");
+                }
+                else
+                {
+                    try
+                    {
+                        descEsp = (string)dgvEspecialidades.CurrentRow.Cells["Descripción"].Value;
+                        CNEspecialidad.actualizarEspecialidad(descEsp, txtDescEspecialidad.Text);
+                        mostrarEspecialidades();
+                        txtDescEspecialidad.Text = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No se puede actualizar el plan por " + ex);
+                    }
+                }
             }
             else
             {
@@ -92,14 +93,15 @@ namespace UI_Escritorio
                 {
                     try
                     {
-                        descEsp = (string)dgvEspecialidades.CurrentRow.Cells["desc_especialidad"].Value;
+                        descEsp = (string)dgvEspecialidades.CurrentRow.Cells["Descripción"].Value;
                         CNEspecialidad.eliminarEspecialidad(descEsp);
                         MessageBox.Show("Especialidad eliminada");
                         mostrarEspecialidades();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("No se puede eliminar la especialidad por " + ex);
+                        MessageBox.Show("ADVERTENCIA: esta especialidad no puede ser eliminada en este momento porque " +
+                            "existen planes asociados a ella. Eliminelos e intente de nuevo. ");
                     }
 
 

@@ -62,7 +62,7 @@ namespace TPI_Datos
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
             comando.CommandText = $"UPDATE usuarios SET nombre_usuario= '{usu.NombreUsuario}', clave= '{usu.Clave}', nombre= '{usu.Nombre}'," +
-                $"apellido= '{usu.Apellido}', email= '{usu.Email}', idPersona= '{usu.IdPersona}' WHERE nombreUsuario = '{nomUsu}' ";
+                $"apellido= '{usu.Apellido}', email= '{usu.Email}', id_persona= '{usu.IdPersona}' WHERE nombre_usuario = '{nomUsu}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }

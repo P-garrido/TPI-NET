@@ -51,11 +51,11 @@ namespace TPI_Datos
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            SqlParameter paramFecha = new SqlParameter("@Fecha", SqlDbType.DateTime);
+            SqlParameter paramFecha = new SqlParameter("@FechaNacimientoGuardar", SqlDbType.DateTime);
             paramFecha.Direction = ParameterDirection.Input;
             paramFecha.Value = per.FechaNacimiento;
             comando.Parameters.Add(paramFecha);
-            comando.CommandText = $"INSERT INTO Personas VALUES('{per.Nombre}','{per.Apellido}','{per.Direccion}','{per.Email}','{per.Telefono}', @Fecha," +
+            comando.CommandText = $"INSERT INTO Personas VALUES('{per.Nombre}','{per.Apellido}','{per.Direccion}','{per.Email}','{per.Telefono}', @FechaNacimientoGuardar," +
                 $"'{per.Legajo}','{per.TipoPersona}','{per.IdPlan}')";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
@@ -66,12 +66,12 @@ namespace TPI_Datos
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            SqlParameter paramFecha = new SqlParameter("@Fecha", SqlDbType.DateTime);
+            SqlParameter paramFecha = new SqlParameter("@FechaNacimientoActualizar", SqlDbType.DateTime);
             paramFecha.Direction= ParameterDirection.Input;
             paramFecha.Value = per.FechaNacimiento;
             comando.Parameters.Add(paramFecha);
             comando.CommandText = $"UPDATE personas SET nombre= '{per.Nombre}', apellido= '{per.Apellido}', direccion= '{per.Direccion}'," +
-                $"email= '{per.Email}', telefono= '{per.Telefono}', fecha_nac= @Fecha, legajo= '{per.Legajo}', tipo_persona='{per.TipoPersona}'" +
+                $"email= '{per.Email}', telefono= '{per.Telefono}', fecha_nac= @FechaNacimientoActualizar, legajo= '{per.Legajo}', tipo_persona='{per.TipoPersona}'" +
                 $" WHERE nombre = '{nomPer}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();

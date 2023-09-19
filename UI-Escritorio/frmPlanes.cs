@@ -97,14 +97,15 @@ namespace UI_Escritorio
                 {
                     try
                     {
-                        idPlan = (int)dgvPlanes.CurrentRow.Cells["id_plan"].Value;
+                        idPlan = (int)dgvPlanes.CurrentRow.Cells["ID Plan"].Value;
                         CNPlan.eliminarPlan(idPlan);
                         MessageBox.Show("Plan eliminado");
                         mostrarPlanes();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("No se puede eliminar el usuario por " + ex);
+                        MessageBox.Show("ADVERTENCIA: no se puede eliminar este plan es este momento porque" +
+                            "existen personas, comisiones y/o materias asociados a el. Eliminelos e intente de nuevo.");
                     }
 
 
@@ -125,10 +126,10 @@ namespace UI_Escritorio
         {
             if (dgvPlanes.SelectedRows.Count > 0)
             {
-                txtDescPlan.Text = dgvPlanes.CurrentRow.Cells["desc_plan"].Value.ToString();
+                txtDescPlan.Text = dgvPlanes.CurrentRow.Cells["Descripción"].Value.ToString();
 
                 cmbEspecialidad.SelectedIndex = -1;
-                descPlan = (string)dgvPlanes.CurrentRow.Cells["desc_plan"].Value;
+                descPlan = (string)dgvPlanes.CurrentRow.Cells["Descripción"].Value;
                 editar = true;
             }
             else

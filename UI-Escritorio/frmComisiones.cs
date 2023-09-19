@@ -65,14 +65,15 @@ namespace UI_Escritorio
                 {
                     try
                     {
-                        int idCom = (int)dgvComisiones.CurrentRow.Cells["id_comision"].Value;
+                        int idCom = (int)dgvComisiones.CurrentRow.Cells["ID Comision"].Value;
                         CN_Comisiones.eliminarComision(idCom);
                         MessageBox.Show("Comision eliminada");
                         mostrarComisiones();
                     }
                     catch (Exception er)
                     {
-                        MessageBox.Show("A ocurrido un error" + er);
+                        MessageBox.Show("ADVERTENCIA: esta comisión no puede ser eliminada en este momento porque" +
+                            "existen cursos asociados a ella. Eliminelos e intente de nuevo.");
                     }
                 }
             }
@@ -92,7 +93,7 @@ namespace UI_Escritorio
                 }
                 else
                 {
-                    int idCom = (int)dgvComisiones.CurrentRow.Cells["id_comision"].Value;
+                    int idCom = (int)dgvComisiones.CurrentRow.Cells["ID Comision"].Value;
                     Comision comision = new Comision(txtDescripcion.Text, int.Parse(txtAnioEsp.Text), idCom);
                     CN_Comisiones.actualizarComision(idCom, comision);
                     mostrarComisiones();
