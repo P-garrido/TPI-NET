@@ -37,28 +37,26 @@
             // lblComision
             // 
             lblComision.AutoSize = true;
-            lblComision.Location = new Point(139, 99);
+            lblComision.Location = new Point(159, 132);
             lblComision.Name = "lblComision";
-            lblComision.Size = new Size(61, 15);
+            lblComision.Size = new Size(74, 20);
             lblComision.TabIndex = 0;
             lblComision.Text = "Comision:";
             // 
             // cmbComisiones
             // 
             cmbComisiones.FormattingEnabled = true;
-            cmbComisiones.Location = new Point(292, 97);
-            cmbComisiones.Margin = new Padding(3, 2, 3, 2);
+            cmbComisiones.Location = new Point(334, 129);
             cmbComisiones.Name = "cmbComisiones";
-            cmbComisiones.Size = new Size(133, 23);
+            cmbComisiones.Size = new Size(151, 28);
             cmbComisiones.TabIndex = 1;
             cmbComisiones.SelectedIndexChanged += cmbComisiones_SelectedIndexChanged;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(342, 208);
-            btnAceptar.Margin = new Padding(3, 2, 3, 2);
+            btnAceptar.Location = new Point(391, 277);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(82, 22);
+            btnAceptar.Size = new Size(94, 29);
             btnAceptar.TabIndex = 2;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -66,24 +64,23 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(139, 208);
-            btnCancelar.Margin = new Padding(3, 2, 3, 2);
+            btnCancelar.Location = new Point(159, 277);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(82, 22);
+            btnCancelar.Size = new Size(94, 29);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // frmInscripcionComisiones
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(584, 346);
+            ClientSize = new Size(667, 461);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(cmbComisiones);
             Controls.Add(lblComision);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmInscripcionComisiones";
             Text = "Inscripcion a comisiones";
             Load += frmInscripcionComisiones_Load;

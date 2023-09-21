@@ -16,7 +16,7 @@ namespace UI_Escritorio
     {
         Usuario usuario;
         CN_Materia CNMateria = new CN_Materia();
-        string descMat="";
+        string descMat = "";
         public frmInscripcionDocentes()
         {
             InitializeComponent();
@@ -66,6 +66,11 @@ namespace UI_Escritorio
             int idMat = (int)mat.Rows[0]["id_materia"];
             frmDocentesCursos formDocentesCursos = new frmDocentesCursos(usuario, idMat);
             formDocentesCursos.Show();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

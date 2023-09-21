@@ -39,7 +39,7 @@ namespace UI_Escritorio
         private void frmInscripcionComisiones_Load(object sender, EventArgs e)
         {
             cargarOpcionesComisiones();
-            
+
         }
 
         public void cargarOpcionesComisiones()
@@ -86,6 +86,9 @@ namespace UI_Escritorio
 
         }
 
-
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
