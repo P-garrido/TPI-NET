@@ -66,6 +66,16 @@ namespace TPI_Negocios
         //    return comisiones;
         //}
 
+        public List<Comision> buscarComisionesPorDocente(Usuario usuario)
+        {
+            int idDocente = usuario.IdPersona;
+            return CDComisiones.buscarComisionesPorDocente(idDocente);
+        }
+
+        public Comision buscarComisionPorDescripcion(string desc)
+        {
+            return CDComisiones.buscarComisionPorDescripcion(desc);
+        }
        
     }
 }

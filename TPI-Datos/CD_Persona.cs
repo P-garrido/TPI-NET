@@ -20,6 +20,11 @@ namespace TPI_Datos
         SqlDataReader reader;
         DataTable table = new DataTable();
         SqlCommand comando = new SqlCommand();
+        SqlParameter idComision;
+        SqlParameter idMateria;
+        SqlParameter nombreApellido;
+        SqlParameter idInscripcion;
+        SqlParameter nota;
 
         public DataTable mostrarPersonas()
         {
@@ -126,6 +131,74 @@ namespace TPI_Datos
             comando.CommandText = $"INSERT INTO docentes_cursos (id_curso, id_docente, cargo) VALUES('{idCur}','{idDoc}', '{cargo}')";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
+        }
+
+        public List<Persona> buscarAlumnosCursando(int idCom, int idMat)
+        {
+            List<Persona> lista = new List<Persona> ();
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.Parameters.Clear();
+            comando.CommandType = CommandType.Text;
+            idComision = new SqlParameter("@idCom", SqlDbType.Int);
+            idComision.Direction = ParameterDirection.Input;
+            idComision.Value = idCom;
+            idMateria = new SqlParameter("@idMat", SqlDbType.Int);
+            idMateria.Direction = ParameterDirection.Input;
+            idMateria.Value = idMat;
+            comando.Parameters.Add(idComision);
+            comando.Parameters.Add(idMateria);
+            comando.CommandText = "SELECT per.id_persona, per.nombre, per.apellido FROM cursos cur INNER JOIN alumnos_inscripciones alu ON cur.id_curso = alu.id_curso INNER JOIN personas per ON per.id_persona = alu.id_alumno WHERE cur.id_materia = @idMat AND cur.id_comision = @idCom ";
+            reader = comando.ExecuteReader();
+            while (reader.Read())
+            {
+                Persona unAlumno = new Persona();
+                unAlumno.idPersona= (int)reader.GetValue(0);
+                unAlumno.Nombre= (string)reader.GetValue(1);
+                unAlumno.Apellido= (string)reader.GetValue(2);  
+                lista.Add(unAlumno);
+            }
+            comando.Connection = conexion.cerrarConexion();
+            return lista;
+        }
+
+        public Persona buscarAlumnoNombreApellido(string nomAp)
+        {
+            Persona persona = new Persona();
+            comando.Parameters.Clear();
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandType = CommandType.Text;
+            nombreApellido = new SqlParameter("@nomAp", SqlDbType.VarChar);
+            nombreApellido.Direction = ParameterDirection.Input;
+            nombreApellido.Value = nomAp;
+            comando.Parameters.Add(nombreApellido);
+            comando.CommandText = "SELECT id_persona, nombre, apellido FROM personas per WHERE concat(nombre, ' ', apellido)= @nomAp";
+            reader = comando.ExecuteReader();
+            reader.Read();
+            persona.idPersona = (int)reader.GetValue(0);
+            persona.Nombre = (string)reader.GetValue(1);
+            persona.Apellido = (string)reader.GetValue(2);  
+            comando.Connection = conexion.cerrarConexion();
+            return persona;
+        }
+
+        public void actualizarNota(int idInsc, int notaDada)
+        {
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.Parameters.Clear();
+            idInscripcion = new SqlParameter("@idInsc", SqlDbType.Int);
+            idInscripcion.Direction = ParameterDirection.Input;
+            idInscripcion.Value = idInsc;
+            nota = new SqlParameter("@nota", SqlDbType.Int);
+            nota.Direction = ParameterDirection.Input;
+            nota.Value = notaDada;
+            comando.Parameters.Add(nota);
+            comando.Parameters.Add(idInscripcion);
+            comando.CommandText = "UPDATE alumnos_inscripciones SET nota = @nota WHERE id_inscripcion = @idInsc";
+            comando.ExecuteNonQuery();
+            comando.Connection = conexion.cerrarConexion();
         }
     }
 }

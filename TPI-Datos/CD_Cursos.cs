@@ -20,6 +20,9 @@ namespace TPI_Datos
         SqlDataReader reader;
         DataTable table = new DataTable();
         SqlCommand comando = new SqlCommand();
+        SqlParameter idAlumno;
+        SqlParameter idComision;
+        SqlParameter idMateria;
 
         public DataTable mostrarCursos()
         {
@@ -156,6 +159,36 @@ namespace TPI_Datos
             return table;
         }
 
-
+        public AlumnoInscripcion buscarInscripcion(int idAlu, int idCom, int idMat)
+        {
+            AlumnoInscripcion inscripcion = new AlumnoInscripcion();
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.Parameters.Clear();
+            comando.CommandType = CommandType.Text;
+            idAlumno = new SqlParameter("@idAlu", SqlDbType.Int);
+            idAlumno.Direction = ParameterDirection.Input;
+            idAlumno.Value = idAlu;
+            comando.Parameters.Add(idAlumno);
+            idComision = new SqlParameter("@idCom", SqlDbType.Int);
+            idComision.Direction = ParameterDirection.Input;
+            idComision.Value = idCom;
+            comando.Parameters.Add(idComision);
+            idMateria = new SqlParameter("@idMat", SqlDbType.Int);
+            idMateria.Direction = ParameterDirection.Input;
+            idMateria.Value = idMat;
+            comando.Parameters.Add(idMateria);
+            comando.CommandText = "SELECT id_inscripcion, alu.id_alumno, alu.id_curso, condicion FROM alumnos_inscripciones alu " +
+                "INNER JOIN cursos cur ON alu.id_curso = cur.id_curso WHERE alu.id_alumno = @idAlu AND cur.id_comision = @idCom " +
+                "AND cur.id_materia = @idMat";
+            reader = comando.ExecuteReader();
+            reader.Read();
+            inscripcion.IdInscripcion = (int) reader.GetValue(0);
+            inscripcion.IdAlumno = (int)reader.GetValue(1);
+            inscripcion.IdCurso = (int)reader.GetValue(2);
+            inscripcion.Condicion = (string)reader.GetValue(3);
+            comando.Connection = conexion.cerrarConexion();
+            return inscripcion;
+        }
     }
 }

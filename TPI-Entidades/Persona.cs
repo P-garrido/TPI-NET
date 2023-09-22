@@ -18,6 +18,7 @@ namespace TPI_Entidades
         private string _nombre;
         private string _telefono;
         private int _tipoPersona;
+        private int _idPersona;
 
         public Persona(string ape, string dir, string email, DateTime fechaNac, int idPlan, int leg, string nom, string tel, int tipoPer) {
             _apellido = ape;
@@ -31,10 +32,24 @@ namespace TPI_Entidades
             _telefono = tel;
         }
 
+        public Persona()
+        {
+
+        }
+
         public string Apellido {
             get => _apellido;
             set {
                 _apellido = value;
+            }
+        }
+
+        public int idPersona
+        {
+            get => _idPersona;
+            set
+            {
+                _idPersona = value;
             }
         }
 

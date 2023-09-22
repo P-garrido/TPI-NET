@@ -100,5 +100,12 @@ namespace UI_Escritorio
             frmInscripcionDocentes formInscripcionDocentes = new frmInscripcionDocentes(usuario);
             formInscripcionDocentes.Show();
         }
+
+        private void subirNotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistroNotas formRegistroNotas = new frmRegistroNotas(usuario);
+            formRegistroNotas.Show();
+
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace TPI_Entidades
         private int _horasSemanales;
         private int _horasTotales;
         private int _idPlan;
+        private int _idMateria;
 
         public Materia(string descMat, int hsSem, int hsTot, int idPl)
         {
@@ -20,6 +21,20 @@ namespace TPI_Entidades
             _horasSemanales = hsSem;
             _horasTotales = hsTot; 
             _idPlan = idPl;
+        }
+
+        public Materia()
+        {
+
+        }
+
+        public int IdMateria
+        {
+            get => _idMateria;
+            set
+            {
+                _idMateria = value;
+            }
         }
 
         public string Descripcion {

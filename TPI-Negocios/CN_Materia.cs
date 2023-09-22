@@ -49,5 +49,15 @@ namespace TPI_Negocios
         {
             this.CDMateria.actualizarMateria(mat, descMat);
         }
+
+        public List<Materia> buscarMateriasPorComision(int idMat)
+        {
+            return CDMateria.buscarMateriasPorComision(idMat);
+        }
+
+        public Materia buscarMateriaPorDescripcion(string desc)
+        {
+            return CDMateria.buscarMateriaPorDescripcion(desc);
+        }
     }
 }

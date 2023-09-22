@@ -66,5 +66,21 @@ namespace TPI_Negocios
         {
             CDPersona.inscribirDocenteACurso(idDoc, idCur, cargo);
         }
+
+        public List<Persona> buscarAlumnosCursando(int idCom, int idMat)
+        {
+            return CDPersona.buscarAlumnosCursando(idCom, idMat);
+        }
+
+        public Persona buscarAlumnoNombreApellido(string nomAp)
+        {
+            return CDPersona.buscarAlumnoNombreApellido(nomAp);
+        }
+
+        public void actualizarNota(AlumnoInscripcion inscripcion, int nota)
+        {
+            int idInsc = inscripcion.IdInscripcion;
+            CDPersona.actualizarNota(idInsc, nota);
+        }
     }
 }

@@ -18,6 +18,9 @@ namespace TPI_Entidades
             _idPlan = idPlan;
             _anioEspecialidad = anioEsp;
         }
+        public Comision()
+        {
+        }
 
         public int IdComision
         {
