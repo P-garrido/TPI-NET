@@ -36,6 +36,7 @@
             // 
             // cmbMaterias
             // 
+            cmbMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMaterias.FormattingEnabled = true;
             cmbMaterias.Location = new Point(450, 273);
             cmbMaterias.Margin = new Padding(3, 4, 3, 4);

@@ -45,6 +45,7 @@
             // 
             // cmbMaterias
             // 
+            cmbMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMaterias.FormattingEnabled = true;
             cmbMaterias.Location = new Point(369, 163);
             cmbMaterias.Name = "cmbMaterias";

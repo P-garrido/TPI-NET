@@ -45,6 +45,7 @@
             // 
             // cmbComisiones
             // 
+            cmbComisiones.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbComisiones.FormattingEnabled = true;
             cmbComisiones.Location = new Point(334, 129);
             cmbComisiones.Name = "cmbComisiones";
