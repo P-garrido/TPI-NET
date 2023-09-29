@@ -30,7 +30,6 @@
         {
             menuStrip1 = new MenuStrip();
             tsmCuenta = new ToolStripMenuItem();
-            tsmLogin = new ToolStripMenuItem();
             tsmLogout = new ToolStripMenuItem();
             materiasToolStripMenuItem = new ToolStripMenuItem();
             tsmUsuarios = new ToolStripMenuItem();
@@ -54,34 +53,29 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades, tsmInscripciones, subirNotasToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(700, 24);
+            menuStrip1.Padding = new Padding(6, 3, 0, 3);
+            menuStrip1.Size = new Size(800, 30);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // tsmCuenta
             // 
-            tsmCuenta.DropDownItems.AddRange(new ToolStripItem[] { tsmLogin, tsmLogout, materiasToolStripMenuItem });
+            tsmCuenta.DropDownItems.AddRange(new ToolStripItem[] { tsmLogout, materiasToolStripMenuItem });
             tsmCuenta.Name = "tsmCuenta";
-            tsmCuenta.Size = new Size(57, 20);
+            tsmCuenta.Size = new Size(69, 24);
             tsmCuenta.Text = "Cuenta";
-            // 
-            // tsmLogin
-            // 
-            tsmLogin.Name = "tsmLogin";
-            tsmLogin.Size = new Size(119, 22);
-            tsmLogin.Text = "Login";
             // 
             // tsmLogout
             // 
             tsmLogout.Name = "tsmLogout";
-            tsmLogout.Size = new Size(119, 22);
+            tsmLogout.Size = new Size(224, 26);
             tsmLogout.Text = "Logout";
+            tsmLogout.Click += tsmLogout_Click;
             // 
             // materiasToolStripMenuItem
             // 
             materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            materiasToolStripMenuItem.Size = new Size(119, 22);
+            materiasToolStripMenuItem.Size = new Size(224, 26);
             materiasToolStripMenuItem.Text = "Materias";
             materiasToolStripMenuItem.Click += materiasToolStripMenuItem_Click;
             // 
@@ -89,27 +83,27 @@
             // 
             tsmUsuarios.DropDownItems.AddRange(new ToolStripItem[] { tsmAdministrar });
             tsmUsuarios.Name = "tsmUsuarios";
-            tsmUsuarios.Size = new Size(64, 20);
+            tsmUsuarios.Size = new Size(79, 24);
             tsmUsuarios.Text = "Usuarios";
             // 
             // tsmAdministrar
             // 
             tsmAdministrar.Name = "tsmAdministrar";
-            tsmAdministrar.Size = new Size(136, 22);
+            tsmAdministrar.Size = new Size(169, 26);
             tsmAdministrar.Text = "Administrar";
             tsmAdministrar.Click += tsmAdministrar_Click;
             // 
             // tsmComisiones
             // 
             tsmComisiones.Name = "tsmComisiones";
-            tsmComisiones.Size = new Size(81, 20);
+            tsmComisiones.Size = new Size(99, 24);
             tsmComisiones.Text = "Comisiones";
             tsmComisiones.Click += comisionesToolStripMenuItem_Click;
             // 
             // tsmCursos
             // 
             tsmCursos.Name = "tsmCursos";
-            tsmCursos.Size = new Size(55, 20);
+            tsmCursos.Size = new Size(66, 24);
             tsmCursos.Text = "Cursos";
             tsmCursos.Click += tsmCursos_Click;
             // 
@@ -117,13 +111,13 @@
             // 
             tsmPlanes.DropDownItems.AddRange(new ToolStripItem[] { tsmAdminPlanes });
             tsmPlanes.Name = "tsmPlanes";
-            tsmPlanes.Size = new Size(53, 20);
+            tsmPlanes.Size = new Size(65, 24);
             tsmPlanes.Text = "Planes";
             // 
             // tsmAdminPlanes
             // 
             tsmAdminPlanes.Name = "tsmAdminPlanes";
-            tsmAdminPlanes.Size = new Size(136, 22);
+            tsmAdminPlanes.Size = new Size(169, 26);
             tsmAdminPlanes.Text = "Administrar";
             tsmAdminPlanes.Click += tsmAdminPlanes_Click;
             // 
@@ -131,13 +125,13 @@
             // 
             tsmEspecialidades.DropDownItems.AddRange(new ToolStripItem[] { tsmAdminEsp });
             tsmEspecialidades.Name = "tsmEspecialidades";
-            tsmEspecialidades.Size = new Size(95, 20);
+            tsmEspecialidades.Size = new Size(121, 24);
             tsmEspecialidades.Text = "Especialidades";
             // 
             // tsmAdminEsp
             // 
             tsmAdminEsp.Name = "tsmAdminEsp";
-            tsmAdminEsp.Size = new Size(136, 22);
+            tsmAdminEsp.Size = new Size(169, 26);
             tsmAdminEsp.Text = "Administrar";
             tsmAdminEsp.Click += tsmAdminEsp_Click;
             // 
@@ -145,20 +139,24 @@
             // 
             tsmInscripciones.DropDownItems.AddRange(new ToolStripItem[] { tsmInscMaterias, tsmInscDocentes });
             tsmInscripciones.Name = "tsmInscripciones";
-            tsmInscripciones.Size = new Size(88, 20);
+            tsmInscripciones.Size = new Size(108, 24);
             tsmInscripciones.Text = "Inscripciones";
             // 
             // tsmInscMaterias
             // 
             tsmInscMaterias.Name = "tsmInscMaterias";
+
             tsmInscMaterias.Size = new Size(118, 22);
+
             tsmInscMaterias.Text = "Alumno";
             tsmInscMaterias.Click += tsmInscMaterias_Click;
             // 
             // tsmInscDocentes
             // 
             tsmInscDocentes.Name = "tsmInscDocentes";
+
             tsmInscDocentes.Size = new Size(118, 22);
+
             tsmInscDocentes.Text = "Docente";
             tsmInscDocentes.Click += tsmInscDocentes_Click;
             // 
@@ -171,14 +169,14 @@
             // 
             // frmMenu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmMenu";
             Text = "Menu";
+            FormClosing += frmMenu_FormClosing;
             Load += frmMenu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -190,7 +188,6 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem tsmCuenta;
-        private ToolStripMenuItem tsmLogin;
         private ToolStripMenuItem tsmLogout;
         private ToolStripMenuItem tsmUsuarios;
         private ToolStripMenuItem tsmAdministrar;

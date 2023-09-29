@@ -84,7 +84,17 @@ namespace UI_Escritorio
         {
             if (CNPersona.buscarPersonaPorId(usuario.IdPersona) == 1)
             {
-                //Aca hacemos invisibles/inaccesibles las cosas que el alumno no deba tocar
+                tsmAdminEsp.Visible = false;
+                tsmCursos.Visible = false;
+                tsmInscDocentes.Visible = false;
+                tsmComisiones.Visible = false;
+                tsmEspecialidades.Visible = false;
+                tsmPlanes.Visible = false;
+                materiasToolStripMenuItem.Visible = false;
+            }
+            else
+            {
+                tsmInscMaterias.Visible = false; 
             }
 
         }
@@ -101,10 +111,23 @@ namespace UI_Escritorio
             formInscripcionDocentes.Show();
         }
 
+
         private void subirNotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRegistroNotas formRegistroNotas = new frmRegistroNotas(usuario);
             formRegistroNotas.Show();
+
+
+        private void tsmLogout_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            frmLogin formLogin = new frmLogin();
+            formLogin.Show();
+        }
+
+        private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
 
         }
     }

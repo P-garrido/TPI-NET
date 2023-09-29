@@ -19,7 +19,7 @@ namespace UI_Escritorio
         Usuario usuario;
         CN_Materia CNMaterias = new CN_Materia();
         string descMat = "";
-        
+
         public frmInscripcionMaterias()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace UI_Escritorio
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace UI_Escritorio
             try
             {
                 DataTable mat = CNMaterias.mostrarMateria(descMat);
-                int idMat = (int) mat.Rows[0]["id_materia"];
+                int idMat = (int)mat.Rows[0]["id_materia"];
                 frmInscripcionComisiones formInscripcionComisiones = new frmInscripcionComisiones(idMat, usuario);
                 formInscripcionComisiones.Show();
             }
@@ -70,6 +70,12 @@ namespace UI_Escritorio
         private void cmbMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
             descMat = (string)cmbMaterias.SelectedItem;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
         }
     }
 }

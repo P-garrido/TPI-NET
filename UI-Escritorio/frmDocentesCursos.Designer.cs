@@ -40,26 +40,30 @@
             // 
             cmbComisiones.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbComisiones.FormattingEnabled = true;
-            cmbComisiones.Location = new Point(419, 179);
+            cmbComisiones.Location = new Point(479, 239);
+            cmbComisiones.Margin = new Padding(3, 4, 3, 4);
             cmbComisiones.Name = "cmbComisiones";
-            cmbComisiones.Size = new Size(121, 23);
+            cmbComisiones.Size = new Size(138, 28);
             cmbComisiones.TabIndex = 0;
             cmbComisiones.SelectedIndexChanged += cmbComisiones_SelectedIndexChanged;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(247, 275);
+            btnCancelar.Location = new Point(282, 367);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(86, 31);
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(465, 275);
+            btnAceptar.Location = new Point(531, 367);
+            btnAceptar.Margin = new Padding(3, 4, 3, 4);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(75, 23);
+            btnAceptar.Size = new Size(86, 31);
             btnAceptar.TabIndex = 2;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -68,9 +72,9 @@
             // lblComisiones
             // 
             lblComisiones.AutoSize = true;
-            lblComisiones.Location = new Point(284, 179);
+            lblComisiones.Location = new Point(325, 239);
             lblComisiones.Name = "lblComisiones";
-            lblComisiones.Size = new Size(58, 15);
+            lblComisiones.Size = new Size(71, 20);
             lblComisiones.TabIndex = 3;
             lblComisiones.Text = "Comision";
             // 
@@ -78,32 +82,34 @@
             // 
             cmbCargo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCargo.FormattingEnabled = true;
-            cmbCargo.Location = new Point(419, 222);
+            cmbCargo.Location = new Point(479, 296);
+            cmbCargo.Margin = new Padding(3, 4, 3, 4);
             cmbCargo.Name = "cmbCargo";
-            cmbCargo.Size = new Size(121, 23);
+            cmbCargo.Size = new Size(138, 28);
             cmbCargo.TabIndex = 4;
             cmbCargo.SelectedIndexChanged += cmbCargo_SelectedIndexChanged;
             // 
             // lblCargo
             // 
             lblCargo.AutoSize = true;
-            lblCargo.Location = new Point(287, 231);
+            lblCargo.Location = new Point(328, 308);
             lblCargo.Name = "lblCargo";
-            lblCargo.Size = new Size(42, 15);
+            lblCargo.Size = new Size(52, 20);
             lblCargo.TabIndex = 5;
             lblCargo.Text = "Cargo:";
             // 
             // frmDocentesCursos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(lblCargo);
             Controls.Add(cmbCargo);
             Controls.Add(lblComisiones);
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
             Controls.Add(cmbComisiones);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmDocentesCursos";
             Text = "frmDocentesCursos";
             Load += frmDocentesCursos_Load;

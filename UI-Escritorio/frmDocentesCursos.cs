@@ -52,7 +52,7 @@ namespace UI_Escritorio
 
         private void cmbComisiones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            descComision =(string) cmbComisiones.SelectedItem;
+            descComision = (string)cmbComisiones.SelectedItem;
         }
 
         private void frmDocentesCursos_Load(object sender, EventArgs e)
@@ -92,6 +92,11 @@ namespace UI_Escritorio
                     break;
 
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

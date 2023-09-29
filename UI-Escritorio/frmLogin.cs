@@ -59,5 +59,10 @@ namespace UI_Escritorio
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
