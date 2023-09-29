@@ -43,13 +43,14 @@
             tsmInscripciones = new ToolStripMenuItem();
             tsmInscMaterias = new ToolStripMenuItem();
             tsmInscDocentes = new ToolStripMenuItem();
+            subirNotasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades, tsmInscripciones });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades, tsmInscripciones, subirNotasToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(6, 3, 0, 3);
@@ -144,16 +145,27 @@
             // tsmInscMaterias
             // 
             tsmInscMaterias.Name = "tsmInscMaterias";
-            tsmInscMaterias.Size = new Size(148, 26);
+
+            tsmInscMaterias.Size = new Size(118, 22);
+
             tsmInscMaterias.Text = "Alumno";
             tsmInscMaterias.Click += tsmInscMaterias_Click;
             // 
             // tsmInscDocentes
             // 
             tsmInscDocentes.Name = "tsmInscDocentes";
-            tsmInscDocentes.Size = new Size(148, 26);
+
+            tsmInscDocentes.Size = new Size(118, 22);
+
             tsmInscDocentes.Text = "Docente";
             tsmInscDocentes.Click += tsmInscDocentes_Click;
+            // 
+            // subirNotasToolStripMenuItem
+            // 
+            subirNotasToolStripMenuItem.Name = "subirNotasToolStripMenuItem";
+            subirNotasToolStripMenuItem.Size = new Size(80, 20);
+            subirNotasToolStripMenuItem.Text = "Subir Notas";
+            subirNotasToolStripMenuItem.Click += subirNotasToolStripMenuItem_Click;
             // 
             // frmMenu
             // 
@@ -191,5 +203,6 @@
         private ToolStripMenuItem tsmInscripciones;
         private ToolStripMenuItem tsmInscMaterias;
         private ToolStripMenuItem tsmInscDocentes;
+        private ToolStripMenuItem subirNotasToolStripMenuItem;
     }
 }

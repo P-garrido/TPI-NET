@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TPI_Entidades;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection.PortableExecutable;
 
 namespace TPI_Datos
 {
@@ -18,6 +19,8 @@ namespace TPI_Datos
         SqlDataReader reader;
         DataTable table = new DataTable();
         SqlCommand comando = new SqlCommand();
+        SqlParameter idComision;
+        SqlParameter descMateria;
 
         public DataTable mostrarMaterias()
         {
@@ -96,5 +99,53 @@ namespace TPI_Datos
             conexion.cerrarConexion();
             return table;
         }
+
+        public List<Materia> buscarMateriasPorComision(int idCom)
+        {
+            List<Materia> lista = new List<Materia>();
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.Parameters.Clear();
+            comando.CommandType = CommandType.Text;
+            idComision = new SqlParameter("@idCom", SqlDbType.Int);
+            idComision.Direction = ParameterDirection.Input;
+            idComision.Value = idCom;
+            comando.Parameters.Add(idComision);
+            comando.CommandText = "SELECT mat.id_materia, mat.desc_materia FROM comisiones com INNER JOIN cursos cur " +
+                "ON cur.id_comision = com.id_comision INNER JOIN materias mat ON mat.id_materia = cur.id_materia " +
+                "WHERE com.id_comision = @idCom";
+            reader = comando.ExecuteReader();
+            while(reader.Read())
+            {
+                Materia unaMateria = new Materia();
+                unaMateria.IdMateria= (int)reader.GetValue(0);
+                unaMateria.Descripcion = (string)reader.GetValue(1);
+                lista.Add(unaMateria);
+            }
+            comando.Connection = conexion.cerrarConexion();
+            return lista;
+        }
+
+        public Materia buscarMateriaPorDescripcion(string desc)
+        {
+            Materia materia = new Materia();
+            comando.Parameters.Clear();
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandType = CommandType.Text;
+            descMateria = new SqlParameter("@descMat", SqlDbType.VarChar);
+            descMateria.Direction = ParameterDirection.Input;
+            descMateria.Value = desc;
+            comando.Parameters.Add(descMateria);
+            comando.CommandText = "SELECT * FROM materias mat WHERE mat.desc_materia = @descMat";
+            reader = comando.ExecuteReader();
+            reader.Read();
+            materia.IdMateria = (int)reader.GetValue(0);
+            materia.Descripcion = (string)reader.GetValue(1);
+            comando.Connection = conexion.cerrarConexion();
+            return materia;
+        }
+
+        
     }
 }

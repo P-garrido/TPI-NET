@@ -70,7 +70,7 @@ namespace UI_Escritorio
                         MessageBox.Show("Comision eliminada");
                         mostrarComisiones();
                     }
-                    catch (Exception er)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("ADVERTENCIA: esta comisión no puede ser eliminada en este momento porque" +
                             "existen cursos asociados a ella. Eliminelos e intente de nuevo.");

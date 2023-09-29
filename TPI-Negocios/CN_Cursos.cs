@@ -62,5 +62,10 @@ namespace TPI_Negocios
             return CDCursos.mostrarCursosSinDocente(idMat);
         }
 
+        public AlumnoInscripcion buscarInscripcion(Persona alumno, int idCom, int idMat)
+        {
+            int idAlu = alumno.idPersona;
+            return CDCursos.buscarInscripcion(idAlu, idCom, idMat);
+        }
     }
 }

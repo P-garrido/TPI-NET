@@ -6,17 +6,27 @@ using System.Threading.Tasks;
 
 namespace TPI_Entidades
 {
-    internal class AlumnoInscripcion
+    public class AlumnoInscripcion
     {
         private string _condicion;
         private int _idAlumno;
         private int _idCurso;
         private int _nota;
+        private int _idInscripcion;
 
         public string Condicion {
             get => _condicion;
             set {
                 _condicion = value;
+            }
+        }
+
+        public int IdInscripcion
+        {
+            get => _idInscripcion;
+            set
+            {
+                _idInscripcion = value;
             }
         }
 

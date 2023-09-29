@@ -111,6 +111,13 @@ namespace UI_Escritorio
             formInscripcionDocentes.Show();
         }
 
+
+        private void subirNotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistroNotas formRegistroNotas = new frmRegistroNotas(usuario);
+            formRegistroNotas.Show();
+
+
         private void tsmLogout_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -121,6 +128,7 @@ namespace UI_Escritorio
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+
         }
     }
 }
