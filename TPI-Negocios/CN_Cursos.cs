@@ -67,5 +67,10 @@ namespace TPI_Negocios
             int idAlu = alumno.idPersona;
             return CDCursos.buscarInscripcion(idAlu, idCom, idMat);
         }
+
+        public DataTable cargarReporteCursos()
+        {
+            return CDCursos.cargarReporteCursos();
+        }
     }
 }

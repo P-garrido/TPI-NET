@@ -190,5 +190,16 @@ namespace TPI_Datos
             comando.Connection = conexion.cerrarConexion();
             return inscripcion;
         }
+
+        public DataTable cargarReporteCursos()
+        {
+            conexion.abrirConexion();
+            SqlCommand comando = new SqlCommand("select * from cursos;", conexion.Conexion);
+            SqlDataAdapter d = new SqlDataAdapter(comando);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            conexion.cerrarConexion();
+            return dt;
+        }
     }
 }

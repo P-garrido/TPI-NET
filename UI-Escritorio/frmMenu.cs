@@ -94,7 +94,7 @@ namespace UI_Escritorio
             }
             else
             {
-                tsmInscMaterias.Visible = false; 
+                tsmInscMaterias.Visible = false;
             }
 
         }
@@ -116,7 +116,7 @@ namespace UI_Escritorio
         {
             frmRegistroNotas formRegistroNotas = new frmRegistroNotas(usuario);
             formRegistroNotas.Show();
-
+        }
 
         private void tsmLogout_Click(object sender, EventArgs e)
         {
@@ -129,6 +129,12 @@ namespace UI_Escritorio
         {
             Application.Exit();
 
+        }
+
+        private void btnReporteCursos_Click(object sender, EventArgs e)
+        {
+            frmReporteCursos formReporteCursos = new frmReporteCursos();
+            formReporteCursos.Show();
         }
     }
 }
