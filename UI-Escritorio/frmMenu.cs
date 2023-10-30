@@ -97,7 +97,7 @@ namespace UI_Escritorio
 
         private void tsmInscDocentes_Click(object sender, EventArgs e)
         {
-            abrirFormularioHijo(new frmInscripcionDocentes(usuario));
+            abrirFormularioHijo(new frmInscDocentes(usuario));
         }
 
 
