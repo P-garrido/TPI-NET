@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="PlanesDataSet" targetNamespace="http://tempuri.org/PlanesDataSet.xsd" xmlns:mstns="http://tempuri.org/PlanesDataSet.xsd" xmlns="http://tempuri.org/PlanesDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="PlanesDataSet3" targetNamespace="http://tempuri.org/PlanesDataSet3.xsd" xmlns:mstns="http://tempuri.org/PlanesDataSet3.xsd" xmlns="http://tempuri.org/PlanesDataSet3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -64,7 +64,7 @@ SELECT id_plan, desc_plan, id_especialidad FROM planes WHERE (id_plan = @id_plan
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="PlanesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="PlanesDataSet" msprop:Generator_DataSetName="PlanesDataSet">
+  <xs:element name="PlanesDataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="PlanesDataSet3" msprop:Generator_DataSetName="PlanesDataSet3">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="planes" msprop:Generator_RowEvHandlerName="planesRowChangeEventHandler" msprop:Generator_RowDeletedName="planesRowDeleted" msprop:Generator_RowDeletingName="planesRowDeleting" msprop:Generator_RowEvArgName="planesRowChangeEvent" msprop:Generator_TablePropName="planes" msprop:Generator_RowChangedName="planesRowChanged" msprop:Generator_RowChangingName="planesRowChanging" msprop:Generator_TableClassName="planesDataTable" msprop:Generator_RowClassName="planesRow" msprop:Generator_TableVarName="tableplanes" msprop:Generator_UserTableName="planes">

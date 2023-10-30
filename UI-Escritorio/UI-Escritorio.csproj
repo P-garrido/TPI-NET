@@ -31,10 +31,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CursosDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Update="PlanesDataSet.Designer.cs">
+    <Compile Update="PlanesDataSet2.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>PlanesDataSet.xsd</DependentUpon>
+      <DependentUpon>PlanesDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="PlanesDataSet3.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PlanesDataSet3.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -43,9 +48,13 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>CursosDataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Update="PlanesDataSet.xsd">
+    <None Update="PlanesDataSet2.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PlanesDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>PlanesDataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="PlanesDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PlanesDataSet3.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

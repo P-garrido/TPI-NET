@@ -20,9 +20,9 @@ namespace UI_Escritorio {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("PlanesDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("PlanesDataSet3")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class PlanesDataSet : global::System.Data.DataSet {
+    public partial class PlanesDataSet3 : global::System.Data.DataSet {
         
         private planesDataTable tableplanes;
         
@@ -30,7 +30,7 @@ namespace UI_Escritorio {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public PlanesDataSet() {
+        public PlanesDataSet3() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace UI_Escritorio {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected PlanesDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected PlanesDataSet3(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace UI_Escritorio {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            PlanesDataSet cln = ((PlanesDataSet)(base.Clone()));
+            PlanesDataSet3 cln = ((PlanesDataSet3)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace UI_Escritorio {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "PlanesDataSet";
+            this.DataSetName = "PlanesDataSet3";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/PlanesDataSet.xsd";
+            this.Namespace = "http://tempuri.org/PlanesDataSet3.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableplanes = new planesDataTable();
@@ -225,7 +225,7 @@ namespace UI_Escritorio {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            PlanesDataSet ds = new PlanesDataSet();
+            PlanesDataSet3 ds = new PlanesDataSet3();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -506,7 +506,7 @@ namespace UI_Escritorio {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                PlanesDataSet ds = new PlanesDataSet();
+                PlanesDataSet3 ds = new PlanesDataSet3();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -648,7 +648,7 @@ namespace UI_Escritorio {
         }
     }
 }
-namespace UI_Escritorio.PlanesDataSetTableAdapters {
+namespace UI_Escritorio.PlanesDataSet3TableAdapters {
     
     
     /// <summary>
@@ -900,7 +900,7 @@ SELECT id_plan, desc_plan, id_especialidad FROM planes WHERE (id_plan = @id_plan
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PlanesDataSet.planesDataTable dataTable) {
+        public virtual int Fill(PlanesDataSet3.planesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -913,9 +913,9 @@ SELECT id_plan, desc_plan, id_especialidad FROM planes WHERE (id_plan = @id_plan
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PlanesDataSet.planesDataTable GetData() {
+        public virtual PlanesDataSet3.planesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PlanesDataSet.planesDataTable dataTable = new PlanesDataSet.planesDataTable();
+            PlanesDataSet3.planesDataTable dataTable = new PlanesDataSet3.planesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -923,14 +923,14 @@ SELECT id_plan, desc_plan, id_especialidad FROM planes WHERE (id_plan = @id_plan
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PlanesDataSet.planesDataTable dataTable) {
+        public virtual int Update(PlanesDataSet3.planesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PlanesDataSet dataSet) {
+        public virtual int Update(PlanesDataSet3 dataSet) {
             return this.Adapter.Update(dataSet, "planes");
         }
         
@@ -1143,7 +1143,7 @@ SELECT id_plan, desc_plan, id_especialidad FROM planes WHERE (id_plan = @id_plan
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(PlanesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(PlanesDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._planesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.planes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1162,7 +1162,7 @@ SELECT id_plan, desc_plan, id_especialidad FROM planes WHERE (id_plan = @id_plan
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(PlanesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(PlanesDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._planesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.planes.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1180,7 +1180,7 @@ SELECT id_plan, desc_plan, id_especialidad FROM planes WHERE (id_plan = @id_plan
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(PlanesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(PlanesDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._planesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.planes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1222,7 +1222,7 @@ SELECT id_plan, desc_plan, id_especialidad FROM planes WHERE (id_plan = @id_plan
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(PlanesDataSet dataSet) {
+        public virtual int UpdateAll(PlanesDataSet3 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

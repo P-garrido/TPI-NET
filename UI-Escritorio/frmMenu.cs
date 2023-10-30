@@ -136,5 +136,11 @@ namespace UI_Escritorio
             frmReporteCursos formReporteCursos = new frmReporteCursos();
             formReporteCursos.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmReportePlanes formReportePlanes = new frmReportePlanes();
+            formReportePlanes.Show();
+        }
     }
 }

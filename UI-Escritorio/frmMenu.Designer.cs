@@ -45,6 +45,7 @@
             tsmInscDocentes = new ToolStripMenuItem();
             subirNotasToolStripMenuItem = new ToolStripMenuItem();
             btnReporteCursos = new Button();
+            button1 = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -166,19 +167,30 @@
             // 
             // btnReporteCursos
             // 
-            btnReporteCursos.Location = new Point(602, 49);
+            btnReporteCursos.Location = new Point(546, 49);
             btnReporteCursos.Name = "btnReporteCursos";
-            btnReporteCursos.Size = new Size(75, 23);
+            btnReporteCursos.Size = new Size(131, 23);
             btnReporteCursos.TabIndex = 1;
             btnReporteCursos.Text = "Reporte Cursos";
             btnReporteCursos.UseVisualStyleBackColor = true;
             btnReporteCursos.Click += btnReporteCursos_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(546, 105);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 23);
+            button1.TabIndex = 2;
+            button1.Text = "Reporte Planes";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(button1);
             Controls.Add(btnReporteCursos);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -214,5 +226,6 @@
         private ToolStripMenuItem tsmInscDocentes;
         private ToolStripMenuItem subirNotasToolStripMenuItem;
         private Button btnReporteCursos;
+        private Button button1;
     }
 }
