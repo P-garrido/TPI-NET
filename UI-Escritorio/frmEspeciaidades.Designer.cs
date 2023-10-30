@@ -109,6 +109,7 @@
             Controls.Add(txtDescEspecialidad);
             Controls.Add(lblDescEspecialidad);
             Controls.Add(dgvEspecialidades);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmEspeciaidades";
             Text = "Especiaidades";

@@ -103,7 +103,7 @@ namespace UI_Escritorio
         private void btnRegistrarNota_Click(object sender, EventArgs e)
         {
             AlumnoInscripcion inscripcion = CNCurso.buscarInscripcion(alumno, idComSeleccionada, idMatSeleccionada);
-            CNPersona.actualizarNota(inscripcion, (int) numNota.Value);
+            CNPersona.actualizarNota(inscripcion, (int)numNota.Value);
             MessageBox.Show("Nota Registrada Exitosamente");
             numNota.Value = numNota.Minimum;
             // CAMBIAR LAS PROXIMAS LINEAS TAL QUE VUELVAN AL INDEX -1

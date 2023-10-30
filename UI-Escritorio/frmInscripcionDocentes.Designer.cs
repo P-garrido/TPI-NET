@@ -38,28 +38,26 @@
             // 
             cmbMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMaterias.FormattingEnabled = true;
-            cmbMaterias.Location = new Point(450, 273);
-            cmbMaterias.Margin = new Padding(3, 4, 3, 4);
+            cmbMaterias.Location = new Point(160, 41);
             cmbMaterias.Name = "cmbMaterias";
-            cmbMaterias.Size = new Size(138, 28);
+            cmbMaterias.Size = new Size(121, 23);
             cmbMaterias.TabIndex = 0;
             cmbMaterias.SelectedIndexChanged += cmbMaterias_SelectedIndexChanged;
             // 
             // lblMateria
             // 
             lblMateria.AutoSize = true;
-            lblMateria.Location = new Point(257, 273);
+            lblMateria.Location = new Point(56, 44);
             lblMateria.Name = "lblMateria";
-            lblMateria.Size = new Size(60, 20);
+            lblMateria.Size = new Size(47, 15);
             lblMateria.TabIndex = 1;
             lblMateria.Text = "Materia";
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(257, 416);
-            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Location = new Point(56, 143);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(86, 31);
+            btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -67,10 +65,9 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(503, 416);
-            btnAceptar.Margin = new Padding(3, 4, 3, 4);
+            btnAceptar.Location = new Point(206, 143);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(86, 31);
+            btnAceptar.Size = new Size(75, 23);
             btnAceptar.TabIndex = 3;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -78,14 +75,14 @@
             // 
             // frmInscripcionDocentes
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(490, 290);
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
             Controls.Add(lblMateria);
             Controls.Add(cmbMaterias);
-            Margin = new Padding(3, 4, 3, 4);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmInscripcionDocentes";
             Text = "frmInscripcionDocentes";
             Load += frmInscripcionDocentes_Load;

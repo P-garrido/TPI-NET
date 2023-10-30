@@ -59,7 +59,7 @@ namespace UI_Escritorio
         {
             if (dgvEspecialidades.SelectedRows.Count > 0)
             {
-               if (txtDescEspecialidad.Text == "")
+                if (txtDescEspecialidad.Text == "")
                 {
                     MessageBox.Show("Complete todos los campos");
                 }

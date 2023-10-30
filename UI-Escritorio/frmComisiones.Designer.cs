@@ -146,6 +146,7 @@
             Controls.Add(txtDescripcion);
             Controls.Add(lblDescripcion);
             Controls.Add(dgvComisiones);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmComisiones";
             Text = "Comisiones";
             FormClosing += frmComisiones_FormClosing;

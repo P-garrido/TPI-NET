@@ -170,6 +170,7 @@
             Controls.Add(txtDescripcionMateria);
             Controls.Add(lblDescripcionMateria);
             Controls.Add(dgvMaterias);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmMaterias";
             Text = "Menú Materias";
             FormClosing += frmMaterias_FormClosing;

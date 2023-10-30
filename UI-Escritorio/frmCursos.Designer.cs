@@ -60,7 +60,7 @@
             dgvCursos.Location = new Point(12, 12);
             dgvCursos.Name = "dgvCursos";
             dgvCursos.RowTemplate.Height = 25;
-            dgvCursos.Size = new Size(638, 160);
+            dgvCursos.Size = new Size(841, 160);
             dgvCursos.TabIndex = 2;
             // 
             // lblComision
@@ -162,6 +162,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(865, 373);
+            ControlBox = false;
             Controls.Add(cmbComision);
             Controls.Add(cmbMateria);
             Controls.Add(btnGuardar);
@@ -174,6 +175,7 @@
             Controls.Add(lblComision);
             Controls.Add(dgvCursos);
             Controls.Add(lblNomMateria);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmCursos";
             Text = "Menú Cursos";
             FormClosing += frmCursos_FormClosing;

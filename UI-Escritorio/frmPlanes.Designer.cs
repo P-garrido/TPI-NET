@@ -132,6 +132,7 @@
             Controls.Add(txtDescPlan);
             Controls.Add(lblNombre);
             Controls.Add(dgvPlanes);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmPlanes";
             Text = "Planes";

@@ -92,15 +92,15 @@ namespace UI_Escritorio
                 try
                 {
                     if (txtNombreUsuario.Text == "" || txtApellido.Text == "" || txtNombre.Text == "" || txtEmail.Text == "" ||
-                        txtClave.Text == "" ||  txtLegajo.Text=="")
+                        txtClave.Text == "" || txtLegajo.Text == "")
                     {
                         MessageBox.Show("Complete todos los campos");
                     }
                     else
                     {
-                       
+
                         nomUsu = (string)dgvUsuarios.CurrentRow.Cells["Nombre de Usuario"].Value;
-                        idPer = (int) dgvUsuarios.CurrentRow.Cells["ID Persona"].Value;
+                        idPer = (int)dgvUsuarios.CurrentRow.Cells["ID Persona"].Value;
                         Usuario usu = new Usuario(txtNombreUsuario.Text, txtClave.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, idPer);
                         CNusuario.actualizarUsuario(nomUsu, usu);
                         mostrarUsuarios();

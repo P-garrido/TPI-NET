@@ -55,7 +55,7 @@
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.RowTemplate.Height = 29;
-            dgvUsuarios.Size = new Size(1040, 141);
+            dgvUsuarios.Size = new Size(951, 141);
             dgvUsuarios.TabIndex = 0;
             // 
             // lblNombreUsuario
@@ -197,7 +197,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1061, 422);
+            ClientSize = new Size(973, 422);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
@@ -214,6 +214,7 @@
             Controls.Add(txtNombreUsuario);
             Controls.Add(lblNombreUsuario);
             Controls.Add(dgvUsuarios);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmUsuarios";
             Text = "Usuarios";

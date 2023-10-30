@@ -142,6 +142,7 @@
             Controls.Add(lblComision);
             Controls.Add(cmbMateria);
             Controls.Add(cmbComision);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "frmRegistroNotas";
             Text = "Registro de Notas Alumnos";
             Load += frmRegistroNotas_Load;

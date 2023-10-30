@@ -282,6 +282,7 @@
             Controls.Add(txtNombre);
             Controls.Add(lblNombre);
             Controls.Add(dgvPersonas);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmPersonas";
             Text = "Personas";
