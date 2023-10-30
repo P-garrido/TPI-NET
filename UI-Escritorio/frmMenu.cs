@@ -152,5 +152,10 @@ namespace UI_Escritorio
         {
             abrirFormularioHijo(new frmPersonas(usuario));
         }
+
+        private void tsmMaterias_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new frmMaterias());
+        }
     }
 }

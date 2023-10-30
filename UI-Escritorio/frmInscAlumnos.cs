@@ -22,7 +22,7 @@ namespace UI_Escritorio
         public frmInscAlumnos(Usuario usu)
         {
             InitializeComponent();
-            usuario = usu;
+            this.usuario = usu;
         }
 
         Usuario usuario;
@@ -60,7 +60,7 @@ namespace UI_Escritorio
         {
             try
             {
-                DataTable comisiones = CNCursos.mostrarCursosConCupos(idMateria);
+                DataTable comisiones = CNCursos.mostrarCursosConCupos(idMateria, usuario.IdPersona);
                 for (int i = 0; i < comisiones.Rows.Count; i++)
                 {
                     cmbComisiones.Items.Add(comisiones.Rows[i]["desc_comision"].ToString());
@@ -85,6 +85,7 @@ namespace UI_Escritorio
             {
                 DataTable mat = CNMaterias.mostrarMateria(descMat);
                 idMateria = (int)mat.Rows[0]["id_materia"];
+                cmbComisiones.Items.Clear();
             }
             catch (Exception ex)
             {
@@ -101,6 +102,8 @@ namespace UI_Escritorio
                 DataTable com = CNComisiones.mostrarComisionPorDescripcion(descComision);
                 List<TPI_Entidades.Curso> cur = CNCursos.buscarCurso(idMateria, (int)com.Rows[0]["id_comision"]);
                 CNPersonas.inscribirACurso(usuario.IdPersona, (int)cur[0].IdCurso);
+                cmbComisiones.SelectedIndex = -1;
+                cmbMaterias.SelectedIndex= -1;
                 MessageBox.Show("Inscripcion Realizada");
             }
             catch (Exception ex)

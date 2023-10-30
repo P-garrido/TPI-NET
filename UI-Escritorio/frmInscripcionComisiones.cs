@@ -46,7 +46,7 @@ namespace UI_Escritorio
         {
             try
             {
-                DataTable comisiones = CNCursos.mostrarCursosConCupos(idMateria);
+                DataTable comisiones = CNCursos.mostrarCursosConCupos(idMateria, usuario.IdPersona);
                 for (int i = 0; i < comisiones.Rows.Count; i++)
                 {
                     cmbComisiones.Items.Add(comisiones.Rows[i]["desc_comision"].ToString());

@@ -39,38 +39,39 @@
             // 
             // dgvEspecialidades
             // 
+            dgvEspecialidades.AllowUserToAddRows = false;
+            dgvEspecialidades.AllowUserToDeleteRows = false;
             dgvEspecialidades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEspecialidades.Location = new Point(10, 9);
-            dgvEspecialidades.Margin = new Padding(3, 2, 3, 2);
+            dgvEspecialidades.Location = new Point(11, 12);
             dgvEspecialidades.Name = "dgvEspecialidades";
+            dgvEspecialidades.ReadOnly = true;
             dgvEspecialidades.RowHeadersWidth = 51;
             dgvEspecialidades.RowTemplate.Height = 29;
-            dgvEspecialidades.Size = new Size(679, 141);
+            dgvEspecialidades.Size = new Size(776, 188);
             dgvEspecialidades.TabIndex = 0;
+            dgvEspecialidades.Click += dgvEspecialidades_Click;
             // 
             // lblDescEspecialidad
             // 
             lblDescEspecialidad.AutoSize = true;
-            lblDescEspecialidad.Location = new Point(23, 167);
+            lblDescEspecialidad.Location = new Point(26, 223);
             lblDescEspecialidad.Name = "lblDescEspecialidad";
-            lblDescEspecialidad.Size = new Size(135, 15);
+            lblDescEspecialidad.Size = new Size(173, 20);
             lblDescEspecialidad.TabIndex = 1;
             lblDescEspecialidad.Text = "Nombre de Especialidad";
             // 
             // txtDescEspecialidad
             // 
-            txtDescEspecialidad.Location = new Point(193, 165);
-            txtDescEspecialidad.Margin = new Padding(3, 2, 3, 2);
+            txtDescEspecialidad.Location = new Point(221, 220);
             txtDescEspecialidad.Name = "txtDescEspecialidad";
-            txtDescEspecialidad.Size = new Size(110, 23);
+            txtDescEspecialidad.Size = new Size(125, 27);
             txtDescEspecialidad.TabIndex = 2;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(23, 212);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
+            btnEliminar.Location = new Point(26, 283);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(82, 22);
+            btnEliminar.Size = new Size(94, 29);
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -78,10 +79,9 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(122, 212);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
+            btnEditar.Location = new Point(139, 283);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 22);
+            btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 4;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -89,10 +89,9 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(220, 212);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Location = new Point(251, 283);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(82, 22);
+            btnGuardar.Size = new Size(94, 29);
             btnGuardar.TabIndex = 5;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -100,9 +99,9 @@
             // 
             // frmEspeciaidades
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
@@ -110,7 +109,6 @@
             Controls.Add(lblDescEspecialidad);
             Controls.Add(dgvEspecialidades);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmEspeciaidades";
             Text = "Especiaidades";
             FormClosing += frmEspeciaidades_FormClosing;

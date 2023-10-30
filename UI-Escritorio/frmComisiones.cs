@@ -115,5 +115,12 @@ namespace UI_Escritorio
         {
             descPla = (string)cmbPlanes.SelectedItem;
         }
+
+        private void dgvComisiones_Click(object sender, EventArgs e)
+        {
+            txtDescripcion.Text = dgvComisiones.CurrentRow.Cells["Descripción"].Value.ToString();
+            txtAnioEsp.Text = dgvComisiones.CurrentRow.Cells["Año Especialidad"].Value.ToString();
+            cmbPlanes.SelectedItem = dgvComisiones.CurrentRow.Cells["Plan de Estudios"].Value;
+        }
     }
 }

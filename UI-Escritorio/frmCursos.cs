@@ -83,6 +83,10 @@ namespace UI_Escritorio
                         CNCurso.eliminarCurso(idCurso);
                         MessageBox.Show("Materia eliminada");
                         mostrarCursos();
+                        cmbMateria.SelectedIndex = -1;
+                        cmbComision.SelectedIndex = -1;
+                        numAnioCal.Value = numAnioCal.Minimum;
+                        numCupo.Value = numCupo.Minimum;
                     }
                     catch (Exception ex)
                     {
@@ -106,7 +110,10 @@ namespace UI_Escritorio
             idCom = (int)com.Rows[0]["id_comision"];
             CNCurso.agregarCurso(idMat, idCom, Decimal.ToInt32(numAnioCal.Value), Decimal.ToInt32(numCupo.Value));
             mostrarCursos();
+            cmbMateria.SelectedIndex = -1;
+            cmbComision.SelectedIndex = -1;
             numAnioCal.Value = numAnioCal.Minimum;
+            numCupo.Value = numCupo.Minimum;
         }
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
@@ -161,6 +168,14 @@ namespace UI_Escritorio
         {
             this.Hide();
             e.Cancel = true;
+        }
+
+        private void dgvCursos_Click(object sender, EventArgs e)
+        {
+            cmbMateria.SelectedItem = dgvCursos.CurrentRow.Cells["Materia"].Value;
+            cmbComision.SelectedItem = dgvCursos.CurrentRow.Cells["Comisión"].Value;
+            numAnioCal.Value =Convert.ToDecimal(dgvCursos.CurrentRow.Cells["Año Calendario"].Value);
+            numCupo.Value= Convert.ToDecimal(dgvCursos.CurrentRow.Cells["Cupo"].Value);
         }
     }
 }

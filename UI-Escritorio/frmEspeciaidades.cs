@@ -42,7 +42,7 @@ namespace UI_Escritorio
                 {
                     CNEspecialidad.agregarEspecialidad(txtDescEspecialidad.Text);
                     mostrarEspecialidades();
-                    txtDescEspecialidad.Text = "";
+                    txtDescEspecialidad.ResetText();
                 }
                 catch (Exception ex)
                 {
@@ -70,7 +70,7 @@ namespace UI_Escritorio
                         descEsp = (string)dgvEspecialidades.CurrentRow.Cells["Descripción"].Value;
                         CNEspecialidad.actualizarEspecialidad(descEsp, txtDescEspecialidad.Text);
                         mostrarEspecialidades();
-                        txtDescEspecialidad.Text = "";
+                        txtDescEspecialidad.ResetText();
                     }
                     catch (Exception ex)
                     {
@@ -97,6 +97,7 @@ namespace UI_Escritorio
                         CNEspecialidad.eliminarEspecialidad(descEsp);
                         MessageBox.Show("Especialidad eliminada");
                         mostrarEspecialidades();
+                        txtDescEspecialidad.ResetText();
                     }
                     catch (Exception ex)
                     {
@@ -117,6 +118,11 @@ namespace UI_Escritorio
         {
             this.Hide();
             e.Cancel = true;
+        }
+
+        private void dgvEspecialidades_Click(object sender, EventArgs e)
+        {
+            txtDescEspecialidad.Text = dgvEspecialidades.CurrentRow.Cells["Descripción"].Value.ToString();
         }
     }
 }

@@ -52,7 +52,7 @@ namespace UI_Escritorio
             idPla = (int)pla.Rows[0]["id_plan"];
             CNMateria.agregarMateria(txtDescripcionMateria.Text, Decimal.ToInt32(numHorasSemanales.Value), Decimal.ToInt32(numHorasTotales.Value), idPla);
             mostrarMaterias();
-            txtDescripcionMateria.Text = "";
+            txtDescripcionMateria.ResetText();
             numHorasTotales.Value = 0;
             numHorasSemanales.Value = 0;
             descPla = "";
@@ -73,6 +73,9 @@ namespace UI_Escritorio
                         CNMateria.eliminarMateria(idMateria);
                         MessageBox.Show("Materia eliminada");
                         mostrarMaterias();
+                        txtDescripcionMateria.ResetText();
+                        numHorasTotales.Value = 0;
+                        numHorasSemanales.Value = 0;
                     }
                     catch (Exception ex)
                     {
@@ -107,10 +110,12 @@ namespace UI_Escritorio
                         Materia mat = new Materia(txtDescripcionMateria.Text, Decimal.ToInt32(numHorasSemanales.Value), Decimal.ToInt32(numHorasTotales.Value), idPla);
                         CNMateria.actualizarMateria(mat, descMat);
                         mostrarMaterias();
-                        txtDescripcionMateria.Text = "";
+                        txtDescripcionMateria.ResetText();
                         numHorasTotales.Value = 0;
                         numHorasSemanales.Value = 0;
                         descPla = "";
+                        cmbPlan.SelectedIndex = -1;
+                        cmbPlan.Text = "Elija un plan";
                     }
                 }
                 catch (Exception ex)
@@ -133,6 +138,14 @@ namespace UI_Escritorio
         {
             this.Hide();
             e.Cancel = true;
+        }
+
+        private void dgvMaterias_Click(object sender, EventArgs e)
+        {
+            txtDescripcionMateria.Text = dgvMaterias.CurrentRow.Cells["Nombre"].Value.ToString();
+            numHorasSemanales.Value = Convert.ToDecimal(dgvMaterias.CurrentRow.Cells["Horas Semanales"].Value);
+            numHorasTotales.Value = Convert.ToDecimal(dgvMaterias.CurrentRow.Cells["Horas Totales"].Value);
+            cmbPlan.SelectedItem = dgvMaterias.CurrentRow.Cells["Plan de Estudios"].Value;
         }
     }
 }
