@@ -24,7 +24,7 @@ namespace UI_Escritorio
         {
             rpvCursos.LocalReport.DataSources.Clear();
             ReportDataSource source = new ReportDataSource("CursosDataSet", curso.cargarReporteCursos());
-            rpvCursos.LocalReport.ReportPath = @"C:\\Users\\Usuario\\source\\repos\\TPI-NET\\UI-Escritorio\\reporteCursos.rdlc";
+            rpvCursos.LocalReport.ReportPath = @"..\\..\\..\\reporteCursos.rdlc";
             rpvCursos.LocalReport.DataSources.Add(source);
             rpvCursos.RefreshReport();
         }

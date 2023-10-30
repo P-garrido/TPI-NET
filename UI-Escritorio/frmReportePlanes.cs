@@ -25,7 +25,7 @@ namespace UI_Escritorio
         {
             rpvPlanes.LocalReport.DataSources.Clear();
             ReportDataSource source = new ReportDataSource("PlanesDataSet3", plan.cargarReportePlanes());
-            rpvPlanes.LocalReport.ReportPath = @"C:\\Users\\Usuario\\source\\repos\\TPI-NET\\UI-Escritorio\\reportePlanes.rdlc";
+            rpvPlanes.LocalReport.ReportPath = @"..\\..\\..\\reportePlanes.rdlc";
             rpvPlanes.LocalReport.DataSources.Add(source);
             rpvPlanes.RefreshReport();
         }
