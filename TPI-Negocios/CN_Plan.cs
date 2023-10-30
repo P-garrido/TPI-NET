@@ -45,5 +45,10 @@ namespace TPI_Negocios
             Plan pla = new Plan(descPla, idEsp);
             this.CDPlan.actualizarPlan(pla, nomPlaViejo);
         }
+
+        public DataTable cargarReportePlanes()
+        {
+            return CDPlan.cargarReportePlanes();
+        }
     }
 }

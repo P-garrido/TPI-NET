@@ -82,5 +82,16 @@ namespace TPI_Datos
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
+
+        public DataTable cargarReportePlanes()
+        {
+            conexion.abrirConexion();
+            SqlCommand comando = new SqlCommand("select * from planes;", conexion.Conexion);
+            SqlDataAdapter d = new SqlDataAdapter(comando);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+            conexion.cerrarConexion();
+            return dt;
+        }
     }
 }
