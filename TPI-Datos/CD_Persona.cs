@@ -108,7 +108,12 @@ namespace TPI_Datos
             comando.Connection = conexion.abrirConexion();
             table.Clear();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"SELECT * FROM Personas WHERE id_persona = '{idPer}'";
+            comando.Parameters.Clear();
+            SqlParameter paramidPer = new SqlParameter("@idPersona", SqlDbType.Int);
+            paramidPer.Direction = ParameterDirection.Input;
+            paramidPer.Value = idPer;
+            comando.Parameters.Add(paramidPer);
+            comando.CommandText = $"SELECT * FROM Personas WHERE id_persona = @idPersona";
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();

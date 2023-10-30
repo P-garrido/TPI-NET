@@ -29,10 +29,17 @@ namespace UI_Escritorio
         int dia;
         string stringFecha = "";
         int tipoPer;
+        Usuario usuario = null;
 
         public frmPersonas()
         {
             InitializeComponent();
+        }
+
+        public frmPersonas(Usuario usu)
+        {
+            InitializeComponent();
+            this.usuario = usu;
         }
 
         private void frmPersonas_Load(object sender, EventArgs e)
@@ -40,6 +47,20 @@ namespace UI_Escritorio
             mostrarPersonas();
             cargarOpcionesPlan();
             cargarOpcionesTipoPersona();
+
+            if (usuario == null)
+            {
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+                dgvPersonas.Visible = false;
+              
+                    this.FormBorderStyle = FormBorderStyle.Sizable;
+                }
+                else
+                {
+                    this.FormBorderStyle = FormBorderStyle.None;
+               }
+            
 
         }
 

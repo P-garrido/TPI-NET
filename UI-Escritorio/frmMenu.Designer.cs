@@ -43,13 +43,14 @@
             btnReporteCursos = new Button();
             button1 = new Button();
             panMenu = new Panel();
+            personasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades, tsmInscripciones, subirNotasToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tsmCuenta, tsmUsuarios, personasToolStripMenuItem, tsmComisiones, tsmCursos, tsmPlanes, tsmEspecialidades, tsmInscripciones, subirNotasToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
@@ -116,14 +117,14 @@
             // tsmInscMaterias
             // 
             tsmInscMaterias.Name = "tsmInscMaterias";
-            tsmInscMaterias.Size = new Size(180, 22);
+            tsmInscMaterias.Size = new Size(118, 22);
             tsmInscMaterias.Text = "Alumno";
             tsmInscMaterias.Click += tsmInscMaterias_Click;
             // 
             // tsmInscDocentes
             // 
             tsmInscDocentes.Name = "tsmInscDocentes";
-            tsmInscDocentes.Size = new Size(180, 22);
+            tsmInscDocentes.Size = new Size(118, 22);
             tsmInscDocentes.Text = "Docente";
             tsmInscDocentes.Click += tsmInscDocentes_Click;
             // 
@@ -160,6 +161,13 @@
             panMenu.Name = "panMenu";
             panMenu.Size = new Size(854, 515);
             panMenu.TabIndex = 3;
+            // 
+            // personasToolStripMenuItem
+            // 
+            personasToolStripMenuItem.Name = "personasToolStripMenuItem";
+            personasToolStripMenuItem.Size = new Size(66, 20);
+            personasToolStripMenuItem.Text = "Personas";
+            personasToolStripMenuItem.Click += personasToolStripMenuItem_Click;
             // 
             // frmMenu
             // 
@@ -200,5 +208,6 @@
         private Button btnReporteCursos;
         private Button button1;
         private Panel panMenu;
+        private ToolStripMenuItem personasToolStripMenuItem;
     }
 }

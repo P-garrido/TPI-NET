@@ -20,15 +20,35 @@ namespace UI_Escritorio
 
         string nomUsu = "";
         int idPer;
+        Usuario usuario=null;
 
         public frmUsuarios()
         {
             InitializeComponent();
         }
 
+        public frmUsuarios(Usuario usu)
+        {
+            InitializeComponent();
+            this.usuario = usu;
+        }
+
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             mostrarUsuarios();
+            if(usuario == null)
+            {
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+                dgvUsuarios.Visible = false;
+                
+                    this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
+            else
+              {
+               this.FormBorderStyle = FormBorderStyle.None;
+               }
+            
         }
 
         public void mostrarUsuarios()
@@ -38,16 +58,24 @@ namespace UI_Escritorio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            DataTable per = CNPersona.mostrarPersona(int.Parse(txtLegajo.Text));
-            int idPersona = (int)per.Rows[0]["id_persona"];
-            CNusuario.agregarUsuario(txtNombreUsuario.Text, txtClave.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, idPersona);
-            txtLegajo.Text = "";
-            txtNombreUsuario.Text = "";
-            txtNombre.Text = "";
-            txtClave.Text = "";
-            txtApellido.Text = "";
-            txtEmail.Text = "";
-            mostrarUsuarios();
+            try
+            {
+                DataTable per = CNPersona.mostrarPersona(int.Parse(txtLegajo.Text));
+                int idPersona = (int)per.Rows[0]["id_persona"];
+                CNusuario.agregarUsuario(txtNombreUsuario.Text, txtClave.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, idPersona);
+                txtLegajo.Text = "";
+                txtNombreUsuario.Text = "";
+                txtNombre.Text = "";
+                txtClave.Text = "";
+                txtApellido.Text = "";
+                txtEmail.Text = "";
+                mostrarUsuarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void frmUsuarios_FormClosing(object sender, FormClosingEventArgs e)

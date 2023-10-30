@@ -67,7 +67,9 @@ namespace UI_Escritorio
                 tsmInscDocentes.Visible = false;
                 tsmComisiones.Visible = false;
                 tsmPlanes.Visible = false;
-                // materiasToolStripMenuItem.Visible = false;
+                subirNotasToolStripMenuItem.Visible = false;
+                personasToolStripMenuItem.Visible = false;
+                tsmUsuarios.Visible = false;
             }
             else
             {
@@ -78,7 +80,7 @@ namespace UI_Escritorio
 
         private void tsmInscMaterias_Click(object sender, EventArgs e)
         {
-            abrirFormularioHijo(new frmInscripcionMaterias(usuario));
+            abrirFormularioHijo(new frmInscAlumnos(usuario));
         }
 
         public void abrirFormularioHijo(object formHijo)
@@ -133,7 +135,7 @@ namespace UI_Escritorio
 
         private void tsmUsuarios_Click(object sender, EventArgs e)
         {
-            abrirFormularioHijo(new frmUsuarios());
+            abrirFormularioHijo(new frmUsuarios(usuario));
         }
 
         private void tsmPlanes_Click(object sender, EventArgs e)
@@ -144,6 +146,11 @@ namespace UI_Escritorio
         private void tsmEspecialidades_Click(object sender, EventArgs e)
         {
             abrirFormularioHijo(new frmEspeciaidades());
+        }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new frmPersonas(usuario));
         }
     }
 }
