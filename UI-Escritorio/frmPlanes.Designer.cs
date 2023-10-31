@@ -41,47 +41,48 @@
             // 
             // dgvPlanes
             // 
+            dgvPlanes.AllowUserToAddRows = false;
+            dgvPlanes.AllowUserToDeleteRows = false;
             dgvPlanes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPlanes.Location = new Point(10, 9);
-            dgvPlanes.Margin = new Padding(3, 2, 3, 2);
+            dgvPlanes.Location = new Point(11, 12);
             dgvPlanes.Name = "dgvPlanes";
+            dgvPlanes.ReadOnly = true;
             dgvPlanes.RowHeadersWidth = 51;
             dgvPlanes.RowTemplate.Height = 29;
-            dgvPlanes.Size = new Size(679, 141);
+            dgvPlanes.Size = new Size(776, 188);
             dgvPlanes.TabIndex = 0;
+            dgvPlanes.Click += dgvPlanes_Click;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(16, 170);
+            lblNombre.Location = new Point(18, 227);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(96, 15);
+            lblNombre.Size = new Size(121, 20);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre del Plan";
             // 
             // txtDescPlan
             // 
-            txtDescPlan.Location = new Point(193, 170);
-            txtDescPlan.Margin = new Padding(3, 2, 3, 2);
+            txtDescPlan.Location = new Point(221, 227);
             txtDescPlan.Name = "txtDescPlan";
-            txtDescPlan.Size = new Size(137, 23);
+            txtDescPlan.Size = new Size(156, 27);
             txtDescPlan.TabIndex = 2;
             // 
             // lblNomEsp
             // 
             lblNomEsp.AutoSize = true;
-            lblNomEsp.Location = new Point(16, 207);
+            lblNomEsp.Location = new Point(18, 276);
             lblNomEsp.Name = "lblNomEsp";
-            lblNomEsp.Size = new Size(147, 15);
+            lblNomEsp.Size = new Size(189, 20);
             lblNomEsp.TabIndex = 3;
             lblNomEsp.Text = "Nombre de la Especialidad";
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(16, 262);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
+            btnEliminar.Location = new Point(18, 349);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(82, 22);
+            btnEliminar.Size = new Size(94, 29);
             btnEliminar.TabIndex = 5;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -89,10 +90,9 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(123, 262);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
+            btnEditar.Location = new Point(141, 349);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 22);
+            btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 6;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -100,10 +100,9 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(237, 262);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Location = new Point(271, 349);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(82, 22);
+            btnGuardar.Size = new Size(94, 29);
             btnGuardar.TabIndex = 7;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -113,17 +112,18 @@
             // 
             cmbEspecialidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEspecialidad.FormattingEnabled = true;
-            cmbEspecialidad.Location = new Point(193, 207);
+            cmbEspecialidad.Location = new Point(221, 276);
+            cmbEspecialidad.Margin = new Padding(3, 4, 3, 4);
             cmbEspecialidad.Name = "cmbEspecialidad";
-            cmbEspecialidad.Size = new Size(137, 23);
+            cmbEspecialidad.Size = new Size(156, 28);
             cmbEspecialidad.TabIndex = 8;
             cmbEspecialidad.SelectedIndexChanged += cmbEspecialidad_SelectedIndexChanged;
             // 
             // frmPlanes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(cmbEspecialidad);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
@@ -133,7 +133,6 @@
             Controls.Add(lblNombre);
             Controls.Add(dgvPlanes);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmPlanes";
             Text = "Planes";
             FormClosing += frmPlanes_FormClosing;

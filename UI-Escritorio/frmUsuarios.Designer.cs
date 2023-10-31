@@ -49,123 +49,119 @@
             // 
             // dgvUsuarios
             // 
+            dgvUsuarios.AllowUserToAddRows = false;
+            dgvUsuarios.AllowUserToDeleteRows = false;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(10, 9);
-            dgvUsuarios.Margin = new Padding(3, 2, 3, 2);
+            dgvUsuarios.Location = new Point(11, 12);
             dgvUsuarios.Name = "dgvUsuarios";
+            dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.RowTemplate.Height = 29;
-            dgvUsuarios.Size = new Size(951, 141);
+            dgvUsuarios.Size = new Size(1087, 188);
             dgvUsuarios.TabIndex = 0;
+            dgvUsuarios.Click += dgvUsuarios_Click;
             // 
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Location = new Point(10, 161);
+            lblNombreUsuario.Location = new Point(11, 215);
             lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(110, 15);
+            lblNombreUsuario.Size = new Size(139, 20);
             lblNombreUsuario.TabIndex = 1;
             lblNombreUsuario.Text = "Nombre de Usuario";
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(148, 164);
-            txtNombreUsuario.Margin = new Padding(3, 2, 3, 2);
+            txtNombreUsuario.Location = new Point(169, 219);
             txtNombreUsuario.Name = "txtNombreUsuario";
-            txtNombreUsuario.Size = new Size(110, 23);
+            txtNombreUsuario.Size = new Size(125, 27);
             txtNombreUsuario.TabIndex = 2;
             // 
             // txtClave
             // 
-            txtClave.Location = new Point(148, 195);
-            txtClave.Margin = new Padding(3, 2, 3, 2);
+            txtClave.Location = new Point(169, 260);
             txtClave.Name = "txtClave";
-            txtClave.Size = new Size(110, 23);
+            txtClave.Size = new Size(125, 27);
             txtClave.TabIndex = 4;
             // 
             // lblClave
             // 
             lblClave.AutoSize = true;
-            lblClave.Location = new Point(10, 192);
+            lblClave.Location = new Point(11, 256);
             lblClave.Name = "lblClave";
-            lblClave.Size = new Size(36, 15);
+            lblClave.Size = new Size(45, 20);
             lblClave.TabIndex = 3;
             lblClave.Text = "Clave";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(148, 226);
-            txtNombre.Margin = new Padding(3, 2, 3, 2);
+            txtNombre.Location = new Point(169, 301);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(110, 23);
+            txtNombre.Size = new Size(125, 27);
             txtNombre.TabIndex = 6;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(10, 228);
+            lblNombre.Location = new Point(11, 304);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(51, 15);
+            lblNombre.Size = new Size(64, 20);
             lblNombre.TabIndex = 5;
             lblNombre.Text = "Nombre";
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(148, 260);
-            txtApellido.Margin = new Padding(3, 2, 3, 2);
+            txtApellido.Location = new Point(169, 347);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(110, 23);
+            txtApellido.Size = new Size(125, 27);
             txtApellido.TabIndex = 8;
             // 
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(10, 260);
+            lblApellido.Location = new Point(11, 347);
             lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(51, 15);
+            lblApellido.Size = new Size(66, 20);
             lblApellido.TabIndex = 7;
             lblApellido.Text = "Apellido";
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(148, 296);
-            txtEmail.Margin = new Padding(3, 2, 3, 2);
+            txtEmail.Location = new Point(169, 395);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(110, 23);
+            txtEmail.Size = new Size(125, 27);
             txtEmail.TabIndex = 12;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(10, 293);
+            lblEmail.Location = new Point(11, 391);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(36, 15);
+            lblEmail.Size = new Size(46, 20);
             lblEmail.TabIndex = 11;
             lblEmail.Text = "Email";
             // 
             // txtLegajo
             // 
-            txtLegajo.Location = new Point(148, 332);
-            txtLegajo.Margin = new Padding(3, 2, 3, 2);
+            txtLegajo.Location = new Point(169, 443);
             txtLegajo.Name = "txtLegajo";
-            txtLegajo.Size = new Size(110, 23);
+            txtLegajo.Size = new Size(125, 27);
             txtLegajo.TabIndex = 16;
             // 
             // lblLegajo
             // 
             lblLegajo.AutoSize = true;
-            lblLegajo.Location = new Point(10, 328);
+            lblLegajo.Location = new Point(11, 437);
             lblLegajo.Name = "lblLegajo";
-            lblLegajo.Size = new Size(42, 15);
+            lblLegajo.Size = new Size(54, 20);
             lblLegajo.TabIndex = 15;
             lblLegajo.Text = "Legajo";
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(8, 383);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
+            btnEliminar.Location = new Point(9, 511);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(82, 22);
+            btnEliminar.Size = new Size(94, 29);
             btnEliminar.TabIndex = 17;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -173,10 +169,9 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(126, 383);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
+            btnEditar.Location = new Point(144, 511);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 22);
+            btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 18;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -184,10 +179,9 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(250, 383);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
+            btnGuardar.Location = new Point(286, 511);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(82, 22);
+            btnGuardar.Size = new Size(94, 29);
             btnGuardar.TabIndex = 19;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -195,9 +189,9 @@
             // 
             // frmUsuarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(973, 422);
+            ClientSize = new Size(1112, 563);
             Controls.Add(btnGuardar);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
@@ -215,7 +209,6 @@
             Controls.Add(lblNombreUsuario);
             Controls.Add(dgvUsuarios);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmUsuarios";
             Text = "Usuarios";
             FormClosing += frmUsuarios_FormClosing;

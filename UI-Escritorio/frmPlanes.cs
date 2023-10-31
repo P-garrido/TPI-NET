@@ -21,8 +21,7 @@ namespace UI_Escritorio
 
         int idEsp;
         int idPlan;
-        string descPlan;
-        bool editar;
+        int idPlaViejo;
 
         public frmPlanes()
         {
@@ -52,15 +51,13 @@ namespace UI_Escritorio
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            if (!editar)
-            {
                 try
                 {
                     DataTable esp = CNEspecialidad.mostrarEspecialidad(descEsp);
                     idEsp = (int)esp.Rows[0]["id_especialidad"];
                     CNPlan.agregarPlan(txtDescPlan.Text, idEsp);
                     mostrarPlanes();
-                    txtDescPlan.Text = "";
+                    txtDescPlan.ResetText();
                     cmbEspecialidad.SelectedIndex = -1;
                     cmbEspecialidad.Text = "Elija una especialidad";
                 }
@@ -68,24 +65,8 @@ namespace UI_Escritorio
                 {
                     MessageBox.Show("No se puede insertar el usuario por " + ex);
                 }
-            }
-            else
-            {
-                try
-                {
-                    DataTable esp = CNEspecialidad.mostrarEspecialidad(cmbEspecialidad.SelectedItem.ToString());
-                    CNPlan.actualizarPlan(descPlan, txtDescPlan.Text, (int)esp.Rows[0]["id_especialidad"]);
-                    mostrarPlanes();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se puede actualizar el plan por " + ex);
-                }
-                finally
-                {
-                    editar = false;
-                }
-            }
+
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -101,6 +82,8 @@ namespace UI_Escritorio
                         CNPlan.eliminarPlan(idPlan);
                         MessageBox.Show("Plan eliminado");
                         mostrarPlanes();
+                        txtDescPlan.ResetText();
+                        cmbEspecialidad.SelectedIndex = -1;
                     }
                     catch (Exception ex)
                     {
@@ -126,11 +109,18 @@ namespace UI_Escritorio
         {
             if (dgvPlanes.SelectedRows.Count > 0)
             {
-                txtDescPlan.Text = dgvPlanes.CurrentRow.Cells["Descripción"].Value.ToString();
-
-                cmbEspecialidad.SelectedIndex = -1;
-                descPlan = (string)dgvPlanes.CurrentRow.Cells["Descripción"].Value;
-                editar = true;
+                try
+                {
+                    DataTable esp = CNEspecialidad.mostrarEspecialidad(cmbEspecialidad.SelectedItem.ToString());
+                    CNPlan.actualizarPlan(idPlaViejo, txtDescPlan.Text, (int)esp.Rows[0]["id_especialidad"]);
+                    mostrarPlanes();
+                    txtDescPlan.ResetText();
+                    cmbEspecialidad.SelectedIndex = -1;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se puede actualizar el plan por " + ex);
+                }
             }
             else
             {
@@ -142,6 +132,13 @@ namespace UI_Escritorio
         {
             this.Hide();
             e.Cancel = true;
+        }
+
+        private void dgvPlanes_Click(object sender, EventArgs e)
+        {
+            idPlaViejo = (int)dgvPlanes.CurrentRow.Cells["ID Plan"].Value;
+            txtDescPlan.Text = dgvPlanes.CurrentRow.Cells["Descripción"].Value.ToString();
+            cmbEspecialidad.SelectedItem = dgvPlanes.CurrentRow.Cells["Especialidad"].Value;
         }
     }
 }

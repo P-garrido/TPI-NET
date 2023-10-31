@@ -65,11 +65,11 @@ namespace TPI_Datos
         }
 
 
-        public void actualizarPlan(Plan pla, string nomPla)
+        public void actualizarPlan(Plan pla, int idPla)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"UPDATE planes SET desc_plan= '{pla.Descripcion}', id_especialidad= '{pla.IdEspecialidad}' WHERE desc_plan = '{nomPla}' ";
+            comando.CommandText = $"UPDATE planes SET desc_plan= '{pla.Descripcion}', id_especialidad= '{pla.IdEspecialidad}' WHERE id_plan = '{idPla}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
