@@ -41,10 +41,10 @@
             tsmInscMaterias = new ToolStripMenuItem();
             tsmInscDocentes = new ToolStripMenuItem();
             subirNotasToolStripMenuItem = new ToolStripMenuItem();
+            tsmMaterias = new ToolStripMenuItem();
             btnReporteCursos = new Button();
             button1 = new Button();
             panMenu = new Panel();
-            tsmMaterias = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(6, 3, 0, 3);
-            menuStrip1.Size = new Size(1171, 30);
+            menuStrip1.Size = new Size(1330, 30);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -125,14 +125,14 @@
             // tsmInscMaterias
             // 
             tsmInscMaterias.Name = "tsmInscMaterias";
-            tsmInscMaterias.Size = new Size(224, 26);
+            tsmInscMaterias.Size = new Size(148, 26);
             tsmInscMaterias.Text = "Alumno";
             tsmInscMaterias.Click += tsmInscMaterias_Click;
             // 
             // tsmInscDocentes
             // 
             tsmInscDocentes.Name = "tsmInscDocentes";
-            tsmInscDocentes.Size = new Size(224, 26);
+            tsmInscDocentes.Size = new Size(148, 26);
             tsmInscDocentes.Text = "Docente";
             tsmInscDocentes.Click += tsmInscDocentes_Click;
             // 
@@ -142,6 +142,13 @@
             subirNotasToolStripMenuItem.Size = new Size(100, 24);
             subirNotasToolStripMenuItem.Text = "Subir Notas";
             subirNotasToolStripMenuItem.Click += subirNotasToolStripMenuItem_Click;
+            // 
+            // tsmMaterias
+            // 
+            tsmMaterias.Name = "tsmMaterias";
+            tsmMaterias.Size = new Size(80, 24);
+            tsmMaterias.Text = "Materias";
+            tsmMaterias.Click += tsmMaterias_Click;
             // 
             // btnReporteCursos
             // 
@@ -170,21 +177,14 @@
             panMenu.Location = new Point(182, 37);
             panMenu.Margin = new Padding(3, 4, 3, 4);
             panMenu.Name = "panMenu";
-            panMenu.Size = new Size(976, 687);
+            panMenu.Size = new Size(1136, 687);
             panMenu.TabIndex = 3;
-            // 
-            // tsmMaterias
-            // 
-            tsmMaterias.Name = "tsmMaterias";
-            tsmMaterias.Size = new Size(80, 24);
-            tsmMaterias.Text = "Materias";
-            tsmMaterias.Click += tsmMaterias_Click;
             // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1171, 740);
+            ClientSize = new Size(1330, 740);
             Controls.Add(panMenu);
             Controls.Add(button1);
             Controls.Add(btnReporteCursos);

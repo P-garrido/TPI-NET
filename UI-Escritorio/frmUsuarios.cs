@@ -162,9 +162,9 @@ namespace UI_Escritorio
             txtApellido.Text = dgvUsuarios.CurrentRow.Cells["Apellido"].Value.ToString();
             txtClave.Text = dgvUsuarios.CurrentRow.Cells["Clave"].Value.ToString();
             txtEmail.Text = dgvUsuarios.CurrentRow.Cells["Email"].Value.ToString();
-            //txtLegajo.Text = dgvUsuarios.CurrentRow.Cells["Legajo"].Value.ToString();
             txtNombre.Text = dgvUsuarios.CurrentRow.Cells["Nombre"].Value.ToString();
             txtNombreUsuario.Text = dgvUsuarios.CurrentRow.Cells["Nombre de Usuario"].Value.ToString();
+            txtLegajo.Text = CNPersona.buscarPerPorId((int)dgvUsuarios.CurrentRow.Cells["ID Persona"].Value).Rows[0]["Legajo"].ToString();
         }
     }
 }
