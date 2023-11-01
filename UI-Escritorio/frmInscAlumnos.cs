@@ -37,6 +37,7 @@ namespace UI_Escritorio
         private void frmInscAlumnos_Load(object sender, EventArgs e)
         {
             cargarOpcionesMaterias();
+            cmbComisiones.Enabled = false;
         }
 
         public void cargarOpcionesMaterias()
@@ -80,19 +81,22 @@ namespace UI_Escritorio
 
         private void cmbMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            descMat = (string)cmbMaterias.SelectedItem;
-            try
+            if (cmbMaterias.SelectedItem != null)
             {
-                DataTable mat = CNMaterias.mostrarMateria(descMat);
-                idMateria = (int)mat.Rows[0]["id_materia"];
-                cmbComisiones.Items.Clear();
+                descMat = (string)cmbMaterias.SelectedItem;
+                try
+                {
+                    DataTable mat = CNMaterias.mostrarMateria(descMat);
+                    idMateria = (int)mat.Rows[0]["id_materia"];
+                    cmbComisiones.Items.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se puede inscribir a la materia por " + ex.Message);
+                }
+                cargarOpcionesComisiones();
+                cmbComisiones.Enabled = true;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se puede inscribir a la materia por " + ex.Message);
-            }
-
-            cargarOpcionesComisiones();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -105,6 +109,7 @@ namespace UI_Escritorio
                 cmbComisiones.SelectedIndex = -1;
                 cmbMaterias.SelectedIndex= -1;
                 MessageBox.Show("Inscripcion Realizada");
+                cmbComisiones.Enabled = false;
             }
             catch (Exception ex)
             {

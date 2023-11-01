@@ -41,11 +41,11 @@ namespace UI_Escritorio
         private void frmInscDocentes_Load(object sender, EventArgs e)
         {
             cargarOpcionesMaterias();
-           
-
             cmbCargos.Items.Add("Docente teoría");
             cmbCargos.Items.Add("Docente práctica");
             cmbCargos.Items.Add("Ayudante de cátedra");
+            cmbCargos.Enabled = false;
+            cmbComisiones.Enabled = false;
         }
 
         public void cargarOpcionesMaterias()
@@ -66,20 +66,24 @@ namespace UI_Escritorio
 
         private void cmbMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            descMat = (string)cmbMaterias.SelectedItem;
-            try
+            if (cmbMaterias.SelectedItem != null)
             {
-                DataTable mat = CNMateria.mostrarMateria(descMat);
-                 idMateria = (int)mat.Rows[0]["id_materia"];
-                DataTable comisiones = CNCursos.mostrarCursosSinDocentes(idMateria);
-                for (int i = 0; i < comisiones.Rows.Count; i++)
+                descMat = (string)cmbMaterias.SelectedItem;
+                cmbComisiones.Enabled = true;
+                try
                 {
-                    cmbComisiones.Items.Add(comisiones.Rows[i]["desc_comision"].ToString());
+                    DataTable mat = CNMateria.mostrarMateria(descMat);
+                    idMateria = (int)mat.Rows[0]["id_materia"];
+                    DataTable comisiones = CNCursos.mostrarCursosSinDocentes(idMateria);
+                    for (int i = 0; i < comisiones.Rows.Count; i++)
+                    {
+                        cmbComisiones.Items.Add(comisiones.Rows[i]["desc_comision"].ToString());
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -92,6 +96,11 @@ namespace UI_Escritorio
                 List<TPI_Entidades.Curso> cur = CNCursos.buscarCurso(idMateria, (int)com.Rows[0]["id_comision"]);
                 CNPersonas.inscribirDocenteACurso(usuario.IdPersona, (int)cur[0].IdCurso, cargo);
                 MessageBox.Show("Inscripcion Realizada");
+                cmbComisiones.SelectedIndex = -1;
+                cmbCargos.SelectedIndex = -1;
+                cmbMaterias.SelectedIndex = -1;
+                cmbComisiones.Enabled = false;
+                cmbCargos.Enabled = false;
             }
             catch(Exception ex)
             {
@@ -101,23 +110,30 @@ namespace UI_Escritorio
 
         private void cmbComisiones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            descComision = (string)cmbComisiones.SelectedItem;
+            if (cmbComisiones.SelectedItem != null)
+            {
+                cmbCargos.Enabled = true;
+                descComision = (string)cmbComisiones.SelectedItem;
+            }
         }
 
         private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cmbCargos.SelectedItem)
+            if (cmbCargos.SelectedItem != null)
             {
-                case "Docente teoría":
-                    cargo = 0;
-                    break;
-                case "Docente práctica":
-                    cargo = 1;
-                    break;
-                case "Ayudante de cátedra":
-                    cargo = 2;
-                    break;
+                switch (cmbCargos.SelectedItem)
+                {
+                    case "Docente teoría":
+                        cargo = 0;
+                        break;
+                    case "Docente práctica":
+                        cargo = 1;
+                        break;
+                    case "Ayudante de cátedra":
+                        cargo = 2;
+                        break;
 
+                }
             }
         }
     }

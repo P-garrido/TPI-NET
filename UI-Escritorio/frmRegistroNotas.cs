@@ -90,14 +90,20 @@ namespace UI_Escritorio
             {
                 cmbMateria.Items.Clear();
             }
-            Comision comision = CNComision.buscarComisionPorDescripcion(cmbComision.SelectedItem.ToString());
-            idComSeleccionada = comision.IdComision;
-            cargarOpcionesMaterias(comision.IdComision);
+            if (cmbComision.SelectedItem != null)
+            {
+                Comision comision = CNComision.buscarComisionPorDescripcion(cmbComision.SelectedItem.ToString());
+                idComSeleccionada = comision.IdComision;
+                cargarOpcionesMaterias(comision.IdComision);
+            }
         }
 
         private void cmbAlumno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            alumno = CNPersona.buscarAlumnoNombreApellido(cmbAlumno.SelectedItem.ToString());
+           if (cmbAlumno.SelectedItem != null)
+            {
+                alumno = CNPersona.buscarAlumnoNombreApellido(cmbAlumno.SelectedItem.ToString());
+            }
         }
 
         private void btnRegistrarNota_Click(object sender, EventArgs e)
@@ -107,9 +113,11 @@ namespace UI_Escritorio
             MessageBox.Show("Nota Registrada Exitosamente");
             numNota.Value = numNota.Minimum;
             // CAMBIAR LAS PROXIMAS LINEAS TAL QUE VUELVAN AL INDEX -1
-            cmbAlumno.SelectedIndex = 0;
-            cmbComision.SelectedIndex = 0;
-            cmbMateria.SelectedIndex = 0;
+            cmbAlumno.SelectedIndex = -1;
+            cmbComision.SelectedIndex = -1;
+            cmbMateria.SelectedIndex = -1;
+            cmbAlumno.Enabled = false;
+            cmbMateria.Enabled = false;
         }
     }
 }

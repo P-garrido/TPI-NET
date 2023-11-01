@@ -45,7 +45,7 @@ namespace UI_Escritorio
                 usuarioLogueado = CNUsuario.validarUsuario(txtNomUsuario.Text, txtPass.Text);
                 if (usuarioLogueado == null)
                 {
-                    throw new Exception("Usuario inexistente");
+                    throw new Exception("El Usuario no existe o la contraseña es incorrecta");
                 }
                 else
                 {

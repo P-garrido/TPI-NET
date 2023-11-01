@@ -19,24 +19,15 @@ namespace UI_Escritorio
 
         private void tsmAdministrar_Click(object sender, EventArgs e)
         {
-
             if (formIdentificacion.ShowDialog() == DialogResult.OK)
             {
                 abrirFormularioHijo(new frmUsuarios());
-
             }
             else
             {
                 abrirFormularioHijo(new frmPersonas());
             }
-
-
-
-
         }
-
-
-
 
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
