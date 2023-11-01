@@ -97,6 +97,9 @@ namespace UI_Escritorio
                     Comision comision = new Comision(txtDescripcion.Text, int.Parse(txtAnioEsp.Text), idCom);
                     CN_Comisiones.actualizarComision(idCom, comision);
                     mostrarComisiones();
+                    txtDescripcion.ResetText();
+                    txtAnioEsp.ResetText();
+                    cmbPlanes.SelectedIndex = -1;
                 }
             }
             else

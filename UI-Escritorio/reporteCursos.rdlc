@@ -23,7 +23,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.81167cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -35,7 +35,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Curso</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -67,7 +70,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Materia</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -99,7 +105,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Comision</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -130,8 +139,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Año Calendario</Value>
-                              <Style />
+                              <Value>Año</Value>
+                              <Style>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -163,7 +175,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Cupo</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>14pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -366,7 +381,7 @@
         <DataSetName>CursosDataSet</DataSetName>
         <Top>0.65828cm</Top>
         <Left>1.90183cm</Left>
-        <Height>1.2cm</Height>
+        <Height>1.41167cm</Height>
         <Width>12.5cm</Width>
         <Style>
           <Border>
@@ -397,6 +412,7 @@
                     <FontSize>20pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                     <TextDecoration>None</TextDecoration>
+                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -425,6 +441,7 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>Maroon</BackgroundColor>
       </Style>
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>
