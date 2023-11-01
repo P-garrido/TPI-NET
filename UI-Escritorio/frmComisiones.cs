@@ -18,7 +18,7 @@ namespace UI_Escritorio
         CN_Comisiones CN_Comisiones = new CN_Comisiones();
         CN_Plan CNPlan = new CN_Plan();
 
-        bool editar = false;
+
         string descPla = "";
         public frmComisiones()
         {
@@ -94,7 +94,8 @@ namespace UI_Escritorio
                 else
                 {
                     int idCom = (int)dgvComisiones.CurrentRow.Cells["ID Comision"].Value;
-                    Comision comision = new Comision(txtDescripcion.Text, int.Parse(txtAnioEsp.Text), idCom);
+                    int idPlan = (int)CNPlan.mostrarPlan(cmbPlanes.SelectedItem.ToString()).Rows[0]["id_plan"];
+                    Comision comision = new Comision(txtDescripcion.Text, int.Parse(txtAnioEsp.Text), idPlan);
                     CN_Comisiones.actualizarComision(idCom, comision);
                     mostrarComisiones();
                     txtDescripcion.ResetText();
