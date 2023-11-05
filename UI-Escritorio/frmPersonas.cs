@@ -29,10 +29,17 @@ namespace UI_Escritorio
         int dia;
         string stringFecha = "";
         int tipoPer;
+        Usuario usuario = null;
 
         public frmPersonas()
         {
             InitializeComponent();
+        }
+
+        public frmPersonas(Usuario usu)
+        {
+            InitializeComponent();
+            this.usuario = usu;
         }
 
         private void frmPersonas_Load(object sender, EventArgs e)
@@ -40,6 +47,20 @@ namespace UI_Escritorio
             mostrarPersonas();
             cargarOpcionesPlan();
             cargarOpcionesTipoPersona();
+
+            if (usuario == null)
+            {
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+                dgvPersonas.Visible = false;
+
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+            }
+
 
         }
 
@@ -70,14 +91,15 @@ namespace UI_Escritorio
             DataTable plan = CNPlan.mostrarPlan(descPla);
             int idPlan = (int)plan.Rows[0]["id_plan"];
             CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(stringFecha), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, tipoPer);
-            txtLegajo.Text = "";
-            txtDireccion.Text = "";
-            txtNombre.Text = "";
-            stringFecha = "";
-            txtApellido.Text = "";
-            txtEmail.Text = "";
-            txtTelefono.Text = "";
+            txtNombre.ResetText();
+            txtApellido.ResetText();
+            txtDireccion.ResetText();
+            txtEmail.ResetText();
+            txtTelefono.ResetText();
+            dtpFechaNac.Value = DateTime.Now;
             cmbTipoPersona.SelectedIndex = -1;
+            txtLegajo.ResetText();
+            cmbPlanes.SelectedIndex = -1;
             mostrarPersonas();
         }
 
@@ -102,6 +124,15 @@ namespace UI_Escritorio
                         CNPersona.eliminarPersona(nomPersona);
                         MessageBox.Show("Persona eliminada");
                         mostrarPersonas();
+                        txtNombre.ResetText();
+                        txtApellido.ResetText();
+                        txtDireccion.ResetText();
+                        txtEmail.ResetText();
+                        txtTelefono.ResetText();
+                        dtpFechaNac.Value = DateTime.Now;
+                        cmbTipoPersona.SelectedIndex = -1;
+                        txtLegajo.ResetText();
+                        cmbPlanes.SelectedIndex = -1;
                     }
                     catch (Exception ex)
                     {
@@ -140,14 +171,14 @@ namespace UI_Escritorio
                             int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, (int)dgvPersonas.CurrentRow.Cells["Tipo de Persona"].Value);
                         CNPersona.actualizarPersona(nomPer, per);
                         mostrarPersonas();
-                        txtNombre.Text = "";
-                        txtApellido.Text = "";
-                        txtDireccion.Text = "";
-                        txtEmail.Text = "";
-                        txtTelefono.Text = "";
+                        txtNombre.ResetText();
+                        txtApellido.ResetText();
+                        txtDireccion.ResetText();
+                        txtEmail.ResetText();
+                        txtTelefono.ResetText();
                         dtpFechaNac.Value = DateTime.Now;
                         cmbTipoPersona.SelectedIndex = -1;
-                        txtLegajo.Text = "";
+                        txtLegajo.ResetText();
                         cmbPlanes.SelectedIndex = -1;
                     }
                 }
@@ -189,5 +220,24 @@ namespace UI_Escritorio
             stringFecha = anio.ToString() + '/' + mes.ToString() + '/' + dia.ToString();
         }
 
+        private void dgvPersonas_Click(object sender, EventArgs e)
+        {
+            txtNombre.Text = dgvPersonas.CurrentRow.Cells["Nombre"].Value.ToString();
+            txtApellido.Text = dgvPersonas.CurrentRow.Cells["Apellido"].Value.ToString();
+            txtDireccion.Text = dgvPersonas.CurrentRow.Cells["Dirección"].Value.ToString();
+            txtEmail.Text = dgvPersonas.CurrentRow.Cells["Email"].Value.ToString();
+            txtLegajo.Text = dgvPersonas.CurrentRow.Cells["Legajo"].Value.ToString();
+            txtTelefono.Text = dgvPersonas.CurrentRow.Cells["Teléfono"].Value.ToString();
+            cmbPlanes.SelectedItem = dgvPersonas.CurrentRow.Cells["Plan"].Value;
+            dtpFechaNac.Value = Convert.ToDateTime(dgvPersonas.CurrentRow.Cells["Fecha de Nacimiento"].Value);
+            if ((int)dgvPersonas.CurrentRow.Cells["Tipo de Persona"].Value == 0)
+            {
+                cmbTipoPersona.SelectedItem = "Docente";
+            }
+            else
+            {
+                cmbTipoPersona.SelectedItem = "Alumno";
+            }
+        }
     }
 }

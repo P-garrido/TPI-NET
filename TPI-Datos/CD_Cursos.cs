@@ -88,11 +88,12 @@ namespace TPI_Datos
             return table;
         }
 
-        public DataTable mostrarCursosCompletoPorMateria(int idMat)
+        public DataTable mostrarCursosCompletoPorMateria(int idMat, int idAlu)
         {
             comando.Connection = conexion.abrirConexion();
             table.Clear();
-            comando.CommandText = $"SELECT * FROM cursos cur INNER JOIN materias mat ON cur.id_materia = mat.id_materia AND cur.cupo>0 INNER JOIN comisiones com ON com.id_comision = cur.id_comision WHERE cur.id_materia='{idMat}'";
+            comando.CommandText = $"SELECT * FROM cursos cu INNER JOIN comisiones co ON cu.id_comision=co.id_comision WHERE cu.id_materia='{idMat}' AND cu.cupo>0 AND cu.id_curso NOT IN(SELECT id_curso FROM alumnos_inscripciones WHERE id_alumno='{idAlu}');";
+
             reader = comando.ExecuteReader();
             table.Load(reader);
             conexion.cerrarConexion();

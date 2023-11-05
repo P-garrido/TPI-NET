@@ -20,15 +20,35 @@ namespace UI_Escritorio
 
         string nomUsu = "";
         int idPer;
+        Usuario usuario = null;
 
         public frmUsuarios()
         {
             InitializeComponent();
         }
 
+        public frmUsuarios(Usuario usu)
+        {
+            InitializeComponent();
+            this.usuario = usu;
+        }
+
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             mostrarUsuarios();
+            if (usuario == null)
+            {
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+                dgvUsuarios.Visible = false;
+
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+            }
+
         }
 
         public void mostrarUsuarios()
@@ -38,16 +58,24 @@ namespace UI_Escritorio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            DataTable per = CNPersona.mostrarPersona(int.Parse(txtLegajo.Text));
-            int idPersona = (int)per.Rows[0]["id_persona"];
-            CNusuario.agregarUsuario(txtNombreUsuario.Text, txtClave.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, idPersona);
-            txtLegajo.Text = "";
-            txtNombreUsuario.Text = "";
-            txtNombre.Text = "";
-            txtClave.Text = "";
-            txtApellido.Text = "";
-            txtEmail.Text = "";
-            mostrarUsuarios();
+            try
+            {
+                DataTable per = CNPersona.mostrarPersona(int.Parse(txtLegajo.Text));
+                int idPersona = (int)per.Rows[0]["id_persona"];
+                CNusuario.agregarUsuario(txtNombreUsuario.Text, txtClave.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, idPersona);
+                txtNombre.ResetText();
+                txtApellido.ResetText();
+                txtEmail.ResetText();
+                txtLegajo.ResetText();
+                txtClave.ResetText();
+                txtNombreUsuario.ResetText();
+                mostrarUsuarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void frmUsuarios_FormClosing(object sender, FormClosingEventArgs e)
@@ -70,6 +98,12 @@ namespace UI_Escritorio
                         CNusuario.eliminarUsuario(nomUsu);
                         MessageBox.Show("Usuario eliminada");
                         mostrarUsuarios();
+                        txtNombre.ResetText();
+                        txtApellido.ResetText();
+                        txtEmail.ResetText();
+                        txtLegajo.ResetText();
+                        txtClave.ResetText();
+                        txtNombreUsuario.ResetText();
                     }
                     catch (Exception ex)
                     {
@@ -92,24 +126,24 @@ namespace UI_Escritorio
                 try
                 {
                     if (txtNombreUsuario.Text == "" || txtApellido.Text == "" || txtNombre.Text == "" || txtEmail.Text == "" ||
-                        txtClave.Text == "" ||  txtLegajo.Text=="")
+                        txtClave.Text == "" || txtLegajo.Text == "")
                     {
                         MessageBox.Show("Complete todos los campos");
                     }
                     else
                     {
-                       
+
                         nomUsu = (string)dgvUsuarios.CurrentRow.Cells["Nombre de Usuario"].Value;
-                        idPer = (int) dgvUsuarios.CurrentRow.Cells["ID Persona"].Value;
+                        idPer = (int)dgvUsuarios.CurrentRow.Cells["ID Persona"].Value;
                         Usuario usu = new Usuario(txtNombreUsuario.Text, txtClave.Text, txtNombre.Text, txtApellido.Text, txtEmail.Text, idPer);
                         CNusuario.actualizarUsuario(nomUsu, usu);
                         mostrarUsuarios();
-                        txtNombre.Text = "";
-                        txtApellido.Text = "";
-                        txtEmail.Text = "";
-                        txtLegajo.Text = "";
-                        txtClave.Text = "";
-                        txtNombreUsuario.Text = "";
+                        txtNombre.ResetText();
+                        txtApellido.ResetText();
+                        txtEmail.ResetText();
+                        txtLegajo.ResetText();
+                        txtClave.ResetText();
+                        txtNombreUsuario.ResetText();
                     }
                 }
                 catch (Exception ex)
@@ -121,6 +155,16 @@ namespace UI_Escritorio
             {
                 MessageBox.Show("Seleccione una fila");
             }
+        }
+
+        private void dgvUsuarios_Click(object sender, EventArgs e)
+        {
+            txtApellido.Text = dgvUsuarios.CurrentRow.Cells["Apellido"].Value.ToString();
+            txtClave.Text = dgvUsuarios.CurrentRow.Cells["Clave"].Value.ToString();
+            txtEmail.Text = dgvUsuarios.CurrentRow.Cells["Email"].Value.ToString();
+            txtNombre.Text = dgvUsuarios.CurrentRow.Cells["Nombre"].Value.ToString();
+            txtNombreUsuario.Text = dgvUsuarios.CurrentRow.Cells["Nombre de Usuario"].Value.ToString();
+            txtLegajo.Text = CNPersona.buscarPerPorId((int)dgvUsuarios.CurrentRow.Cells["ID Persona"].Value).Rows[0]["Legajo"].ToString();
         }
     }
 }

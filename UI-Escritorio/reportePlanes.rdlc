@@ -9,15 +9,15 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.29375cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.39958cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.10271cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -30,6 +30,7 @@
                             <TextRun>
                               <Value>Plan</Value>
                               <Style>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -64,6 +65,7 @@
                             <TextRun>
                               <Value>Descripción</Value>
                               <Style>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -98,6 +100,7 @@
                             <TextRun>
                               <Value>Especialidad</Value>
                               <Style>
+                                <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -239,9 +242,9 @@
         </TablixRowHierarchy>
         <DataSetName>PlanesDataSet3</DataSetName>
         <Top>0.3937cm</Top>
-        <Left>4.49474cm</Left>
-        <Height>1.2cm</Height>
-        <Width>7.5cm</Width>
+        <Left>3.83328cm</Left>
+        <Height>1.70271cm</Height>
+        <Width>9.19333cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -270,6 +273,7 @@
                   <Style>
                     <FontSize>24pt</FontSize>
                     <FontWeight>Bold</FontWeight>
+                    <Color>White</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -298,6 +302,7 @@
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>Maroon</BackgroundColor>
       </Style>
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>

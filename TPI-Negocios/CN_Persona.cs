@@ -56,6 +56,12 @@ namespace TPI_Negocios
 
         }
 
+        public DataTable buscarPerPorId(int idPer)
+        {
+            return CDPersona.buscarPersona(idPer);
+
+        }
+
 
         public void inscribirACurso(int idAlumno, int idCurso)
         {

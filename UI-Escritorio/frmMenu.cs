@@ -13,66 +13,35 @@ namespace UI_Escritorio
 
         Usuario usuario = null;
 
-
-        frmUsuarios formUsuarios = new frmUsuarios();
         frmIdentificacion formIdentificacion = new frmIdentificacion();
-
-        frmPlanes formPlanes = new frmPlanes();
-        frmEspeciaidades formEspecialidades = new frmEspeciaidades();
-
-
-        frmMaterias formMaterias = new frmMaterias();
-        frmComisiones formComisiones = new frmComisiones();
-        frmCursos formCursos = new frmCursos();
-
-
-
 
         CN_Persona CNPersona = new CN_Persona();
 
         private void tsmAdministrar_Click(object sender, EventArgs e)
         {
-
             if (formIdentificacion.ShowDialog() == DialogResult.OK)
             {
-                formUsuarios.Show();
-
+                abrirFormularioHijo(new frmUsuarios());
             }
             else
             {
-                formIdentificacion.Hide();
+                abrirFormularioHijo(new frmPersonas());
             }
-
-
-
-
         }
 
-
-        private void tsmAdminPlanes_Click(object sender, EventArgs e)
-        {
-            formPlanes.Show();
-        }
-
-        private void tsmAdminEsp_Click(object sender, EventArgs e)
-        {
-            formEspecialidades.Show();
-
-        }
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formMaterias.Show();
+            abrirFormularioHijo(new frmMaterias());
         }
 
         private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formComisiones.Show();
+            abrirFormularioHijo(new frmComisiones());
         }
 
         private void tsmCursos_Click(object sender, EventArgs e)
         {
-            formCursos.Show();
-
+            abrirFormularioHijo(new frmCursos());
         }
 
         public void obtenerUsuario(Usuario usu)
@@ -84,13 +53,14 @@ namespace UI_Escritorio
         {
             if (CNPersona.buscarPersonaPorId(usuario.IdPersona) == 1)
             {
-                tsmAdminEsp.Visible = false;
+                tsmEspecialidades.Visible = false;
                 tsmCursos.Visible = false;
                 tsmInscDocentes.Visible = false;
                 tsmComisiones.Visible = false;
-                tsmEspecialidades.Visible = false;
                 tsmPlanes.Visible = false;
-                materiasToolStripMenuItem.Visible = false;
+                subirNotasToolStripMenuItem.Visible = false;
+                personasToolStripMenuItem.Visible = false;
+                tsmUsuarios.Visible = false;
             }
             else
             {
@@ -101,21 +71,32 @@ namespace UI_Escritorio
 
         private void tsmInscMaterias_Click(object sender, EventArgs e)
         {
-            frmInscripcionMaterias formInscripcionMaterias = new frmInscripcionMaterias(usuario);
-            formInscripcionMaterias.Show();
+            abrirFormularioHijo(new frmInscAlumnos(usuario));
+        }
+
+        public void abrirFormularioHijo(object formHijo)
+        {
+            if (this.panMenu.Controls.Count > 0)
+            {
+                this.panMenu.Controls.RemoveAt(0);
+            }
+            Form fh = formHijo as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            panMenu.Controls.Add(fh);
+            panMenu.Tag = fh;
+            fh.Show();
         }
 
         private void tsmInscDocentes_Click(object sender, EventArgs e)
         {
-            frmInscripcionDocentes formInscripcionDocentes = new frmInscripcionDocentes(usuario);
-            formInscripcionDocentes.Show();
+            abrirFormularioHijo(new frmInscDocentes(usuario));
         }
 
 
         private void subirNotasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegistroNotas formRegistroNotas = new frmRegistroNotas(usuario);
-            formRegistroNotas.Show();
+            abrirFormularioHijo(new frmRegistroNotas(usuario));
         }
 
         private void tsmLogout_Click(object sender, EventArgs e)
@@ -141,6 +122,31 @@ namespace UI_Escritorio
         {
             frmReportePlanes formReportePlanes = new frmReportePlanes();
             formReportePlanes.Show();
+        }
+
+        private void tsmUsuarios_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new frmUsuarios(usuario));
+        }
+
+        private void tsmPlanes_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new frmPlanes());
+        }
+
+        private void tsmEspecialidades_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new frmEspeciaidades());
+        }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new frmPersonas(usuario));
+        }
+
+        private void tsmMaterias_Click(object sender, EventArgs e)
+        {
+            abrirFormularioHijo(new frmMaterias());
         }
     }
 }

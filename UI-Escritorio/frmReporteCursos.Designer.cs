@@ -46,7 +46,7 @@
             ClientSize = new Size(597, 749);
             Controls.Add(rpvCursos);
             Name = "frmReporteCursos";
-            Text = "frmReporteCursos";
+            Text = "Reporte Cursos";
             Load += frmReporteCursos_Load;
             ResumeLayout(false);
         }

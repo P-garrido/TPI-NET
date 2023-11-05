@@ -1,6 +1,6 @@
 ﻿namespace UI_Escritorio
 {
-    partial class frmInscripcionMaterias
+    partial class frmInscAlumnos
     {
         /// <summary>
         /// Required designer variable.
@@ -30,66 +30,71 @@
         {
             lblMateria = new Label();
             cmbMaterias = new ComboBox();
+            cmbComisiones = new ComboBox();
+            lblComision = new Label();
             btnAceptar = new Button();
-            btnCancelar = new Button();
             SuspendLayout();
             // 
             // lblMateria
             // 
             lblMateria.AutoSize = true;
-            lblMateria.Location = new Point(162, 122);
+            lblMateria.Location = new Point(104, 121);
             lblMateria.Name = "lblMateria";
-            lblMateria.Size = new Size(50, 15);
+            lblMateria.Size = new Size(47, 15);
             lblMateria.TabIndex = 0;
-            lblMateria.Text = "Materia:";
+            lblMateria.Text = "Materia";
             // 
             // cmbMaterias
             // 
-            cmbMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMaterias.FormattingEnabled = true;
-            cmbMaterias.Location = new Point(323, 122);
-            cmbMaterias.Margin = new Padding(3, 2, 3, 2);
+            cmbMaterias.Location = new Point(283, 120);
             cmbMaterias.Name = "cmbMaterias";
-            cmbMaterias.Size = new Size(133, 23);
+            cmbMaterias.Size = new Size(121, 23);
             cmbMaterias.TabIndex = 1;
             cmbMaterias.SelectedIndexChanged += cmbMaterias_SelectedIndexChanged;
             // 
+            // cmbComisiones
+            // 
+            cmbComisiones.FormattingEnabled = true;
+            cmbComisiones.Location = new Point(283, 201);
+            cmbComisiones.Name = "cmbComisiones";
+            cmbComisiones.Size = new Size(121, 23);
+            cmbComisiones.TabIndex = 3;
+            cmbComisiones.SelectedIndexChanged += cmbComisiones_SelectedIndexChanged;
+            // 
+            // lblComision
+            // 
+            lblComision.AutoSize = true;
+            lblComision.Location = new Point(104, 202);
+            lblComision.Name = "lblComision";
+            lblComision.Size = new Size(58, 15);
+            lblComision.TabIndex = 2;
+            lblComision.Text = "Comision";
+            // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(373, 220);
-            btnAceptar.Margin = new Padding(3, 2, 3, 2);
+            btnAceptar.Location = new Point(329, 284);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(82, 22);
-            btnAceptar.TabIndex = 2;
+            btnAceptar.Size = new Size(75, 23);
+            btnAceptar.TabIndex = 4;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
-            // btnCancelar
-            // 
-            btnCancelar.Location = new Point(154, 220);
-            btnCancelar.Margin = new Padding(3, 2, 3, 2);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(82, 22);
-            btnCancelar.TabIndex = 3;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
-            // 
-            // frmInscripcionMaterias
+            // frmInscAlumnos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(623, 338);
-            Controls.Add(btnCancelar);
+            ClientSize = new Size(800, 450);
             Controls.Add(btnAceptar);
+            Controls.Add(cmbComisiones);
+            Controls.Add(lblComision);
             Controls.Add(cmbMaterias);
             Controls.Add(lblMateria);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "frmInscripcionMaterias";
-            Text = "Inscripcion a materias";
-            Load += frmInscripcionMaterias_Load;
+            Name = "frmInscAlumnos";
+            Text = "frmInscAlumnos";
+            Load += frmInscAlumnos_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -98,7 +103,8 @@
 
         private Label lblMateria;
         private ComboBox cmbMaterias;
+        private ComboBox cmbComisiones;
+        private Label lblComision;
         private Button btnAceptar;
-        private Button btnCancelar;
     }
 }
