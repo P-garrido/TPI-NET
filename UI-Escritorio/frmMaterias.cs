@@ -151,6 +151,11 @@ namespace UI_Escritorio
         private void btnBuscarXDesc_Click(object sender, EventArgs e)
         {
             dgvMaterias.DataSource = CNMateria.buscarMateriaPorDescripcionEntidad(txtBuscaXNombre.Text);
+            dgvMaterias.Columns["IdMateria"].HeaderText = "ID Materia";
+            dgvMaterias.Columns["Descripcion"].HeaderText = "Nombre";
+            dgvMaterias.Columns["HorasSemanales"].HeaderText = "Horas Semanales";
+            dgvMaterias.Columns["HorasTotales"].HeaderText = "Horas Totales";
+            dgvMaterias.Columns["Plan"].HeaderText = "Plan de Estudios";
         }
 
         private void btnBuscarTodas_Click(object sender, EventArgs e)

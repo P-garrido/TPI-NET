@@ -150,27 +150,22 @@ namespace TPI_Datos
             return materia;
         }
 
-        public List<Materia> mostrarMateriasEntidad()
+        public List<MateriaCompleto> mostrarMateriasEntidad()
         {
-            List<Materia> mats = new List<Materia>();
-
-
+            List<MateriaCompleto> mats = new List<MateriaCompleto>();
             comando.Connection = conexion.abrirConexion();
             table.Clear();
-            comando.CommandText = "SELECT * FROM materias";
+            comando.CommandText = "SELECT id_materia 'ID Materia', desc_materia Nombre, hs_semanales 'Horas Semanales', hs_totales 'Horas Totales'," +
+                "desc_plan 'Plan de Estudios' FROM materias mat INNER JOIN planes pla ON pla.id_plan = mat.id_plan";
             reader = comando.ExecuteReader();
-
-
             while (reader.Read())
             {
-                Materia materia = new Materia((string)reader.GetValue(1), (int)reader.GetValue(2), (int)reader.GetValue(3), (int)reader.GetValue(4));
+                MateriaCompleto materia = new MateriaCompleto((string)reader.GetValue(1), (int)reader.GetValue(2), (int)reader.GetValue(3), (string)reader.GetValue(4));
                 materia.IdMateria = (int)reader.GetValue(0);
                 mats.Add(materia);
             }
             conexion.cerrarConexion();
-
             return mats;
-            
         }
 
 
