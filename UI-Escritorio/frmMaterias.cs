@@ -150,7 +150,7 @@ namespace UI_Escritorio
 
         private void btnBuscarXDesc_Click(object sender, EventArgs e)
         {
-            dgvMaterias.DataSource = CNMateria.buscarMateriaPorDescripcion(txtBuscaXNombre.Text);
+            dgvMaterias.DataSource = CNMateria.buscarMateriaPorDescripcionEntidad(txtBuscaXNombre.Text);
         }
 
         private void btnBuscarTodas_Click(object sender, EventArgs e)

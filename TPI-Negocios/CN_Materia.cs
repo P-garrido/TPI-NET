@@ -59,5 +59,18 @@ namespace TPI_Negocios
         {
             return CDMateria.buscarMateriaPorDescripcion(desc);
         }
+
+        public List<Materia> buscarMateriaPorDescripcionEntidad(string desc)
+        {
+            List<Materia> filtroMateria = new List<Materia>();
+
+
+            foreach (Materia mat in CDMateria.mostrarMateriasEntidad().Where(m => m.Descripcion.ToLower().Contains(desc.ToLower())))
+            {
+                filtroMateria.Add(mat);
+            }
+
+            return filtroMateria;
+        }
     }
 }

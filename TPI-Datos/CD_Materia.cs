@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TPI_Entidades;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection.PortableExecutable;
+using System.Collections;
 
 namespace TPI_Datos
 {
@@ -149,6 +150,29 @@ namespace TPI_Datos
             return materia;
         }
 
-        
+        public List<Materia> mostrarMateriasEntidad()
+        {
+            List<Materia> mats = new List<Materia>();
+
+
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT * FROM materias";
+            reader = comando.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                Materia materia = new Materia((string)reader.GetValue(1), (int)reader.GetValue(2), (int)reader.GetValue(3), (int)reader.GetValue(4));
+                materia.IdMateria = (int)reader.GetValue(0);
+                mats.Add(materia);
+            }
+            conexion.cerrarConexion();
+
+            return mats;
+            
+        }
+
+
     }
 }
