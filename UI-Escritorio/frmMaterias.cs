@@ -147,5 +147,15 @@ namespace UI_Escritorio
             numHorasTotales.Value = Convert.ToDecimal(dgvMaterias.CurrentRow.Cells["Horas Totales"].Value);
             cmbPlan.SelectedItem = dgvMaterias.CurrentRow.Cells["Plan de Estudios"].Value;
         }
+
+        private void btnBuscarXDesc_Click(object sender, EventArgs e)
+        {
+            dgvMaterias.DataSource = CNMateria.buscarMateriaPorDescripcion(txtBuscaXNombre.Text);
+        }
+
+        private void btnBuscarTodas_Click(object sender, EventArgs e)
+        {
+            mostrarMaterias();
+        }
     }
 }

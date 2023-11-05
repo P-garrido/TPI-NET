@@ -142,6 +142,9 @@ namespace TPI_Datos
             reader.Read();
             materia.IdMateria = (int)reader.GetValue(0);
             materia.Descripcion = (string)reader.GetValue(1);
+            materia.HorasSemanales = (int)reader.GetValue(2);
+            materia.HorasTotales = (int)reader.GetValue(3);
+            materia.IdPlan = (int)reader.GetValue(4);
             comando.Connection = conexion.cerrarConexion();
             return materia;
         }
