@@ -20,7 +20,9 @@ namespace TPI_Datos
         }
 
 
-        private SqlConnection conexion = new SqlConnection("Data Source=DESKTOP-TN05UQ7\\SQLEXPRESS;Initial Catalog=Academia;Integrated Security=True");
+
+        private SqlConnection conexion = new SqlConnection("Data Source=desktop-1q2epsl\\sqlexpress;Initial Catalog=Academia;Integrated Security=True");
+
 
 
         public SqlConnection abrirConexion()

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using TPI_Entidades;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection.PortableExecutable;
+using System.Collections;
 
 namespace TPI_Datos
 {
@@ -142,10 +143,31 @@ namespace TPI_Datos
             reader.Read();
             materia.IdMateria = (int)reader.GetValue(0);
             materia.Descripcion = (string)reader.GetValue(1);
+            materia.HorasSemanales = (int)reader.GetValue(2);
+            materia.HorasTotales = (int)reader.GetValue(3);
+            materia.IdPlan = (int)reader.GetValue(4);
             comando.Connection = conexion.cerrarConexion();
             return materia;
         }
 
-        
+        public List<MateriaCompleto> mostrarMateriasEntidad()
+        {
+            List<MateriaCompleto> mats = new List<MateriaCompleto>();
+            comando.Connection = conexion.abrirConexion();
+            table.Clear();
+            comando.CommandText = "SELECT id_materia 'ID Materia', desc_materia Nombre, hs_semanales 'Horas Semanales', hs_totales 'Horas Totales'," +
+                "desc_plan 'Plan de Estudios' FROM materias mat INNER JOIN planes pla ON pla.id_plan = mat.id_plan";
+            reader = comando.ExecuteReader();
+            while (reader.Read())
+            {
+                MateriaCompleto materia = new MateriaCompleto((string)reader.GetValue(1), (int)reader.GetValue(2), (int)reader.GetValue(3), (string)reader.GetValue(4));
+                materia.IdMateria = (int)reader.GetValue(0);
+                mats.Add(materia);
+            }
+            conexion.cerrarConexion();
+            return mats;
+        }
+
+
     }
 }
