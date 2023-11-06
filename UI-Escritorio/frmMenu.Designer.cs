@@ -45,6 +45,8 @@
             btnReporteCursos = new Button();
             button1 = new Button();
             panMenu = new Panel();
+            lblUsuario = new Label();
+            lblNomUsu = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -180,11 +182,31 @@
             panMenu.Size = new Size(1136, 687);
             panMenu.TabIndex = 3;
             // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUsuario.Location = new Point(14, 144);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(67, 20);
+            lblUsuario.TabIndex = 4;
+            lblUsuario.Text = "Usuario:";
+            // 
+            // lblNomUsu
+            // 
+            lblNomUsu.AutoSize = true;
+            lblNomUsu.Location = new Point(14, 176);
+            lblNomUsu.Name = "lblNomUsu";
+            lblNomUsu.Size = new Size(0, 20);
+            lblNomUsu.TabIndex = 5;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1330, 740);
+            Controls.Add(lblNomUsu);
+            Controls.Add(lblUsuario);
             Controls.Add(panMenu);
             Controls.Add(button1);
             Controls.Add(btnReporteCursos);
@@ -220,5 +242,7 @@
         private Panel panMenu;
         private ToolStripMenuItem personasToolStripMenuItem;
         private ToolStripMenuItem tsmMaterias;
+        private Label lblUsuario;
+        private Label lblNomUsu;
     }
 }

@@ -164,7 +164,7 @@ namespace UI_Escritorio
         // no item at position 0. Empezar devuelta?
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvPersonas.SelectedRows.Count > 0)
+            if (dgvPersonas.SelectedCells.Count > 0)
             {
                 try
                 {

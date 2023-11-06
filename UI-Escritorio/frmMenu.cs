@@ -51,6 +51,7 @@ namespace UI_Escritorio
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
+            lblNomUsu.Text = usuario.NombreUsuario.ToString();
             if (CNPersona.buscarPersonaPorId(usuario.IdPersona) == 1)
             {
                 tsmEspecialidades.Visible = false;

@@ -104,7 +104,7 @@ namespace UI_Escritorio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvUsuarios.SelectedRows.Count > 0)
+            if (dgvUsuarios.SelectedCells.Count > 0)
             {
                 DialogResult confirmacion = MessageBox.Show("¿Estas seguro?"
                     , "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -139,7 +139,7 @@ namespace UI_Escritorio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvUsuarios.SelectedRows.Count > 0)
+            if (dgvUsuarios.SelectedCells.Count > 0)
             {
                 try
                 {
