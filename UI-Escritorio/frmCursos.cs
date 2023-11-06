@@ -174,8 +174,8 @@ namespace UI_Escritorio
         {
             cmbMateria.SelectedItem = dgvCursos.CurrentRow.Cells["Materia"].Value;
             cmbComision.SelectedItem = dgvCursos.CurrentRow.Cells["Comisión"].Value;
-            numAnioCal.Value =Convert.ToDecimal(dgvCursos.CurrentRow.Cells["Año Calendario"].Value);
-            numCupo.Value= Convert.ToDecimal(dgvCursos.CurrentRow.Cells["Cupo"].Value);
+            numAnioCal.Value = Convert.ToDecimal(dgvCursos.CurrentRow.Cells["Año Calendario"].Value);
+            numCupo.Value = Convert.ToDecimal(dgvCursos.CurrentRow.Cells["Cupo"].Value);
         }
     }
 }

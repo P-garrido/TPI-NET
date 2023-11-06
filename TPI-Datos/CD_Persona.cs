@@ -67,7 +67,7 @@ namespace TPI_Datos
         }
 
 
-        public void actualizarPersona(Persona per, string nomPer)
+        public void actualizarPersona(Persona per, int idPer)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
@@ -77,16 +77,16 @@ namespace TPI_Datos
             comando.Parameters.Add(paramFecha);
             comando.CommandText = $"UPDATE personas SET nombre= '{per.Nombre}', apellido= '{per.Apellido}', direccion= '{per.Direccion}'," +
                 $"email= '{per.Email}', telefono= '{per.Telefono}', fecha_nac= @FechaNacimientoActualizar, legajo= '{per.Legajo}', tipo_persona='{per.TipoPersona}'" +
-                $" WHERE nombre = '{nomPer}' ";
+                $" WHERE id_persona = '{idPer}' ";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
 
-        public void eliminarPersona(string nomPer)
+        public void eliminarPersona(int idPer)
         {
             comando.Connection = conexion.abrirConexion();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = $"DELETE FROM personas WHERE nombre='{nomPer}'";
+            comando.CommandText = $"DELETE FROM personas WHERE id_persona='{idPer}'";
             comando.ExecuteNonQuery();
             conexion.cerrarConexion();
         }
@@ -204,6 +204,24 @@ namespace TPI_Datos
             comando.CommandText = "UPDATE alumnos_inscripciones SET nota = @nota WHERE id_inscripcion = @idInsc";
             comando.ExecuteNonQuery();
             comando.Connection = conexion.cerrarConexion();
+        }
+
+        public void eliminarInscripcionesDeAlumno(int idPer)
+        {
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"DELETE FROM alumnos_inscripciones WHERE id_alumno='{idPer}'";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
+        }
+
+        public void eliminarInscripcionesDeDocente(int idPer)
+        {
+            comando.Connection = conexion.abrirConexion();
+            comando.CommandType = CommandType.Text;
+            comando.CommandText = $"DELETE FROM docentes_cursos WHERE id_docente='{idPer}'";
+            comando.ExecuteNonQuery();
+            conexion.cerrarConexion();
         }
     }
 }

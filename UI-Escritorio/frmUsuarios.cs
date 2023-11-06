@@ -36,13 +36,27 @@ namespace UI_Escritorio
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             mostrarUsuarios();
-            if (usuario == null)
+            if (usuario==null)
+            {
+
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+                dgvUsuarios.Visible = false;
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+            }
+            else if (usuario.IdPersona == -1)
             {
                 btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
                 dgvUsuarios.Visible = false;
-
                 this.FormBorderStyle = FormBorderStyle.Sizable;
+                txtNombre.Text = usuario.Nombre;
+                txtApellido.Text = usuario.Apellido;
+                txtEmail.Text = usuario.Email;
+                //txtLegajo.Text = usuario.
+                txtNombre.Enabled = false;
+                txtApellido.Enabled = false;
+                txtEmail.Enabled = false;
             }
             else
             {
@@ -70,6 +84,10 @@ namespace UI_Escritorio
                 txtClave.ResetText();
                 txtNombreUsuario.ResetText();
                 mostrarUsuarios();
+                if(usuario==null || usuario.IdPersona == -1)
+                {
+                    this.Dispose();
+                }
             }
             catch (Exception ex)
             {

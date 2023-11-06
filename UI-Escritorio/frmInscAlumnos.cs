@@ -107,7 +107,7 @@ namespace UI_Escritorio
                 List<TPI_Entidades.Curso> cur = CNCursos.buscarCurso(idMateria, (int)com.Rows[0]["id_comision"]);
                 CNPersonas.inscribirACurso(usuario.IdPersona, (int)cur[0].IdCurso);
                 cmbComisiones.SelectedIndex = -1;
-                cmbMaterias.SelectedIndex= -1;
+                cmbMaterias.SelectedIndex = -1;
                 MessageBox.Show("Inscripcion Realizada");
                 cmbComisiones.Enabled = false;
             }

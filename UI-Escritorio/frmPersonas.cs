@@ -30,6 +30,7 @@ namespace UI_Escritorio
         string stringFecha = "";
         int tipoPer;
         Usuario usuario = null;
+        int idPer;
 
         public frmPersonas()
         {
@@ -53,6 +54,8 @@ namespace UI_Escritorio
                 btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
                 dgvPersonas.Visible = false;
+                cmbTipoPersona.Enabled = false;
+                cmbTipoPersona.SelectedItem = "Alumno";
 
                 this.FormBorderStyle = FormBorderStyle.Sizable;
             }
@@ -85,12 +88,20 @@ namespace UI_Escritorio
         }
 
 
-        //Preguntar a Porta: No funciona el datetime.parse. me quiero suicidar. ultimo aviso no joke
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             DataTable plan = CNPlan.mostrarPlan(descPla);
             int idPlan = (int)plan.Rows[0]["id_plan"];
             CNPersona.agregarPersona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(stringFecha), idPlan, int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, tipoPer);
+            
+            if (usuario == null)
+            {
+                Usuario usu = new Usuario(null, null, txtNombre.Text, txtApellido.Text, txtEmail.Text, -1);
+                frmUsuarios formUsuarios = new frmUsuarios(usu);
+                formUsuarios.Show();
+                this.Dispose();
+            }
             txtNombre.ResetText();
             txtApellido.ResetText();
             txtDireccion.ResetText();
@@ -111,9 +122,9 @@ namespace UI_Escritorio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvPersonas.SelectedRows.Count > 0)
+            if (dgvPersonas.SelectedCells.Count>0)
             {
-                DialogResult confirmacion = MessageBox.Show("¿Estas seguro? Tambien se borrarán todos los usuarios vinculados a esta persona"
+                DialogResult confirmacion = MessageBox.Show("¿Estas seguro? Tambien se borrarán todos los usuarios e inscripciones vinculados a esta persona"
                     , "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirmacion == DialogResult.Yes)
                 {
@@ -121,7 +132,8 @@ namespace UI_Escritorio
                     {
                         nomPersona = (string)dgvPersonas.CurrentRow.Cells["Nombre"].Value;
                         CNUsuario.eliminarUsuariosDePersona((int)dgvPersonas.CurrentRow.Cells["ID Persona"].Value);
-                        CNPersona.eliminarPersona(nomPersona);
+                        CNPersona.eliminarInscripcionesDePersona((int)dgvPersonas.CurrentRow.Cells["ID Persona"].Value, (int)dgvPersonas.CurrentRow.Cells["Tipo de Persona"].Value);
+                        CNPersona.eliminarPersona((int)dgvPersonas.CurrentRow.Cells["ID Persona"].Value);
                         MessageBox.Show("Persona eliminada");
                         mostrarPersonas();
                         txtNombre.ResetText();
@@ -166,10 +178,10 @@ namespace UI_Escritorio
                     {
                         DataTable pla = CNPlan.mostrarPlan(descPla);
                         idPla = (int)pla.Rows[0]["id_plan"];
-                        nomPer = (string)dgvPersonas.CurrentRow.Cells["Nombre"].Value;
+                        idPer = (int)dgvPersonas.CurrentRow.Cells["ID Persona"].Value;
                         Persona per = new Persona(txtApellido.Text, txtDireccion.Text, txtEmail.Text, DateTime.Parse(stringFecha), idPla,
-                            int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, (int)dgvPersonas.CurrentRow.Cells["Tipo de Persona"].Value);
-                        CNPersona.actualizarPersona(nomPer, per);
+                            int.Parse(txtLegajo.Text), txtNombre.Text, txtTelefono.Text, cmbTipoPersona.SelectedItem.ToString() == "Docente"? 0 : 1);
+                        CNPersona.actualizarPersona(idPer, per);
                         mostrarPersonas();
                         txtNombre.ResetText();
                         txtApellido.ResetText();

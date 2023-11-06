@@ -38,44 +38,47 @@
             // lblMateria
             // 
             lblMateria.AutoSize = true;
-            lblMateria.Location = new Point(104, 121);
+            lblMateria.Location = new Point(119, 161);
             lblMateria.Name = "lblMateria";
-            lblMateria.Size = new Size(47, 15);
+            lblMateria.Size = new Size(60, 20);
             lblMateria.TabIndex = 0;
             lblMateria.Text = "Materia";
             // 
             // cmbMaterias
             // 
             cmbMaterias.FormattingEnabled = true;
-            cmbMaterias.Location = new Point(283, 120);
+            cmbMaterias.Location = new Point(323, 160);
+            cmbMaterias.Margin = new Padding(3, 4, 3, 4);
             cmbMaterias.Name = "cmbMaterias";
-            cmbMaterias.Size = new Size(121, 23);
+            cmbMaterias.Size = new Size(138, 28);
             cmbMaterias.TabIndex = 1;
             cmbMaterias.SelectedIndexChanged += cmbMaterias_SelectedIndexChanged;
             // 
             // cmbComisiones
             // 
             cmbComisiones.FormattingEnabled = true;
-            cmbComisiones.Location = new Point(283, 201);
+            cmbComisiones.Location = new Point(323, 268);
+            cmbComisiones.Margin = new Padding(3, 4, 3, 4);
             cmbComisiones.Name = "cmbComisiones";
-            cmbComisiones.Size = new Size(121, 23);
+            cmbComisiones.Size = new Size(138, 28);
             cmbComisiones.TabIndex = 3;
             cmbComisiones.SelectedIndexChanged += cmbComisiones_SelectedIndexChanged;
             // 
             // lblComision
             // 
             lblComision.AutoSize = true;
-            lblComision.Location = new Point(104, 202);
+            lblComision.Location = new Point(119, 269);
             lblComision.Name = "lblComision";
-            lblComision.Size = new Size(58, 15);
+            lblComision.Size = new Size(71, 20);
             lblComision.TabIndex = 2;
             lblComision.Text = "Comision";
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(329, 284);
+            btnAceptar.Location = new Point(376, 379);
+            btnAceptar.Margin = new Padding(3, 4, 3, 4);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(75, 23);
+            btnAceptar.Size = new Size(86, 31);
             btnAceptar.TabIndex = 4;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -83,15 +86,16 @@
             // 
             // frmInscAlumnos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(btnAceptar);
             Controls.Add(cmbComisiones);
             Controls.Add(lblComision);
             Controls.Add(cmbMaterias);
             Controls.Add(lblMateria);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmInscAlumnos";
             Text = "frmInscAlumnos";
             Load += frmInscAlumnos_Load;

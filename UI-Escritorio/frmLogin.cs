@@ -27,15 +27,6 @@ namespace UI_Escritorio
         private void lklCrearUsu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             formIdentificacion.ShowDialog();
-            //if (formIdentificacion.ShowDialog() == DialogResult.OK)
-            //{
-            //    formUsuarios.Show();
-
-            //}
-            //else
-            //{
-            //    formIdentificacion.Hide();
-            //}
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -63,6 +54,20 @@ namespace UI_Escritorio
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cbxClave_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbxClave.Checked)
+            {
+                cbxClave.Text = "Ocultar clave";
+                txtPass.PasswordChar = '\0';
+            }
+            else
+            {
+                cbxClave.Text = "Mostrar clave";
+                txtPass.PasswordChar = '*';
+            }
         }
     }
 }

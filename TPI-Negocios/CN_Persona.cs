@@ -36,15 +36,15 @@ namespace TPI_Negocios
             return this.CDPersona.mostrarPersona(legPer);
         }
 
-        public void eliminarPersona(string nomPer)
+        public void eliminarPersona(int idPer)
         {
-            this.CDPersona.eliminarPersona(nomPer);
+            this.CDPersona.eliminarPersona(idPer);
         }
 
-        public void actualizarPersona(string nomPer, Persona per)
+        public void actualizarPersona(int idPer, Persona per)
         {
 
-            this.CDPersona.actualizarPersona(per, nomPer);
+            this.CDPersona.actualizarPersona(per, idPer);
         }
 
         public int buscarPersonaPorId(int idPer)
@@ -87,6 +87,18 @@ namespace TPI_Negocios
         {
             int idInsc = inscripcion.IdInscripcion;
             CDPersona.actualizarNota(idInsc, nota);
+        }
+
+        public void eliminarInscripcionesDePersona(int idPer, int tipoPer)
+        {
+            if (tipoPer == 0)
+            {
+                CDPersona.eliminarInscripcionesDeDocente(idPer);
+            }
+            else
+            {
+                CDPersona.eliminarInscripcionesDeAlumno(idPer);
+            }
         }
     }
 }

@@ -17,19 +17,45 @@ namespace UI_Escritorio
     {
         CN_Materia CNMateria = new CN_Materia();
         CN_Plan CNPlan = new CN_Plan();
+        CN_Persona CNPersona = new CN_Persona();
 
         int idPla = 0;
         int idMateria = 0;
         string descPla = "";
+        Usuario usuario = null;
         public frmMaterias()
         {
             InitializeComponent();
+        }
+        public frmMaterias(Usuario usu)
+        {
+            InitializeComponent();
+            usuario = usu;
         }
 
         private void frmMaterias_Load(object sender, EventArgs e)
         {
             mostrarMaterias();
             cargarOpcionesPlan();
+
+            if (CNPersona.buscarPersonaPorId(usuario.IdPersona) == 1)
+            {
+                txtDescripcionMateria.Visible = false;
+                lblDescripcionMateria.Visible=false;
+                numHorasSemanales.Visible = false;
+                numHorasTotales.Visible = false;
+                cmbPlan.Visible = false;
+                lblDescripcionMateria.Visible = false;
+                lblHorasTotales.Visible=false;
+                lblPlan.Visible = false;
+                frmHorasSemanales.Visible=false;
+                btnEditar.Visible=false;
+                btnEliminar.Visible=false;
+                btnGuardar.Visible=false;
+            }
+            else
+            {
+            }
         }
 
         public void mostrarMaterias()

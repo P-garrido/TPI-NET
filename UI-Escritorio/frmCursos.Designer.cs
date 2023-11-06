@@ -100,7 +100,7 @@
             // 
             numAnioCal.Location = new Point(117, 347);
             numAnioCal.Margin = new Padding(3, 4, 3, 4);
-            numAnioCal.Maximum = new decimal(new int[] { 2023, 0, 0, 0 });
+            numAnioCal.Maximum = new decimal(new int[] { 2030, 0, 0, 0 });
             numAnioCal.Minimum = new decimal(new int[] { 2000, 0, 0, 0 });
             numAnioCal.Name = "numAnioCal";
             numAnioCal.Size = new Size(137, 27);
